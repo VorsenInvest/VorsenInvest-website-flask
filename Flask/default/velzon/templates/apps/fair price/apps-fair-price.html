@@ -1,0 +1,326 @@
+{% extends "partials/base.html" %}
+{% block title %}Stock List{% endblock title %}
+{% block extra_css %}
+    <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    
+{% endblock extra_css %}
+{% block content %}
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Fair Price</h4>
+
+                                <!--
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Crypto</a></li>
+                                        <li class="breadcrumb-item active">Orders</li>
+                                    </ol>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xl-5 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p class="fw-medium text-muted mb-0">Sessions</p>
+                                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66">0</span>k</h2>
+                                            <p class="mb-0 text-muted"><span class="badge bg-light text-danger mb-0"> <i class="ri-arrow-down-line align-middle"></i> 3.96 % </span> vs. previous month</p>
+                                        </div>
+                                        <div>
+                                            <div class="avatar-sm flex-shrink-0">
+                                                <span class="avatar-title bg-info-subtle rounded-circle fs-2">
+                                                    <i data-feather="activity" class="text-info"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    <div class="row">
+                        <div class="col-xxl-6">
+                            <div class="card card-height-100">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Stocks</h5>
+                                </div>
+
+                                <div class="border">
+                                    <ul class="nav nav-pills custom-hover-nav-tabs">
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                <i class="ri-user-fill nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Customer</h5>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                                <i class="ri-file-text-line nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Description</h5>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content text-muted">
+                                        <div class="tab-pane show active" id="custom-hover-customere">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane" id="custom-hover-description">
+                                            <h6>Trailing</h6>
+                                                <div class="card ">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Stocks</h5>
+                                </div>
+
+                                <div class="border">
+                                    <ul class="nav nav-pills custom-hover-nav-tabs">
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                <i class="ri-user-fill nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Customer</h5>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                                <i class="ri-file-text-line nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Description</h5>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content text-muted">
+                                        <div class="tab-pane show active" id="custom-hover-customere">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane" id="custom-hover-description">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Stocks</h5>
+                                </div>
+
+                                <div class="border">
+                                    <ul class="nav nav-pills custom-hover-nav-tabs">
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                <i class="ri-user-fill nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Customer</h5>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                                <i class="ri-file-text-line nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Description</h5>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content text-muted">
+                                        <div class="tab-pane show active" id="custom-hover-customere">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane" id="custom-hover-description">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Stocks</h5>
+                                </div>
+
+                                <div class="border">
+                                    <ul class="nav nav-pills custom-hover-nav-tabs">
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-customere" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                <i class="ri-user-fill nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Customer</h5>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#custom-hover-description" data-bs-toggle="tab" aria-expanded="true" class="nav-link">
+                                                <i class="ri-file-text-line nav-icon nav-tab-position"></i>
+                                                <h5 class="nav-titl nav-tab-position m-0">Description</h5>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content text-muted">
+                                        <div class="tab-pane show active" id="custom-hover-customere">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="tab-pane" id="custom-hover-description">
+                                            <h6>Trailing</h6>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Fair Price</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div>
+                        </div>
+                        <!--end col-->
+
+
+                    </div>
+                    <!--end row-->
+                    <!--end row-->
+
+
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            {% block footer %}
+            {% include "partials/footer.html" %}
+            {% endblock footer %}
+            </div>
+            <!-- end main content-->
+{% endblock content %}
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--datatable js-->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
+{% endblock extra_js %}

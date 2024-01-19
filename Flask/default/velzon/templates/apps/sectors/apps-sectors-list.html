@@ -1,0 +1,252 @@
+{% extends "partials/base.html" %}
+{% block title %}Stock List{% endblock title %}
+{% block extra_css %}
+    <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    
+{% endblock extra_css %}
+{% block content %}
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Listed Sectors</h4>
+
+                                <!--
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Crypto</a></li>
+                                        <li class="breadcrumb-item active">Orders</li>
+                                    </ol>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Economic Sectors</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="31">0</span></h4>
+                                            <a href="" class="text-decoration-underline">View all economic sectors</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="bx bx-shopping-bag text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                                
+                        <div class="col-xl-4 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Subsectors</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="87">0</span></h4>
+                                            <a href="" class="text-decoration-underline">View all subsectors</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="bx bx-shopping-bag text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                        <div class="col-xl-4 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Segments</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="117">0</span></h4>
+                                            <a href="" class="text-decoration-underline">View all segments</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="bx bx-shopping-bag text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </d iv>
+ 
+                    <div class="col-xxl-12">
+                        <div class="card">
+                            <div class="card-header d-flex align-items-center border-0">
+                                <h5 class="card-title mb-0 flex-grow-1">Economic Sectors, Subsectors, and Segments</h5>
+                                <div class="flex-shrink-0">
+                                    <!--
+                                    <div class="flax-shrink-0 hstack gap-2">
+                                        <button class="btn btn-primary">Today's Orders</button>
+                                        <button class="btn btn-soft-info">Past Orders</button>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="nav nav-pills flex-column nav-pills-tab custom-verti-nav-pills text-center" role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link active show" id="custom-v-pills-home-tab" data-bs-toggle="pill" href="#custom-v-pills-home" role="tab" aria-controls="custom-v-pills-home" aria-selected="true">
+                                                    <i class="ri-home-4-line d-block fs-20 mb-1"></i> Home
+                                                </a>
+                                                <a class="nav-link" id="custom-v-pills-profile-tab" data-bs-toggle="pill" href="#custom-v-pills-profile" role="tab" aria-controls="custom-v-pills-profile" aria-selected="false">
+                                                    <i class="ri-user-2-line d-block fs-20 mb-1"></i> Profile
+                                                </a>
+                                                <a class="nav-link" id="custom-v-pills-messages-tab" data-bs-toggle="pill" href="#custom-v-pills-messages" role="tab" aria-controls="custom-v-pills-messages" aria-selected="false">
+                                                    <i class="ri-mail-line d-block fs-20 mb-1"></i> Messages
+                                                </a>
+                                            </div>
+                                        </div> <!-- end col-->
+                                        <div class="col-lg-9">
+                                            <div class="tab-content text-muted mt-3 mt-lg-0">
+                                                <div class="tab-pane fade active show" id="custom-v-pills-home" role="tabpanel" aria-labelledby="custom-v-pills-home-tab">
+                                                    <div class="d-flex mb-4">
+                                                        <div class="col-lg-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Name</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--end col-->
+                                                    </div>
+                                                </div>
+                                                <!--end tab-pane-->
+                                                <div class="tab-pane fade" id="custom-v-pills-profile" role="tabpanel" aria-labelledby="custom-v-pills-profile-tab">
+                                                    <div class="d-flex mb-4">
+                                                        <div class="col-lg-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Name</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--end col-->
+                                                    </div>
+                                                </div>
+                                                <!--end tab-pane-->
+                                                <div class="tab-pane fade" id="custom-v-pills-messages" role="tabpanel" aria-labelledby="custom-v-pills-messages-tab">
+                                                    <div class="d-flex mb-4">
+                                                        <div class="col-lg-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <table id="ajax-datatables" class="display table table-bordered dt-responsive" style="width:100%">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Name</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div><!--end col-->
+                                                    </div>
+    
+                                                </div>
+                                                <!--end tab-pane-->
+                                            </div>
+                                        </div> <!-- end col-->
+                                    </div> <!-- end row-->
+                                </div><!-- end card-body -->
+                    <!--end col-->
+
+
+{% endblock content %}
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--datatable js-->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
+{% endblock extra_js %}
