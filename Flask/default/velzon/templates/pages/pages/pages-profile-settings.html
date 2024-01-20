@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <h5 class="fs-16 mb-1">Anna Adame</h5>
-                                    <p class="text-muted mb-0">Lead Designer / Developer</p>
+                                    <p class="text-muted mb-0">Investor</p>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +53,11 @@
                                     <div class="flex-grow-1">
                                         <h5 class="card-title mb-0">Complete Your Profile</h5>
                                     </div>
+                                    <!--
                                     <div class="flex-shrink-0">
                                         <a href="javascript:void(0);" class="badge bg-light text-primary fs-12"><i class="ri-edit-box-line align-bottom me-1"></i> Edit</a>
                                     </div>
+                                    -->
                                 </div>
                                 <div class="progress animated-progress custom-progress progress-label">
                                     <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
@@ -64,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
@@ -108,6 +111,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                         <!--end card-->
                     </div>
                     <!--end col-->
@@ -125,28 +129,35 @@
                                             <i class="far fa-user"></i> Change Password
                                         </a>
                                     </li>
+                                    <!--
                                     <li class="nav-item">
                                         <a class="nav-link" data-bs-toggle="tab" href="#experience" role="tab">
                                             <i class="far fa-envelope"></i> Experience
                                         </a>
                                     </li>
+                                    -->
+                                    <!--
                                     <li class="nav-item">
                                         <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                                             <i class="far fa-envelope"></i> Privacy Policy
                                         </a>
                                     </li>
+                                    -->
                                 </ul>
                             </div>
                             <div class="card-body p-4">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="personalDetails" role="tabpanel">
-                                        <form action="javascript:void(0);">
+                                        <form method="POST" action="{{ url_for('pages.update_user_info') }}">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <div class="mb-3">
-                                                        <label for="firstnameInput" class="form-label">First Name</label>
-                                                        <input type="text" class="form-control" id="firstnameInput" placeholder="Enter your firstname" value="Dave">
-                                                    </div>
+                                                        <div class="mb-3">
+                                                            <label for="firstnameInput" class="form-label">First Name</label>
+                                                            <input type="text" class="form-control" name="firstname" id="firstnameInput" placeholder="Enter your firstname">
+                                                        </div>
+                                                        <!-- Include other input fields here -->
+
+                                                    
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6">
@@ -166,17 +177,18 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="emailInput" class="form-label">Email Address</label>
-                                                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="daveadame@velzon.com">
+                                                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="daveadame@velzon.com" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="JoiningdatInput" class="form-label">Joining Date</label>
-                                                        <input type="text" class="form-control" data-provider="flatpickr" id="JoiningdatInput" data-date-format="d M, Y" data-deafult-date="24 Nov, 2021" placeholder="Select date" />
+                                                        <input type="text" class="form-control" data-provider="flatpickr" id="JoiningdatInput" data-date-format="d M, Y" data-deafult-date="24 Nov, 2021" readonly/>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
                                                         <label for="skillsInput" class="form-label">Skills</label>
@@ -191,20 +203,25 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="designationInput" class="form-label">Designation</label>
                                                         <input type="text" class="form-control" id="designationInput" placeholder="Designation" value="Lead Designer / Developer">
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="websiteInput1" class="form-label">Website</label>
                                                         <input type="text" class="form-control" id="websiteInput1" placeholder="www.example.com" value="www.velzon.com" />
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
@@ -220,26 +237,32 @@
                                                     </div>
                                                 </div>
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
                                                         <label for="zipcodeInput" class="form-label">Zip Code</label>
                                                         <input type="text" class="form-control" minlength="5" maxlength="6" id="zipcodeInput" placeholder="Enter zipcode" value="90011">
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-12">
                                                     <div class="mb-3 pb-2">
                                                         <label for="exampleFormControlTextarea" class="form-label">Description</label>
                                                         <textarea class="form-control" id="exampleFormControlTextarea" placeholder="Enter your description" rows="3">Hi I'm Anna Adame,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
+                                                <!--
                                                 <div class="col-lg-12">
                                                     <div class="hstack gap-2 justify-content-end">
-                                                        <button type="submit" class="btn btn-primary">Updates</button>
+                                                        <button type="submit" class="btn btn-primary">Update</button>
                                                         <button type="button" class="btn btn-soft-success">Cancel</button>
                                                     </div>
                                                 </div>
+                                                -->
                                                 <!--end col-->
                                             </div>
                                             <!--end row-->

@@ -1,9 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager    
-
+from flask_login import LoginManager
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
+migrate = Migrate()  # Initialize Flask-Migrate
 
 def create_app():
     app = Flask(__name__)
@@ -16,15 +17,18 @@ def create_app():
     login_manager = LoginManager(app)
     login_manager.login_view= 'pages.login'
     db.init_app(app)
-    
+    migrate.init_app(app, db)  # Initialize Flask-Migrate with your app and database
 
-    from .models import User
+
+
+    from .models import User, UserInfo
     with app.app_context():
         db.create_all()
 
 
     @login_manager.user_loader
     def load_user(user_id):
+        from .models import User  # Import User model here
         return User.query.get(int(user_id)) 
     
     from .dashboards import dashboards

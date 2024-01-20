@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template,request,redirect,url_for,flash
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
-from .models import User
+from .models import User, UserInfo
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
 
@@ -246,6 +246,13 @@ def signup_post():
     new_user = User(email=email,username=username,password=generate_password_hash(password))
     db.session.add(new_user)
     db.session.commit()
+    db.session.flush()  # Flush to assign an ID to new_user
+
+    # Create and add user info
+    new_user_info = UserInfo(user_id=new_user.id)
+    db.session.add(new_user_info)
+
+    db.session.commit()
 
     return redirect(url_for('pages.login'))
 
@@ -254,3 +261,21 @@ def signup_post():
 def logout():
     logout_user()
     return redirect(url_for('pages.login'))
+
+@pages.route('/update_user_info', methods=['POST'])
+@login_required
+def update_user_info():
+    user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
+    if user_info:
+        # Assuming you have fields like first_name, last_name, etc. in your UserInfo model
+        user_info.first_name = request.form.get('firstname')
+        #user_info.last_name = request.form.get('lastnameInput')
+        # Include other fields as necessary
+
+        db.session.commit()
+        flash('Profile updated successfully.')
+
+    else:
+        flash('User information not found.')
+
+    return redirect(url_for('pages.profile_settings'))
