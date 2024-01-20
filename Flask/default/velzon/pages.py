@@ -22,7 +22,18 @@ def profile():
 @pages.route('/pages/settings')
 @login_required
 def profile_settings():
-    return render_template('pages/pages/pages-profile-settings.html') 
+    user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
+
+    if not user_info:
+        # Handle the case where no user_info is found. 
+        # This could involve redirecting to a different page, showing a message,
+        # or creating a default UserInfo object.
+        # For now, let's just create an empty UserInfo for demonstration:
+        user_info = UserInfo()
+
+    return render_template('pages/pages/pages-profile-settings.html', user_info=user_info, email=current_user.email)
+
+ 
 
 @pages.route('/pages/team')
 @login_required
@@ -262,20 +273,19 @@ def logout():
     logout_user()
     return redirect(url_for('pages.login'))
 
-@pages.route('/update_user_info', methods=['POST'])
+@pages.route('/pages/update_user_info', methods=['POST'])
 @login_required
 def update_user_info():
-    user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
-    if user_info:
-        # Assuming you have fields like first_name, last_name, etc. in your UserInfo model
-        user_info.first_name = request.form.get('firstname')
-        #user_info.last_name = request.form.get('lastnameInput')
-        # Include other fields as necessary
+    user_info = UserInfo.query.filter_by(user_id=current_user.id).first_or_404()
 
-        db.session.commit()
-        flash('Profile updated successfully.')
+    user_info.first_name = request.form.get('first_name')
+    user_info.last_name = request.form.get('last_name')
+    user_info.phone_number = request.form.get('phone_number')
+    user_info.city = request.form.get('city')
+    user_info.country = request.form.get('country')
 
-    else:
-        flash('User information not found.')
+    db.session.commit()
 
     return redirect(url_for('pages.profile_settings'))
+
+

@@ -153,7 +153,7 @@
                                                 <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="firstnameInput" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" name="firstname" id="firstnameInput" placeholder="Enter your firstname">
+                                                            <input type="text" class="form-control" name="first_name" id="firstnameInput" placeholder="Enter your firstname" value="{{ user_info.first_name }}">
                                                         </div>
                                                         <!-- Include other input fields here -->
 
@@ -163,21 +163,21 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="lastnameInput" class="form-label">Last Name</label>
-                                                        <input type="text" class="form-control" id="lastnameInput" placeholder="Enter your lastname" value="Adame">
+                                                        <input type="text" class="form-control" name="last_name" id="lastnameInput" placeholder="Enter your lastname" value="{{ user_info.last_name }}">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="phonenumberInput" class="form-label">Phone Number</label>
-                                                        <input type="text" class="form-control" id="phonenumberInput" placeholder="Enter your phone number" value="+(1) 987 6543">
+                                                        <input type="text" class="form-control" name="phone_number" id="phonenumberInput" placeholder="Enter your phone number" value="{{ user_info.phone_number }}">
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="emailInput" class="form-label">Email Address</label>
-                                                        <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" value="daveadame@velzon.com" readonly>
+                                                        <input type="email" class="form-control" name="email" id="emailInput" placeholder="Enter your email" value="{{ email }}" readonly>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -226,14 +226,14 @@
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
                                                         <label for="cityInput" class="form-label">City</label>
-                                                        <input type="text" class="form-control" id="cityInput" placeholder="City" value="California" />
+                                                        <input type="text" class="form-control" name="city" id="cityInput" placeholder="City" value="{{ user_info.city }}"/>
                                                     </div>
                                                 </div>
                                                 <!--end col-->
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
                                                         <label for="countryInput" class="form-label">Country</label>
-                                                        <input type="text" class="form-control" id="countryInput" placeholder="Country" value="United States" />
+                                                        <input type="text" class="form-control" name="country" id="countryInput" placeholder="Country" value="{{ user_info.country }}" />
                                                     </div>
                                                 </div>
                                                 <!--end col-->
@@ -255,14 +255,14 @@
                                                 </div>
                                                 -->
                                                 <!--end col-->
-                                                <!--
+                                                
                                                 <div class="col-lg-12">
                                                     <div class="hstack gap-2 justify-content-end">
                                                         <button type="submit" class="btn btn-primary">Update</button>
                                                         <button type="button" class="btn btn-soft-success">Cancel</button>
                                                     </div>
                                                 </div>
-                                                -->
+                                                
                                                 <!--end col-->
                                             </div>
                                             <!--end row-->
