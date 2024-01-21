@@ -5,6 +5,7 @@ from .models import User, UserInfo
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
 
+
 pages = Blueprint('pages',__name__,template_folder='templates',
     static_folder='static',)
     
@@ -31,7 +32,12 @@ def profile_settings():
         # For now, let's just create an empty UserInfo for demonstration:
         user_info = UserInfo()
 
-    return render_template('pages/pages/pages-profile-settings.html', user_info=user_info, email=current_user.email)
+    # Calculate the percentage based on non-empty fields
+    non_empty_fields = sum(bool(getattr(user_info, field)) for field in ['first_name', 'last_name', 'phone_number', 'city', 'country'])
+    total_fields = 5  # Assuming you have 5 fields in total
+    percentage = int((non_empty_fields / total_fields) * 100)
+
+    return render_template('pages/pages/pages-profile-settings.html', user_info=user_info, email=current_user.email, percentage=percentage)
 
  
 
@@ -260,7 +266,7 @@ def signup_post():
     db.session.flush()  # Flush to assign an ID to new_user
 
     # Create and add user info
-    new_user_info = UserInfo(user_id=new_user.id)
+    new_user_info = UserInfo(user_id=new_user.id, first_name="", last_name="", phone_number="", city="", country="")
     db.session.add(new_user_info)
 
     db.session.commit()
@@ -276,8 +282,19 @@ def logout():
 @pages.route('/pages/update_user_info', methods=['POST'])
 @login_required
 def update_user_info():
-    user_info = UserInfo.query.filter_by(user_id=current_user.id).first_or_404()
+    user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
 
+    if not user_info:
+        user_info = UserInfo(user_id=current_user.id)
+        db.session.add(user_info)
+
+    # Validate phone number format
+    phone_number = request.form.get('phone_number')
+    if not phone_number.isdigit() or len(phone_number) != 11:
+        flash("Invalid phone number format. Please enter 11 digits.")
+        return redirect(url_for('pages.profile_settings'))
+
+    # Update user_info fields based on form data
     user_info.first_name = request.form.get('first_name')
     user_info.last_name = request.form.get('last_name')
     user_info.phone_number = request.form.get('phone_number')
@@ -286,6 +303,9 @@ def update_user_info():
 
     db.session.commit()
 
+    flash("Profile updated successfully")
+
+    # Redirect or render the template as needed
     return redirect(url_for('pages.profile_settings'))
 
 

@@ -14140,25 +14140,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}le !important;
-  }
-  .d-print-table-row {
-    display: table-row !important;
-  }
-  .d-print-table-cell {
-    display: table-cell !important;
-  }
-  .d-print-flex {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-  .d-print-inline-flex {
-    display: -webkit-inline-box !important;
-    display: -ms-inline-flexbox !important;
-    display: inline-flex !important;
-  }
-  .d-print-none {
-    display: none !important;
-  }
 }

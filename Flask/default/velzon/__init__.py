@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from flask_migrate import Migrate
+
 
 db = SQLAlchemy()
 migrate = Migrate()  # Initialize Flask-Migrate
@@ -30,6 +31,15 @@ def create_app():
     def load_user(user_id):
         from .models import User  # Import User model here
         return User.query.get(int(user_id)) 
+
+    @app.context_processor
+    def inject_user_info():
+        from .models import UserInfo  # Import User model here
+        # Retrieve the user_info object based on the current user's ID
+        user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
+       
+        # Return user_info as a variable accessible in templates
+        return dict(user_info=user_info)
     
     from .dashboards import dashboards
     from .apps import apps
