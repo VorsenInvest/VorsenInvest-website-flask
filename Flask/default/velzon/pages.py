@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template,request,redirect,url_for,flash
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
-from .models import User, UserInfo
+from .models import User, UserInfo, UserImage
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
 
@@ -264,6 +264,10 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
     db.session.flush()  # Flush to assign an ID to new_user
+
+    # Create and add user image with empty image data
+    new_user_image = UserImage(user_id=new_user.id, image=None)  # Assuming 'image' is a BLOB column
+    db.session.add(new_user_image)
 
     # Create and add user info
     new_user_info = UserInfo(user_id=new_user.id, first_name="", last_name="", phone_number="", city="", country="")
