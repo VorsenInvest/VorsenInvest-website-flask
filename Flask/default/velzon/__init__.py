@@ -12,7 +12,7 @@ def create_app():
     app.config['SECRET_KEY'] =b'_5#y2L"F4Q8z\n\xec]/'
     app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqllite"
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:G78u75s61T91!@brapi-api-db.cx0ko2c0yzso.us-east-2.rds.amazonaws.com:3306/brapi_API_DB'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     login_manager = LoginManager(app)
@@ -40,6 +40,15 @@ def create_app():
        
         # Return user_info as a variable accessible in templates
         return dict(user_info=user_info)
+
+    @app.context_processor
+    def inject_user_image():
+        from .models import UserImage  # Import User model here
+        # Retrieve the user_info object based on the current user's ID
+        user_images = UserImage.query.filter_by(user_id=current_user.id).first()
+       
+        # Return user_info as a variable accessible in templates
+        return dict(user_images=user_images)
     
     from .dashboards import dashboards
     from .apps import apps

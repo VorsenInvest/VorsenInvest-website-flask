@@ -1,0 +1,3 @@
+id,user_id,first_name,last_name,phone_number,city,country
+1,1,Gustavo,Vorsen,21980904242,Rio de Janeiro,Brazil
+2,2,Gustavo,Pereira,None,None,None
