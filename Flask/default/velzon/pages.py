@@ -1,9 +1,10 @@
-from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response
+from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
 from .models import User, UserInfo, UserImage
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
+import os
 
 
 pages = Blueprint('pages',__name__,template_folder='templates',
@@ -263,16 +264,30 @@ def signup_post():
     new_user = User(email=email,username=username,password=generate_password_hash(password))
     db.session.add(new_user)
     db.session.commit()
-    db.session.flush()  # Flush to assign an ID to new_user
+    db.session.flush()  # This ensures that new_user gets an ID assigned
 
-    # Create and add user image with empty image data
-    new_user_image = UserImage(user_id=new_user.id, image=None)  # Assuming 'image' is a BLOB column
+    # Set the path to the default profile image
+    image_path = os.path.join(current_app.root_path, 'static', 'images', 'logo-sm-light.png')
+    with open(image_path, 'rb') as image_file:
+        default_image_data = image_file.read()
+
+    # Create a new UserImage record with the default image
+    new_user_image = UserImage(user_id=new_user.id, profile_image=default_image_data)
     db.session.add(new_user_image)
 
-    # Create and add user info
-    new_user_info = UserInfo(user_id=new_user.id, first_name="", last_name="", phone_number="", city="", country="")
+    # Create a new UserInfo record (if needed)
+    # Create and add user info with default values
+    new_user_info = UserInfo(
+        user_id=new_user.id, 
+        first_name="Investor",
+        last_name="",  # Replace with your default last name
+        phone_number="",  # Keep as empty string or set a default
+        city="",  # Replace with your default city
+        country=""  # Replace with your default country
+    )
     db.session.add(new_user_info)
 
+    # Commit the changes to the database
     db.session.commit()
 
     return redirect(url_for('pages.login'))
