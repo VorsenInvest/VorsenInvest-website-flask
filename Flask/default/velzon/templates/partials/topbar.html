@@ -663,7 +663,7 @@
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user" src="{{url_for('static' ,filename='images/users/avatar-1.jpg')}}"
+                                    <img class="rounded-circle header-profile-user" src="{{ url_for('pages.user_profile_image', user_id=current_user.id) }}"
                                         alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ user_info.first_name }} {{ user_info.last_name }}</span>

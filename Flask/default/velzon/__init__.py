@@ -44,9 +44,9 @@ def create_app():
     def inject_user_image():
         from .models import UserImage  # Import User model here
         if current_user.is_authenticated:
-            user_images = UserImage.query.filter_by(user_id=current_user.id).first()
-            return dict(user_images=user_images)
-        return dict(user_images=None)
+            user_image = UserImage.query.filter_by(user_id=current_user.id).first()
+            return dict(user_image=user_image)
+        return dict(user_image=None)
     
     from .dashboards import dashboards
     from .apps import apps

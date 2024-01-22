@@ -22,8 +22,7 @@ class UserInfo(db.Model):
 class UserImage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, unique=True)
-    image_url = db.Column(db.String(255))  # URL to the image
-    # Add any other fields you might need
+    profile_image = db.Column(db.LargeBinary)  # BLOB type to store binary image data
 
     # Relationship to User
-    user = db.relationship('User', backref='user_images', uselist=False, lazy=True)
+    user = db.relationship('User', backref='user_profile_image', uselist=False, lazy=True)  # Change backref to 'user_profile_image'

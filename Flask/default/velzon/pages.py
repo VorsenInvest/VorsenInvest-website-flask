@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request,redirect,url_for,flash
+from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
 from .models import User, UserInfo, UserImage
@@ -315,3 +315,49 @@ def update_user_info():
 
     flash("Profile updated successfully")
     return redirect(url_for('pages.profile_settings'))
+
+@pages.route('/pages/upload_image', methods=['POST'])
+@login_required
+def upload_image():
+    # Check if the 'profile_image' file is in the request
+    if 'profile_image' not in request.files:
+        flash('No file part', 'error')
+        return jsonify({"message": "No file part", "status": "error"})
+
+    file = request.files['profile_image']
+
+    # Check if the file has a filename
+    if file.filename == '':
+        flash('No selected file', 'error')
+        return jsonify({"message": "No selected file", "status": "error"})
+
+    try:
+        # Retrieve or create the UserImage instance for the current user
+        user_image = UserImage.query.filter_by(user_id=current_user.id).first()
+        if user_image is None:
+            # If no existing image, create a new instance
+            user_image = UserImage(user_id=current_user.id)
+
+        # Update the profile_image column with the new file data
+        user_image.profile_image = file.read()
+
+        # Add and commit the changes to the database
+        db.session.add(user_image)
+        db.session.commit()
+
+        flash('Image updated successfully', 'success')
+        return redirect(url_for('pages.profile_settings'))
+
+    except Exception as e:
+        # Handle any exceptions
+        flash(f'Error: {str(e)}', 'error')
+        return jsonify({"message": f"Error: {str(e)}", "status": "error"})
+
+@pages.route('/pages/user_profile_image/<int:user_id>')
+@login_required
+def user_profile_image(user_id):
+    user_image = UserImage.query.filter_by(user_id=user_id).first()
+    if user_image and user_image.profile_image:
+        return Response(user_image.profile_image, mimetype='image/png')  # Adjust MIME type based on your image format
+    else:
+        return 'Image not found', 404

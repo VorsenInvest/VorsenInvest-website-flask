@@ -31,15 +31,19 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                        <img src="{{url_for('static' ,filename='images/users/avatar-1.jpg')}}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                        <img src="{{ url_for('pages.user_profile_image', user_id=current_user.id) }}" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                        
                                         <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
-                                            <input id="profile-img-file-input" type="file" class="profile-img-file-input">
+                                            <form id="image-upload-form" method="POST" action="/pages/upload_image" enctype="multipart/form-data">
+                                                <input id="profile-img-file-input" type="file" name="profile_image" class="profile-img-file-input" accept="image/*" onchange="uploadProfileImage()">
+                                            </form>
                                             <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
                                                 <span class="avatar-title rounded-circle bg-light text-body">
                                                     <i class="ri-camera-fill"></i>
                                                 </span>
                                             </label>
                                         </div>
+                                        
                                     </div>
                                     <h5 class="fs-16 mb-1">{{ user_info.first_name }} {{ user_info.last_name }}</h5>
                                     <p class="text-muted mb-0">Investor</p>
@@ -620,4 +624,12 @@
 {% block extra_js %}
     <!-- profile-setting init js -->
     <script src="{{url_for('static' ,filename='js/pages/profile-setting.init.js')}}"></script>
+    <script>
+        function uploadProfileImage() {
+            // Get the form and submit it
+            var form = document.getElementById('image-upload-form');
+            form.submit();
+        }
+    </script>
+    
 {% endblock extra_js %}
