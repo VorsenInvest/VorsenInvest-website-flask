@@ -282,7 +282,10 @@ def logout():
 @pages.route('/pages/update_user_info', methods=['POST'])
 @login_required
 def update_user_info():
+    print("Form Data Received:", request.form)  # Print form data received
+
     user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
+    print("Existing User Info:", user_info)  # Print existing user info from the database
 
     if not user_info:
         user_info = UserInfo(user_id=current_user.id)
@@ -290,22 +293,21 @@ def update_user_info():
 
     # Validate phone number format
     phone_number = request.form.get('phone_number')
-    if not phone_number.isdigit() or len(phone_number) != 11:
+    if phone_number and (not phone_number.isdigit() or len(phone_number) != 11):
         flash("Invalid phone number format. Please enter 11 digits.")
         return redirect(url_for('pages.profile_settings'))
 
     # Update user_info fields based on form data
     user_info.first_name = request.form.get('first_name')
     user_info.last_name = request.form.get('last_name')
-    user_info.phone_number = request.form.get('phone_number')
+    user_info.phone_number = phone_number
     user_info.city = request.form.get('city')
     user_info.country = request.form.get('country')
 
+    print("Updated User Info (Pre-Commit):", user_info)  # Print updated user info
+
     db.session.commit()
+    print("Database commit executed")
 
     flash("Profile updated successfully")
-
-    # Redirect or render the template as needed
     return redirect(url_for('pages.profile_settings'))
-
-

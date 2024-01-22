@@ -35,20 +35,18 @@ def create_app():
     @app.context_processor
     def inject_user_info():
         from .models import UserInfo  # Import User model here
-        # Retrieve the user_info object based on the current user's ID
-        user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
-       
-        # Return user_info as a variable accessible in templates
-        return dict(user_info=user_info)
+        if current_user.is_authenticated:
+            user_info = UserInfo.query.filter_by(user_id=current_user.id).first()
+            return dict(user_info=user_info)
+        return dict(user_info=None)
 
     @app.context_processor
     def inject_user_image():
         from .models import UserImage  # Import User model here
-        # Retrieve the user_info object based on the current user's ID
-        user_images = UserImage.query.filter_by(user_id=current_user.id).first()
-       
-        # Return user_info as a variable accessible in templates
-        return dict(user_images=user_images)
+        if current_user.is_authenticated:
+            user_images = UserImage.query.filter_by(user_id=current_user.id).first()
+            return dict(user_images=user_images)
+        return dict(user_images=None)
     
     from .dashboards import dashboards
     from .apps import apps
