@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template, session, redirect
+from flask import Blueprint,render_template, session, redirect, url_for
 from flask_login import login_required
 from .models import User, UserInfo, UserImage, StockListInfo
 from .pages import fetch_data_from_database
