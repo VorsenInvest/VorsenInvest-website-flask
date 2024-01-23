@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from flask_migrate import Migrate
+from flask_session import Session  # Import Flask-Session
 
 
 db = SQLAlchemy()
@@ -14,6 +15,10 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:G78u75s61T91!@brapi-api-db.cx0ko2c0yzso.us-east-2.rds.amazonaws.com:3306/brapi_API_DB'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config["SESSION_TYPE"] = "filesystem"
+
+    # Initialize Flask-Session
+    Session(app)
 
     login_manager = LoginManager(app)
     login_manager.login_view= 'pages.login'

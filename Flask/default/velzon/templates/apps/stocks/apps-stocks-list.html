@@ -208,21 +208,48 @@
                                         </div>
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idSubSector" id="idSubSector">
-                                                <option value="all">All</option>
-                                                <option value="Buy">Buy</option>
-                                                <option value="Sell">Sell</option>
-                                            </select>
+                                            <div class="btn-group">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                                   Subsector
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input"> Menu item 1
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input"> Menu item 2
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input"> Menu item 3
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
+                                        
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idSegment" id="idSegment">
-                                                <option value="all">All</option>
-                                                <option value="Successful">Successful</option>
-                                                <option value="Cancelled">Cancelled</option>
-                                                <option value="Pending">Pending</option>
-                                            </select>
+                                            <div class="btn-group">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdowMenuClickableInside" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
+                                                   Subsector
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="subSectorDropdown">
+                                                    {% for subsector in subsectors %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input"> {{ subsector }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
+                                        
                                         <!--end col-->
                                         <div class="col-xl-1 col-md-4">
                                             <button class="btn btn-success w-100" onclick="filterData();">Filters</button>
@@ -231,53 +258,28 @@
                                     <!--end row-->
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-bordered dt-responsive nowrap align-middle mdl-data-table table-hover" style="width:100%" id="stocksTable">
+                                    <table class="table table-bordered dt-responsive nowrap align-middle mdl-data-table table-hover" style="width:100%" id="stock-list">
                                         <thead>
                                             <tr>
                                                 <th>Ticker</th>
                                                 <th>Economic Sector</th>
                                                 <th>Subsector</th>
                                                 <th>Segment</th>
-                                                <!-- Add more headers if needed -->
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for row in table_data %}
                                             <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">PETR4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment</a></td>
+                                                <td>{{ row['symbol'] }}</td>
+                                                <td>{{ row['economicSector'] }}</td>
+                                                <td>{{ row['subSector'] }}</td>
+                                                <td>{{ row['segment'] }}</td>
                                             </tr>
-                                            <!-- Additional rows -->
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">MGLU3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 2</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 2</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 2</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">ITUB4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 3</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">BBDC4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 4</a></td>
-                                            </tr>
-                                            <tr>
-                                            <td><a href="javascript:void(0);" class="link-primary">VALE3</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Economic Sector 5</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Subsector 5</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Segment 5</a></td>
-                                            </tr>
-                                            <!-- Continue adding more rows as needed -->
-                                            </tbody>
-                                            </table>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
                                             
-                                            </div>
+                                </div>
                             </div>
                             <!--end card-->
                         </div>

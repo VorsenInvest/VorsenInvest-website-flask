@@ -9,6 +9,13 @@ File: datatables init js
 function initializeTables() {
     let example = new DataTable('#example',);
 
+    let stockList = new DataTable('#stock-list', {
+        "scrollY": "420px",
+        "scrollCollapse": true,
+        "paging": false,
+        "searching": false  // Add this line to disable search
+    });
+
     let scrollVertical = new DataTable('#scroll-vertical', {
         "scrollY": "210px",
         "scrollCollapse": true,

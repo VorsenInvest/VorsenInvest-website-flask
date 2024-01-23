@@ -1,7 +1,7 @@
-from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app
+from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app, session
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
-from .models import User, UserInfo, UserImage
+from .models import User, UserInfo, UserImage, StockListInfo
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
 import os
@@ -9,6 +9,32 @@ import os
 
 pages = Blueprint('pages',__name__,template_folder='templates',
     static_folder='static',)
+    
+def fetch_data_from_database():
+    try:
+        # Query the database to retrieve unique subSector values
+        subsectors = db.session.query(StockListInfo.subSector.distinct()).all()
+        subsector_values = [subsector[0] for subsector in subsectors]
+
+        # Query the database to retrieve other columns
+        data = db.session.query(
+            StockListInfo.symbol, 
+            StockListInfo.economicSector, 
+            StockListInfo.subSector, 
+            StockListInfo.segment
+        ).all()
+
+        formatted_data = [
+            {'symbol': d[0], 'economicSector': d[1], 'subSector': d[2], 'segment': d[3]} 
+            for d in data
+        ]
+
+        return formatted_data, subsector_values
+    except Exception as e:
+        print("Error fetching data from database:", e)
+        return [], []
+
+
     
 #Pages page
 @pages.route('/pages/starter')
@@ -238,6 +264,10 @@ def login_post():
             flash("Invalid Credentials")
             return redirect(url_for('pages.login'))
 
+        data = fetch_data_from_database()
+        session['table_data'] = data
+        print(data)
+
         login_user(user, remember=remember)
         return redirect(url_for('dashboards.index'))
 
@@ -296,6 +326,7 @@ def signup_post():
 @login_required
 def logout():
     logout_user()
+    session.clear()
     return redirect(url_for('pages.login'))
 
 @pages.route('/pages/update_user_info', methods=['POST'])
@@ -376,3 +407,8 @@ def user_profile_image(user_id):
         return Response(user_image.profile_image, mimetype='image/png')  # Adjust MIME type based on your image format
     else:
         return 'Image not found', 404
+
+@pages.route('/clear_session')
+def clear_session():
+    session.clear()
+    return 'Session cleared!'

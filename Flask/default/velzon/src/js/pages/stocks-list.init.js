@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('.cq-dropdown').dropdownCheckboxes();
+});
 /*
 Template Name: Velzon - Admin & Dashboard Template
 Author: Themesbrand

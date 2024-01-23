@@ -1,5 +1,7 @@
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template, session
 from flask_login import login_required
+from .models import User, UserInfo, UserImage, StockListInfo
+from .pages import fetch_data_from_database
 
 apps = Blueprint('apps',__name__,template_folder='templates',
     static_folder='static',)
@@ -317,7 +319,17 @@ def job_statistics():
 @apps.route('/apps/stocks/list')
 @login_required
 def stocks_list():
-    return render_template('apps/stocks/apps-stocks-list.html')           
+    print("stocks_list route called")
+    if 'table_data' not in session or 'subsectors' not in session:
+        print("Fetching new data from database")
+        session['table_data'], session['subsectors'] = fetch_data_from_database()
+    else:
+        print("Data already in session")
+
+    print("Session data:", session['table_data'])
+    return render_template('apps/stocks/apps-stocks-list.html', table_data=session['table_data'], subsectors=session['subsectors'])
+
+ 
 
 @apps.route('/apps/stocks/indicators')
 @login_required
