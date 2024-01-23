@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app, session
+from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app, session, send_from_directory
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
 from .models import User, UserInfo, UserImage, StockListInfo
@@ -415,4 +415,5 @@ def clear_session():
 
 @pages.route('/favicon.ico')
 def favicon():
-    return redirect(url_for('static', filename='images/favicon.ico'))
+    return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
