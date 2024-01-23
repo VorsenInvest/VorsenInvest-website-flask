@@ -6,6 +6,7 @@ from flask_session import Session  # Import Flask-Session
 from dotenv import load_dotenv
 import os
 
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -21,7 +22,9 @@ def create_app():
     app.secret_key = os.getenv('SECRET_KEY')  # Keep this line in your Python script
 
     # Initialize Flask-Session
-    Session(app)
+    sess = Session(app)
+    sess.init_app(app, db)  # Ensure Flask-Session uses the SQLAlchemy instance for storage
+
 
     login_manager = LoginManager(app)
     login_manager.login_view= 'pages.login'
