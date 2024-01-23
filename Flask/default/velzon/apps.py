@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template, session
+from flask import Blueprint,render_template, session, redirect
 from flask_login import login_required
 from .models import User, UserInfo, UserImage, StockListInfo
 from .pages import fetch_data_from_database
@@ -355,3 +355,7 @@ def exchange_indicators():
 @login_required
 def fair_price():
     return render_template('apps/fair price/apps-fair-price.html') 
+
+@apps.route('/favicon.ico')
+def favicon():
+    return redirect(url_for('static', filename='images/favicon.ico'))

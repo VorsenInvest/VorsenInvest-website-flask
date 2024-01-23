@@ -412,3 +412,7 @@ def user_profile_image(user_id):
 def clear_session():
     session.clear()
     return 'Session cleared!'
+
+@pages.route('/favicon.ico')
+def favicon():
+    return redirect(url_for('static', filename='images/favicon.ico'))
