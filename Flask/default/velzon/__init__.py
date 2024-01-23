@@ -3,19 +3,22 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from flask_migrate import Migrate
 from flask_session import Session  # Import Flask-Session
+from dotenv import load_dotenv
+import os
 
+# Load environment variables from .env file
+load_dotenv()
 
 db = SQLAlchemy()
 migrate = Migrate()  # Initialize Flask-Migrate
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] =b'_5#y2L"F4Q8z\n\xec]/'
-    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:G78u75s61T91!@brapi-api-db.cx0ko2c0yzso.us-east-2.rds.amazonaws.com:3306/brapi_API_DB'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config["SESSION_TYPE"] = "filesystem"
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
+    app.config["SESSION_TYPE"] = os.getenv('SESSION_TYPE')
+    app.secret_key = os.getenv('SECRET_KEY')  # Keep this line in your Python script
 
     # Initialize Flask-Session
     Session(app)
