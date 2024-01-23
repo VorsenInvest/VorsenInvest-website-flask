@@ -21,23 +21,20 @@ def create_app():
     app.config['SESSION_TYPE'] = os.getenv('SESSION_TYPE')
 
     app.secret_key = os.getenv('SECRET_KEY')  # Keep this line in your Python script
+    app.config['SESSION_SQLALCHEMY'] = db
 
-    # Initialize Flask-Session
-    sess = Session(app)
-    sess.init_app(app, db)  # Ensure Flask-Session uses the SQLAlchemy instance for storage
 
+
+    db.init_app(app)
+    migrate.init_app(app, db)  # Initialize Flask-Migrate with your app and database
+    Session(app)  # Initialize Flask-Session
 
     login_manager = LoginManager(app)
     login_manager.login_view= 'pages.login'
-    db.init_app(app)
-    migrate.init_app(app, db)  # Initialize Flask-Migrate with your app and database
-
-
-
+        
     from .models import User, UserInfo
     with app.app_context():
         db.create_all()
-
 
     @login_manager.user_loader
     def load_user(user_id):
