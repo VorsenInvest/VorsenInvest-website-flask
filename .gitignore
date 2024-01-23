@@ -1,4 +1,5 @@
 Flask/default/env/
+Flask/default/flask_session/
 Flask/default/velzon/node_modules
 Flask/*
 !Flask/default/
