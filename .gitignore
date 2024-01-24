@@ -4,3 +4,4 @@ Flask/default/velzon/node_modules
 Flask/*
 !Flask/default/
 .env
+Flask/default/__pycache__
