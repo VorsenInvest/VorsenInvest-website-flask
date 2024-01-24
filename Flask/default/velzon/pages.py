@@ -266,7 +266,7 @@ def login_post():
         user = User.query.filter_by(email=email).first()
 
         if not user or not check_password_hash(user.password,password):
-            flash("Invalid Credentials")
+            flash("Invalid Credentials", "error")
             return redirect(url_for('pages.login'))
 
         data = fetch_data_from_database()
@@ -274,6 +274,7 @@ def login_post():
         print(data)
 
         login_user(user, remember=remember)
+        flash("Login successful!", "success")  # Add a success message
         return redirect(url_for('dashboards.index'))
 
 @pages.route('/account/signup')  

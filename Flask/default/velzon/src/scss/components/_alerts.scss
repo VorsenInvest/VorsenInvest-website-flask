@@ -157,4 +157,38 @@
         }
     }
 }
-   
+
+
+.animated-alert {
+    opacity: 0; // Start hidden
+    transform: translateY(-10in); // Start 10 inches above
+    transition: transform 5s ease-in-out, opacity 0.5s ease-in-out 5s; // Slide in and fade out
+  
+    &.alert-danger {
+      background-color: #f44336; // Red background for danger alerts
+      color: white; // White text color
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-10in); // Start position
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0); // End position (slide in)
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
