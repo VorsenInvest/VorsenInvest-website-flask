@@ -1,10 +1,10 @@
 from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app, session, send_from_directory
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
-from .models import User, UserInfo, UserImage, StockListInfo
+from .models import User, UserInfo, UserImage, StockListInfo, DeleteAccountForm
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
-import os
+import os, logging
 
 
 pages = Blueprint('pages',__name__,template_folder='templates',
@@ -63,8 +63,13 @@ def profile_settings():
     non_empty_fields = sum(bool(getattr(user_info, field)) for field in ['first_name', 'last_name', 'phone_number', 'city', 'country'])
     total_fields = 5  # Assuming you have 5 fields in total
     percentage = int((non_empty_fields / total_fields) * 100)
+    
+    form = DeleteAccountForm()
+    if form.validate_on_submit():
+        # Handle form submission
+        pass
 
-    return render_template('pages/pages/pages-profile-settings.html', user_info=user_info, email=current_user.email, percentage=percentage)
+    return render_template('pages/pages/pages-profile-settings.html', user_info=user_info, email=current_user.email, percentage=percentage, form=form)
 
  
 
@@ -275,26 +280,23 @@ def login_post():
 def signup(): 
     return render_template('pages/account/signup.html')
 
-@pages.route('/account/signup',methods=['POST'])  
+@pages.route('/account/signup', methods=['POST'])
 def signup_post():
-    email = request.form.get('email') 
+    email = request.form.get('email')
     username = request.form.get('username')
     password = request.form.get('password')
 
     user_email = User.query.filter_by(email=email).first()
-    user_username = User.query.filter_by(username=username).first()    
-    
+    user_username = User.query.filter_by(username=username).first()
+
     if user_email:
-        flash("User email already Exists")
+        flash("User email already exists")
         return redirect(url_for('pages.signup'))
-    if user_username:    
-        flash("Username already Exists")
+    if user_username:
+        flash("Username already exists")
         return redirect(url_for('pages.signup'))
 
-    new_user = User(email=email,username=username,password=generate_password_hash(password))
-    db.session.add(new_user)
-    db.session.commit()
-    db.session.flush()  # This ensures that new_user gets an ID assigned
+    new_user = User(email=email, username=username, password=generate_password_hash(password))
 
     # Set the path to the default profile image
     image_path = os.path.join(current_app.root_path, 'static', 'images', 'logo-sm-light.png')
@@ -302,25 +304,25 @@ def signup_post():
         default_image_data = image_file.read()
 
     # Create a new UserImage record with the default image
-    new_user_image = UserImage(user_id=new_user.id, profile_image=default_image_data)
-    db.session.add(new_user_image)
+    new_user_image = UserImage(user=new_user, profile_image=default_image_data)
 
-    # Create a new UserInfo record (if needed)
-    # Create and add user info with default values
+    # Create a new UserInfo record (if needed) with default values
     new_user_info = UserInfo(
-        user_id=new_user.id, 
+        user=new_user,
         first_name="Investor",
         last_name="",  # Replace with your default last name
-        phone_number="",  # Keep as empty string or set a default
+        phone_number="",  # Keep as an empty string or set a default
         city="",  # Replace with your default city
         country=""  # Replace with your default country
     )
-    db.session.add(new_user_info)
 
-    # Commit the changes to the database
+    db.session.add(new_user)
+    db.session.add(new_user_image)
+    db.session.add(new_user_info)
     db.session.commit()
 
     return redirect(url_for('pages.login'))
+
 
 @pages.route('/account/logout')
 @login_required
@@ -415,5 +417,43 @@ def clear_session():
 
 @pages.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
+    return send_from_directory(os.path.join(current_app.root_path, 'static', 'images'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    
+
+@pages.route('/account/delete', methods=['POST'])
+@login_required
+def delete_account():
+    try:
+        user_id = current_user.id
+
+        # Retrieve the User record
+        user = User.query.get(user_id)
+
+        # Retrieve related UserInfo record
+        user_info = UserInfo.query.filter_by(user_id=user_id).first()
+
+        # Delete the UserInfo record
+        if user_info:
+            db.session.delete(user_info)
+
+        # Retrieve related UserImage records
+        user_images = UserImage.query.filter_by(user_id=user_id).all()
+
+        # Delete the UserImage records
+        for user_image in user_images:
+            db.session.delete(user_image)
+
+        # Now, delete the User record
+        db.session.delete(user)
+        db.session.commit()
+
+        logout_user()
+        flash('Your account has been successfully deleted.', 'success')
+        session.clear()
+        return redirect(url_for('pages.login'))
+    except Exception as e:
+        logging.error(f'Error deleting account: {e}')
+        db.session.rollback()
+        flash(f'Error deleting account: {e}', 'error')
+        return redirect(url_for('pages.profile_settings'))

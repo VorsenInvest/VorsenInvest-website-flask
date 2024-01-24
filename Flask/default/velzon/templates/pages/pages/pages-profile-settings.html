@@ -140,13 +140,13 @@
                                         </a>
                                     </li>
                                     -->
-                                    <!--
+                                    
                                     <li class="nav-item">
                                         <a class="nav-link" data-bs-toggle="tab" href="#privacy" role="tab">
                                             <i class="far fa-envelope"></i> Privacy Policy
                                         </a>
                                     </li>
-                                    -->
+                                    
                                 </ul>
                             </div>
                             <div class="card-body p-4">
@@ -492,6 +492,7 @@
                                     </div>
                                     <!--end tab-pane-->
                                     <div class="tab-pane" id="privacy" role="tabpanel">
+                                        <!--
                                         <div class="mb-4 pb-2">
                                             <h5 class="card-title text-decoration-underline mb-3">Security:</h5>
                                             <div class="d-flex flex-column flex-sm-row mb-4 mb-sm-0">
@@ -522,6 +523,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        -->
+                                        <!--
                                         <div class="mb-3">
                                             <h5 class="card-title text-decoration-underline mb-3">Application Notifications:</h5>
                                             <ul class="list-unstyled mb-0">
@@ -590,17 +593,23 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div>
-                                            <h5 class="card-title text-decoration-underline mb-3">Delete This Account:</h5>
-                                            <p class="text-muted">Go to the Data & Privacy section of your profile Account. Scroll to "Your data & privacy options." Delete your Profile Account. Follow the instructions to delete your account :</p>
+                                        -->
+                                        <form action="/account/delete" method="POST">
                                             <div>
-                                                <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" value="make@321654987" style="max-width: 265px;">
+                                                <h5 class="card-title text-decoration-underline mb-3">Delete This Account:</h5>
+                                                <p class="text-muted">Go to the Data & Privacy section of your profile Account. Scroll to "Your data & privacy options." Delete your Profile Account. Follow the instructions to delete your account:</p>
+                                                <div>
+                                                    <input type="password" class="form-control" name="password" id="passwordInput" placeholder="Enter your password" style="max-width: 265px;">
+                                                </div>
+                                                <div class="hstack gap-2 mt-3">
+                                                    <button type="submit" class="btn btn-soft-danger">Close & Delete This Account</button>
+                                                    <a href="javascript:void(0);" class="btn btn-light">Cancel</a>
+                                                </div>
                                             </div>
-                                            <div class="hstack gap-2 mt-3">
-                                                <a href="javascript:void(0);" class="btn btn-soft-danger">Close & Delete This Account</a>
-                                                <a href="javascript:void(0);" class="btn btn-light">Cancel</a>
-                                            </div>
-                                        </div>
+                                            <!-- Include CSRF token for security (Flask-WTF or similar) -->
+                                            {{ form.csrf_token }}
+                                        </form>
+                                        
                                     </div>
                                     <!--end tab-pane-->
                                 </div>

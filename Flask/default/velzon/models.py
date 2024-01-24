@@ -1,31 +1,34 @@
 from . import db
 from flask_login import UserMixin
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
+from wtforms.validators import DataRequired
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     username = db.Column(db.String(100), unique=True)
-    # Relationship to UserInfo
-    user_info = db.relationship('UserInfo', backref='user', uselist=False, lazy=True)
 
-class UserInfo(db.Model):
+    # One-to-One relationship with UserInfo
+    user_info = db.relationship('UserInfo', backref='user', uselist=False, cascade="all, delete-orphan", lazy=True)
+    
+    # One-to-One relationship with UserImage
+    user_profile_image = db.relationship('UserImage', backref='user', uselist=False, cascade="all, delete-orphan", lazy=True)
+    
+class UserInfo(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False, unique=True)
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
     phone_number = db.Column(db.String(15))
     city = db.Column(db.String(100))
     country = db.Column(db.String(100))
-    # Add any other fields you need
 
 class UserImage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False, unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'), nullable=False, unique=True)
     profile_image = db.Column(db.LargeBinary)  # BLOB type to store binary image data
-
-    # Relationship to User
-    user = db.relationship('User', backref='user_profile_image', uselist=False, lazy=True)  # Change backref to 'user_profile_image'
 
 # Define the FundIndicator model
 class StockListInfo(db.Model):
@@ -58,3 +61,6 @@ class StockListInfo(db.Model):
     economicSector = db.Column(db.String(255), nullable=False)
     subSector = db.Column(db.String(255), nullable=False)
     segment = db.Column(db.String(255), nullable=False)
+    
+class DeleteAccountForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
