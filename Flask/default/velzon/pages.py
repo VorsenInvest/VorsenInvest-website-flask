@@ -17,27 +17,26 @@ def fetch_data_from_database():
         segments = db.session.query(StockListInfo.segment.distinct()).all()
         economicSectors = db.session.query(StockListInfo.economicSector.distinct()).all()
 
-        # Extract values and sort them (optional sorting for better dropdown organization)
-        subsector_values = sorted([subsector[0] for subsector in subsectors if subsector[0] is not None])
-        segment_values = sorted([segment[0] for segment in segments if segment[0] is not None])
-        economicSector_values = sorted([economicSector[0] for economicSector in economicSectors if economicSector[0] is not None])
+        # Extract and sort values, excluding rows where any field is None
+        subsector_values = sorted([subsector[0] for subsector in subsectors if all(subsector)])
+        segment_values = sorted([segment[0] for segment in segments if all(segment)])
+        economicSector_values = sorted([economicSector[0] for economicSector in economicSectors if all(economicSector)])
 
-        # Query the database to retrieve other columns
+        # Query the database to retrieve other columns, excluding rows with None in any column
         data = db.session.query(
             StockListInfo.symbol, 
             StockListInfo.economicSector, 
             StockListInfo.subSector, 
             StockListInfo.segment
-        ).all()
+        ).filter(StockListInfo.symbol != None, StockListInfo.economicSector != None, StockListInfo.subSector != None, StockListInfo.segment != None).all()
 
-        # Store unique values for each column
+        # Process the data and populate the unique sets
+        formatted_data = []
         unique_symbols = set()
         unique_economicSectors = set()
         unique_subsectors = set()
         unique_segments = set()
 
-        # Process the data and populate the unique sets
-        formatted_data = []
         for d in data:
             formatted_data.append({'symbol': d[0], 'economicSector': d[1], 'subSector': d[2], 'segment': d[3]})
             unique_symbols.add(d[0])
@@ -46,15 +45,16 @@ def fetch_data_from_database():
             unique_segments.add(d[3])
 
         # Convert sets to sorted lists
-        unique_symbols = sorted(list(unique_symbols))
-        unique_economicSectors = sorted(list(unique_economicSectors))
-        unique_subsectors = sorted(list(unique_subsectors))
-        unique_segments = sorted(list(unique_segments))
+        unique_symbols = sorted(unique_symbols)
+        unique_economicSectors = sorted(unique_economicSectors)
+        unique_subsectors = sorted(unique_subsectors)
+        unique_segments = sorted(unique_segments)
 
         return formatted_data, subsector_values, segment_values, economicSector_values, unique_symbols, unique_economicSectors, unique_subsectors, unique_segments
     except Exception as e:
         print("Error fetching data from database:", e)
         return [], [], [], [], [], [], [], []
+
 
 
 
@@ -293,8 +293,9 @@ def login_post():
             return redirect(url_for('pages.login'))
 
         data = fetch_data_from_database()
+        # Print to verify what's being stored in the session
+        print("Data being stored in session:", data)
         session['table_data'] = data
-        print(data)
 
         login_user(user, remember=remember)
         flash("Login successful!", "success")  # Add a success message
