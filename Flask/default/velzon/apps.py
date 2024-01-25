@@ -318,7 +318,7 @@ def job_statistics():
 
 @apps.route('/apps/stocks/list')
 @login_required
-def stocks_list():
+def stocks_list():    
     print("stocks_list route called")
     # Check if all required data is in the session
     if 'table_data' not in session or 'subsectors' not in session or 'segments' not in session or 'economicSectors' not in session:
@@ -371,6 +371,11 @@ def sectors_list():
     unique_economicSectors = sorted(list(set(session['economicSectors'])))
     unique_subsectors = sorted(list(set(session['subsectors'])))
     unique_segments = sorted(list(set(session['segments'])))
+
+        # Calculate the counts of unique items for each category
+    unique_economicSectors_count = len(set(session['economicSectors']))
+    unique_subsectors_count = len(set(session['subsectors']))
+    unique_segments_count = len(set(session['segments']))
     
     # Extract symbols from table_data and count unique symbols
     symbols = [item['symbol'] for item in session['table_data']]
@@ -385,7 +390,11 @@ def sectors_list():
                            unique_economicSectors=unique_economicSectors,
                            unique_subsectors=unique_subsectors,
                            unique_segments=unique_segments,
-                           unique_symbols=unique_symbols_count)
+                           unique_symbols=unique_symbols_count,
+                           unique_economicSectors_count=unique_economicSectors_count,
+                           unique_subsectors_count=unique_subsectors_count,
+                           unique_segments_count=unique_segments_count,
+                           unique_symbols_count=unique_symbols_count)
 
 
 

@@ -96,7 +96,7 @@
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_economicSectors_count }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all economic sectors</a>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-home" class="text-decoration-underline">View all economic sectors</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -129,7 +129,7 @@
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_subsectors_count }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all subsectors</a>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-profile" class="text-decoration-underline">View all subsectors</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -160,7 +160,7 @@
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_segments_count }}">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all segments</a>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-messages" class="text-decoration-underline">View all segments</a>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">

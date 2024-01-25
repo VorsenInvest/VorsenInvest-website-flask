@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    var hash = window.location.hash;
+    if (hash) {
+        $('.nav-pills a[href="' + hash + '"]').tab('show');
+    }
+
     // Initialize DataTable for Economic Sectors
     if (!$.fn.DataTable.isDataTable('#sector-list')) {
         $('#sector-list').DataTable({

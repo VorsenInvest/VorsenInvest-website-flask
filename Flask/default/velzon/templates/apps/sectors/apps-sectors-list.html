@@ -1,5 +1,5 @@
 {% extends "partials/base.html" %}
-{% block title %}Stock List{% endblock title %}
+{% block title %}Sectors List{% endblock title %}
 {% block extra_css %}
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
@@ -45,7 +45,39 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Stocks</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                                <span class="counter-value" data-target="{{ unique_symbols_count }}">0</span></h4>
+                                                <a href="{{ url_for('apps.stocks_list') }}" class="text-decoration-underline">View all stocks</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i data-feather="activity" class="text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                        <div class="col-xl-3 col-md-6">
                             <!-- card -->
                             <div class="card card-animate">
                                 <div class="card-body">
@@ -63,20 +95,22 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="31">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all economic sectors</a>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_economicSectors_count }}">0</span></h4>
+                                            <br>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="bx bx-shopping-bag text-info"></i>
+                                                <i class="ri-layout-top-line text-info"></i>
                                             </span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
                         </div><!-- end col -->
-                                
-                        <div class="col-xl-4 col-md-6">
+                    
+
+                    
+                        <div class="col-xl-3 col-md-6">
                             <!-- card -->
                             <div class="card card-animate">
                                 <div class="card-body">
@@ -94,12 +128,12 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="87">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all subsectors</a>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_subsectors_count }}">0</span></h4>
+                                            <br>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="bx bx-shopping-bag text-info"></i>
+                                                <i class="ri-layout-5-line text-info"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -107,7 +141,7 @@
                             </div><!-- end card -->
                         </div><!-- end col -->
 
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-3 col-md-6">
                             <!-- card -->
                             <div class="card card-animate">
                                 <div class="card-body">
@@ -125,19 +159,19 @@
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
                                         <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="117">0</span></h4>
-                                            <a href="" class="text-decoration-underline">View all segments</a>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_segments_count }}">0</span></h4>
+                                            <br>
                                         </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="bx bx-shopping-bag text-info"></i>
+                                                <i class="ri-table-line text-info"></i>
                                             </span>
                                         </div>
                                     </div>
                                 </div><!-- end card body -->
                             </div><!-- end card -->
                         </div><!-- end col -->
-                    </d iv>
+                    </div>
  
                     <div class="col-xxl-12">
                         <div class="card">
@@ -157,14 +191,14 @@
                                     <div class="row">
                                         <div class="col-lg-3">
                                             <div class="nav nav-pills flex-column nav-pills-tab custom-verti-nav-pills text-center" role="tablist" aria-orientation="vertical">
-                                                <a class="nav-link active show" id="custom-v-pills-home-tab" data-bs-toggle="pill" href="#custom-v-pills-home" role="tab" aria-controls="custom-v-pills-home" aria-selected="true">
-                                                    <i class="ri-home-4-line d-block fs-20 mb-1"></i> Home
+                                                <a class="nav-link" id="custom-v-pills-home-tab" data-bs-toggle="pill" href="#custom-v-pills-home" role="tab" aria-controls="custom-v-pills-home" aria-selected="false">
+                                                    <i class="ri-layout-top-line d-block fs-20 mb-1"></i> Econommic Sector
                                                 </a>
                                                 <a class="nav-link" id="custom-v-pills-profile-tab" data-bs-toggle="pill" href="#custom-v-pills-profile" role="tab" aria-controls="custom-v-pills-profile" aria-selected="false">
-                                                    <i class="ri-user-2-line d-block fs-20 mb-1"></i> Profile
+                                                    <i class="ri-layout-5-line d-block fs-20 mb-1"></i> Subsector
                                                 </a>
                                                 <a class="nav-link" id="custom-v-pills-messages-tab" data-bs-toggle="pill" href="#custom-v-pills-messages" role="tab" aria-controls="custom-v-pills-messages" aria-selected="false">
-                                                    <i class="ri-mail-line d-block fs-20 mb-1"></i> Messages
+                                                    <i class="ri-table-line d-block fs-20 mb-1"></i> Segments
                                                 </a>
                                             </div>
                                         </div> <!-- end col-->
@@ -176,15 +210,11 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                    <h5 class="card-title mb-0">Economic Sector</h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="sector-list">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Economic Sector</th>
-                                                                            </tr>
-                                                                        </thead>
+            
                                                                         <tbody>
                                                                             {% for sector in unique_economicSectors %}
                                                                             <tr>
@@ -205,15 +235,11 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                    <h5 class="card-title mb-0">Subsectors</h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="subsector-list">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Subsectors</th>
-                                                                            </tr>
-                                                                        </thead>
+ 
                                                                         <tbody>
                                                                             {% for sector in unique_subsectors %}
                                                                             <tr>
@@ -234,15 +260,11 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Ajax Datatables</h5>
+                                                                    <h5 class="card-title mb-0">Segments</h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="segment-list">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>Segments</th>
-                                                                            </tr>
-                                                                        </thead>
+
                                                                         <tbody>
                                                                             {% for sector in unique_segments %}
                                                                             <tr>
