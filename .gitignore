@@ -1,9 +1,19 @@
+# General Python ignores
+__pycache__/
+*.pyc
+
+# Flask specific ignores
 Flask/default/env/
 Flask/default/flask_session/
-Flask/default/velzon/node_modules
+Flask/default/velzon/node_modules/
+Flask/default/__pycache__/
+Flask/default/velzon/__pycache__/
+
+# Environment files
+.env
+
+# Exclude all within Flask directory except for 'default'
 Flask/*
 !Flask/default/
-.env
-Flask/default/__pycache__
-Flask/default/velzon/__pycache__
-*.pyc
+
+

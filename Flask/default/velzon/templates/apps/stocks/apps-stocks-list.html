@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Additional styles for the dropdown menu -->
+    <style>
+        .dropdown-menu {
+            max-height: 400px; /* Adjust this value as needed to fit 10 lines */
+            overflow-y: auto; /* Enables vertical scrolling */
+        }
+    </style>
     
 {% endblock extra_css %}
 {% block content %}
@@ -235,20 +242,29 @@
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
                                             <div class="btn-group">
-                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdowMenuClickableInside" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
-                                                   Subsector
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdowMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Subsector
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="subSectorDropdown">
-                                                    {% for subsector in subsectors %}
+                                                    <!-- All option -->
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input" id="selectAll"> All
+                                                        </label>
+                                                    </li>
+                                                    {% for subsector in subsectors|select('!=', None)|sort %}
                                                         <li>
                                                             <label class="dropdown-item">
-                                                                <input type="checkbox" class="form-check-input"> {{ subsector }}
+                                                                <input type="checkbox" class="form-check-input subsector-option"> {{ subsector }}
                                                             </label>
                                                         </li>
                                                     {% endfor %}
+
                                                 </ul>
                                             </div>
                                         </div>
+                                        
+
                                         
                                         <!--end col-->
                                         <div class="col-xl-1 col-md-4">
@@ -312,4 +328,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
 <script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
+<script src="{{ url_for('static', filename='js/pages/stocks-list.init.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
 {% endblock extra_js %}
