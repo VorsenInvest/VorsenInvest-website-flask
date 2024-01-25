@@ -13,7 +13,7 @@ function initializeTables() {
         "scrollY": "420px",
         "scrollCollapse": true,
         "paging": false,
-        "searching": true  // Add this line to disable search
+        "searching": true  // This line enables search functionality
     });
 
     let scrollVertical = new DataTable('#scroll-vertical', {

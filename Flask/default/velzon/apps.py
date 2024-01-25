@@ -323,18 +323,31 @@ def stocks_list():
     # Check if all required data is in the session
     if 'table_data' not in session or 'subsectors' not in session or 'segments' not in session or 'economicSectors' not in session:
         print("Fetching new data from database")
-        # Update this line to fetch and store all necessary data
-        session['table_data'], session['subsectors'], session['segments'], session['economicSectors'] = fetch_data_from_database()
+        # Fetch and store all necessary data, including unique counts if needed
+        session['table_data'], session['subsectors'], session['segments'], session['economicSectors'], _, _, _, _ = fetch_data_from_database()
     else:
         print("Data already in session")
 
-    print("Session data:", session['table_data'])
-    # Pass all data to the template
+    # Calculate the counts of unique items for each category
+    unique_economicSectors_count = len(set(session['economicSectors']))
+    unique_subsectors_count = len(set(session['subsectors']))
+    unique_segments_count = len(set(session['segments']))
+    
+    # Extract symbols from table_data and count unique symbols
+    symbols = [item['symbol'] for item in session['table_data']]
+    unique_symbols_count = len(set(symbols))
+
+    # Pass all data and counts to the template
     return render_template('apps/stocks/apps-stocks-list.html', 
                            table_data=session['table_data'], 
                            subsectors=session['subsectors'],
                            segments=session['segments'],
-                           economicSectors=session['economicSectors'])
+                           economicSectors=session['economicSectors'],
+                           unique_economicSectors_count=unique_economicSectors_count,
+                           unique_subsectors_count=unique_subsectors_count,
+                           unique_segments_count=unique_segments_count,
+                           unique_symbols_count=unique_symbols_count)
+
 
 
 @apps.route('/apps/stocks/indicators')

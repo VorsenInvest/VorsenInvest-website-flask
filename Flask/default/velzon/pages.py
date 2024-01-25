@@ -30,15 +30,31 @@ def fetch_data_from_database():
             StockListInfo.segment
         ).all()
 
-        formatted_data = [
-            {'symbol': d[0], 'economicSector': d[1], 'subSector': d[2], 'segment': d[3]} 
-            for d in data
-        ]
+        # Store unique values for each column
+        unique_symbols = set()
+        unique_economicSectors = set()
+        unique_subsectors = set()
+        unique_segments = set()
 
-        return formatted_data, subsector_values, segment_values, economicSector_values
+        # Process the data and populate the unique sets
+        formatted_data = []
+        for d in data:
+            formatted_data.append({'symbol': d[0], 'economicSector': d[1], 'subSector': d[2], 'segment': d[3]})
+            unique_symbols.add(d[0])
+            unique_economicSectors.add(d[1])
+            unique_subsectors.add(d[2])
+            unique_segments.add(d[3])
+
+        # Convert sets to sorted lists
+        unique_symbols = sorted(list(unique_symbols))
+        unique_economicSectors = sorted(list(unique_economicSectors))
+        unique_subsectors = sorted(list(unique_subsectors))
+        unique_segments = sorted(list(unique_segments))
+
+        return formatted_data, subsector_values, segment_values, economicSector_values, unique_symbols, unique_economicSectors, unique_subsectors, unique_segments
     except Exception as e:
         print("Error fetching data from database:", e)
-        return [], [], [], []
+        return [], [], [], [], [], [], [], []
 
 
 

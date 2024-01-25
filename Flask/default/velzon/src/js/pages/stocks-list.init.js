@@ -1,22 +1,34 @@
 $(document).ready(function() {
 
-    // Initialize DataTables
-    table = $('#stock-list').DataTable({
-        // DataTables configuration options
+    // Check if the DataTable instance already exists
+    if (!$.fn.DataTable.isDataTable('#stock-list')) {
+        var table = $('#stock-list').DataTable({
+            // DataTables configuration options
+        });
+    } else {
+        // If it already exists, retrieve the existing instance
+        var table = $('#stock-list').DataTable();
+    }
+
+    // Event listener for Subsector Dropdown (assuming multiple selections are possible)
+    $('.subsector-option').change(function() {
+        var selectedSubsectors = $('.subsector-option:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var subsectorFilter = selectedSubsectors.join('|');
+        table.column(2).search(subsectorFilter, true, false).draw();
     });
 
-    // Event listener for Subsector Dropdown
-    $('#subsector-filter').change(function() {
-        var subsector = $(this).val();
-        table.column(2).search(subsector).draw();
+    // Event listener for Segment Dropdown (assuming multiple selections are possible)
+    $('.segment-option').change(function() {
+        var selectedSegments = $('.segment-option:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var segmentFilter = selectedSegments.join('|');
+        table.column(3).search(segmentFilter, true, false).draw();
     });
 
-    // Event listener for Segment Dropdown
-    $('#segment-filter').change(function() {
-        var segment = $(this).val();
-        table.column(3).search(segment).draw();
-    });
-
+    
     // Event listener for Economic Sector Dropdown
     $('.economicSector-option').change(function() {
         var selectedSectors = $('.economicSector-option:checked').map(function() {
@@ -79,7 +91,11 @@ $(document).ready(function() {
             $(selectAllId).prop('checked', allChecked);
         }
     }
-
+s
+    // Re-calculate and update counts when data changes
+    table.on('draw', function() {
+        updateUniqueCounts();
+    });
 
 
     // List.js related code
