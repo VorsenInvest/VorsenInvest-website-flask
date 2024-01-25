@@ -1,89 +1,116 @@
-/*
-Template Name: Velzon - Admin & Dashboard Template
-Author: Themesbrand
-Website: https://Themesbrand.com/
-Contact: Themesbrand@gmail.com
-File: datatables init js
-*/
+$(document).ready(function() {
 
-function initializeTables() {
-    let example = new DataTable('#example',);
+    // Initialize DataTable for Economic Sectors
+    if (!$.fn.DataTable.isDataTable('#sector-list')) {
+        $('#sector-list').DataTable({
+            // DataTables configuration options
+        });
+    }
 
-    let scrollVertical = new DataTable('#scroll-vertical', {
-        "scrollY": "210px",
-        "scrollCollapse": true,
-        "paging": false
+    // Initialize DataTable for Subsectors
+    if (!$.fn.DataTable.isDataTable('#subsector-list')) {
+        $('#subsector-list').DataTable({
+            // DataTables configuration options
+        });
+    }
+
+    // Initialize DataTable for Segments
+    if (!$.fn.DataTable.isDataTable('#segment-list')) {
+        $('#segment-list').DataTable({
+            // DataTables configuration options
+        });
+    }
+    
+    // Event listener for Subsector Dropdown (assuming multiple selections are possible)
+    $('.subsector-option').change(function() {
+        var selectedSubsectors = $('.subsector-option:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var subsectorFilter = selectedSubsectors.join('|');
+        table.column(2).search(subsectorFilter, true, false).draw();
     });
 
-    let scrollHorizontal = new DataTable('#scroll-horizontal', {
-        "scrollX": true
+    // Event listener for Segment Dropdown (assuming multiple selections are possible)
+    $('.segment-option').change(function() {
+        var selectedSegments = $('.segment-option:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var segmentFilter = selectedSegments.join('|');
+        table.column(3).search(segmentFilter, true, false).draw();
     });
 
-    let alternativePagination = new DataTable('#alternative-pagination', {
-        "pagingType": "full_numbers"
+    
+    // Event listener for Economic Sector Dropdown
+    $('.economicSector-option').change(function() {
+        var selectedSectors = $('.economicSector-option:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var economicSectorFilter = selectedSectors.join('|');
+        table.column(1).search(economicSectorFilter, true, false).draw();
     });
 
-    //fixed header
-    let fixedHeader = new DataTable('#fixed-header', {
-        "fixedHeader": true
+    // Event listener for "Select All" Subsector
+    $('#selectAllSubsectors').change(function() {
+        var selected = $(this).prop('checked');
+        $('.subsector-option').prop('checked', selected).trigger('change');
     });
 
-    //modal data data tables
-    let modelDataTables = new DataTable('#model-datatables', {
-        responsive: {
-            details: {
-                display: $.fn.dataTable.Responsive.display.modal({
-                    header: function (row) {
-                        var data = row.data();
-                        return 'Details for ' + data[0] + ' ' + data[1];
-                    }
-                }),
-                renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                    tableClass: 'table'
-                })
-            }
+    // Event listener for "Select All" Segment
+    $('#selectAllSegments').change(function() {
+        var selected = $(this).prop('checked');
+        $('.segment-option').prop('checked', selected).trigger('change');
+    });
+
+    // Event listener for "Select All" Economic Sectors
+    $('#selectAllEconomicSectors').change(function() {
+        var selected = $(this).prop('checked');
+        $('.economicSector-option').prop('checked', selected).trigger('change');
+    });
+
+    // Subsector
+    $('#selectAll').change(function() {
+        $('.subsector-option').prop('checked', this.checked);
+    });
+
+    $('.subsector-option').change(function() {
+        updateSelectAllState(this, '.subsector-option', '#selectAll');
+    });
+
+    // Segment
+    $('#selectAllSegments').change(function() {
+        $('.segment-option').prop('checked', this.checked);
+    });
+
+    $('.segment-option').change(function() {
+        updateSelectAllState(this, '.segment-option', '#selectAllSegments');
+    });
+
+    // Economic Sector
+    $('#selectAllEconomicSectors').change(function() {
+        $('.economicSector-option').prop('checked', this.checked);
+    });
+
+    $('.economicSector-option').change(function() {
+        updateSelectAllState(this, '.economicSector-option', '#selectAllEconomicSectors');
+    });
+
+    function updateSelectAllState(checkbox, optionClass, selectAllId) {
+        if (!checkbox.checked) {
+            $(selectAllId).prop('checked', false);
+        } else {
+            var allChecked = $(optionClass).length === $(optionClass + ':checked').length;
+            $(selectAllId).prop('checked', allChecked);
         }
+    }
+s
+    // Re-calculate and update counts when data changes
+    table.on('draw', function() {
+        updateUniqueCounts();
     });
 
-    //buttons examples
-    let buttonsDataTables = new DataTable('#buttons-datatables', {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'print', 'pdf'
-        ]
-    });
-
-    //buttons examples
-    let ajaxDataTables = new DataTable('#ajax-datatables', {
-        "ajax": '/static/json/datatable.json'
-    });
-
-    var t = $('#add-rows').DataTable();
-    var counter = 1;
-
-    $('#addRow').on('click', function () {
-        t.row.add([
-            counter + '.1',
-            counter + '.2',
-            counter + '.3',
-            counter + '.4',
-            counter + '.5',
-            counter + '.6',
-            counter + '.7',
-            counter + '.8',
-            counter + '.9',
-            counter + '.10',
-            counter + '.11',
-            counter + '.12'
-        ]).draw(false);
-
-        counter++;
-    });
-
-    // Automatically add a first row of data
-    $('#addRow').trigger('click');
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    initializeTables();
 });
+
+
+
+
+

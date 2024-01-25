@@ -16,6 +16,10 @@ function initializeTables() {
         "searching": true  // This line enables search functionality
     });
 
+    let sectorList = new DataTable('#sector-list',);
+    let subsectorList = new DataTable('#subsector-list',);
+    let segmentList = new DataTable('#segment-list',);
+
     let scrollVertical = new DataTable('#scroll-vertical', {
         "scrollY": "210px",
         "scrollCollapse": true,
@@ -64,6 +68,11 @@ function initializeTables() {
     let ajaxDataTables = new DataTable('#ajax-datatables', {
         "ajax": '/static/json/datatable.json'
     });
+
+    let sectorDataTables = new DataTable('#sector-datatables', {
+        "ajax": '/apps/sectors/list'
+    });
+    
 
     var t = $('#add-rows').DataTable();
     var counter = 1;
