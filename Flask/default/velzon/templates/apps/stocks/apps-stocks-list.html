@@ -207,37 +207,28 @@
                                         -->
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idEconomicSector" id="idEconomicSector">
-                                                <option value="all">All</option>
-                                                <option value="Buy">Buy</option>
-                                                <option value="Sell">Sell</option>
-                                            </select>
-                                        </div>
-                                        <!--end col-->
-                                        <div class="col-xl-2 col-md-4">
                                             <div class="btn-group">
-                                                <button class="btn btn-light dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                                   Subsector
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuEconomicSector" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Economic Sector
                                                 </button>
-                                                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                                                <ul class="dropdown-menu" aria-labelledby="economicSectorDropdown">
+                                                    <!-- All option -->
                                                     <li>
                                                         <label class="dropdown-item">
-                                                            <input type="checkbox" class="form-check-input"> Menu item 1
+                                                            <input type="checkbox" class="form-check-input" id="selectAllEconomicSectors"> All
                                                         </label>
                                                     </li>
-                                                    <li>
-                                                        <label class="dropdown-item">
-                                                            <input type="checkbox" class="form-check-input"> Menu item 2
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <label class="dropdown-item">
-                                                            <input type="checkbox" class="form-check-input"> Menu item 3
-                                                        </label>
-                                                    </li>
+                                                    {% for economicSector in economicSectors|select('!=', None)|sort %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input economicSector-option"> {{ economicSector }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
+                                        
                                         
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
@@ -263,13 +254,31 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="col-xl-2 col-md-4">
+                                            <div class="btn-group">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuSegment" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Segment
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="segmentDropdown">
+                                                    <!-- All option -->
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input" id="selectAllSegments"> All
+                                                        </label>
+                                                    </li>
+                                                    {% for segment in segments|select('!=', None)|sort %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input segment-option"> {{ segment }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
                                         
 
                                         
-                                        <!--end col-->
-                                        <div class="col-xl-1 col-md-4">
-                                            <button class="btn btn-success w-100" onclick="filterData();">Filters</button>
-                                        </div>
                                     </div>
                                     <!--end row-->
                                 </div>

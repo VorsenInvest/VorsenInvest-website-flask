@@ -12,9 +12,15 @@ pages = Blueprint('pages',__name__,template_folder='templates',
     
 def fetch_data_from_database():
     try:
-        # Query the database to retrieve unique subSector values
+        # Query the database to retrieve unique subSector, segment, and economicSector values
         subsectors = db.session.query(StockListInfo.subSector.distinct()).all()
-        subsector_values = [subsector[0] for subsector in subsectors]
+        segments = db.session.query(StockListInfo.segment.distinct()).all()
+        economicSectors = db.session.query(StockListInfo.economicSector.distinct()).all()
+
+        # Extract values and sort them (optional sorting for better dropdown organization)
+        subsector_values = sorted([subsector[0] for subsector in subsectors if subsector[0] is not None])
+        segment_values = sorted([segment[0] for segment in segments if segment[0] is not None])
+        economicSector_values = sorted([economicSector[0] for economicSector in economicSectors if economicSector[0] is not None])
 
         # Query the database to retrieve other columns
         data = db.session.query(
@@ -29,10 +35,11 @@ def fetch_data_from_database():
             for d in data
         ]
 
-        return formatted_data, subsector_values
+        return formatted_data, subsector_values, segment_values, economicSector_values
     except Exception as e:
         print("Error fetching data from database:", e)
-        return [], []
+        return [], [], [], []
+
 
 
     

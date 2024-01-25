@@ -1,16 +1,40 @@
 $(document).ready(function() {
+    // Subsector
     $('#selectAll').change(function() {
         $('.subsector-option').prop('checked', this.checked);
     });
 
     $('.subsector-option').change(function() {
-        if (!this.checked) {
-            $('#selectAll').prop('checked', false);
-        } else {
-            var allChecked = $('.subsector-option').length === $('.subsector-option:checked').length;
-            $('#selectAll').prop('checked', allChecked);
-        }
+        updateSelectAllState(this, '.subsector-option', '#selectAll');
     });
+
+    // Segment
+    $('#selectAllSegments').change(function() {
+        $('.segment-option').prop('checked', this.checked);
+    });
+
+    $('.segment-option').change(function() {
+        updateSelectAllState(this, '.segment-option', '#selectAllSegments');
+    });
+
+    // Economic Sector
+    $('#selectAllEconomicSectors').change(function() {
+        $('.economicSector-option').prop('checked', this.checked);
+    });
+
+    $('.economicSector-option').change(function() {
+        updateSelectAllState(this, '.economicSector-option', '#selectAllEconomicSectors');
+    });
+
+    function updateSelectAllState(checkbox, optionClass, selectAllId) {
+        if (!checkbox.checked) {
+            $(selectAllId).prop('checked', false);
+        } else {
+            var allChecked = $(optionClass).length === $(optionClass + ':checked').length;
+            $(selectAllId).prop('checked', allChecked);
+        }
+    }
+
 
 
     // List.js related code

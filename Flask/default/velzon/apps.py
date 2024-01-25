@@ -320,16 +320,22 @@ def job_statistics():
 @login_required
 def stocks_list():
     print("stocks_list route called")
-    if 'table_data' not in session or 'subsectors' not in session:
+    # Check if all required data is in the session
+    if 'table_data' not in session or 'subsectors' not in session or 'segments' not in session or 'economicSectors' not in session:
         print("Fetching new data from database")
-        session['table_data'], session['subsectors'] = fetch_data_from_database()
+        # Update this line to fetch and store all necessary data
+        session['table_data'], session['subsectors'], session['segments'], session['economicSectors'] = fetch_data_from_database()
     else:
         print("Data already in session")
 
     print("Session data:", session['table_data'])
-    return render_template('apps/stocks/apps-stocks-list.html', table_data=session['table_data'], subsectors=session['subsectors'])
+    # Pass all data to the template
+    return render_template('apps/stocks/apps-stocks-list.html', 
+                           table_data=session['table_data'], 
+                           subsectors=session['subsectors'],
+                           segments=session['segments'],
+                           economicSectors=session['economicSectors'])
 
- 
 
 @apps.route('/apps/stocks/indicators')
 @login_required
