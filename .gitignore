@@ -6,3 +6,4 @@ Flask/*
 .env
 Flask/default/__pycache__
 Flask/default/velzon/__pycache__
+*.pyc

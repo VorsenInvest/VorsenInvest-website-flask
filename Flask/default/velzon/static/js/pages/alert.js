@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){var t=document.querySelector(".animated-alert");t&&(t.style.opacity="1",t.style.transform="translateY(0)",setTimeout(function(){t.style.opacity="0"},5e3))});
