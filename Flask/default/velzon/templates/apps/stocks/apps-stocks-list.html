@@ -203,7 +203,7 @@
                                         -->
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <div class="btn-group">
+                                            <div class="btn-group" style="width: 100%;">
                                                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuEconomicSector" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                                     Economic Sector
                                                 </button>
@@ -217,7 +217,7 @@
                                                     {% for economicSector in economicSectors|select('!=', None)|sort %}
                                                         <li>
                                                             <label class="dropdown-item">
-                                                                <input type="checkbox" class="form-check-input economicSector-option"> {{ economicSector }}
+                                                                <input type="checkbox" class="form-check-input economicSector-option" data-value="{{ economicSector }}"> {{ economicSector }}
                                                             </label>
                                                         </li>
                                                     {% endfor %}
@@ -226,36 +226,37 @@
                                         </div>
                                         
                                         
+                                        
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <div class="btn-group">
-                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdowMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                            <div class="btn-group" style="width: 100%;">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuSubsector" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                                     Subsector
                                                 </button>
-                                                <ul class="dropdown-menu" aria-labelledby="subSectorDropdown">
+                                                <ul class="dropdown-menu" aria-labelledby="subSectorDropdown" id="subsector-filter">
                                                     <!-- All option -->
                                                     <li>
                                                         <label class="dropdown-item">
-                                                            <input type="checkbox" class="form-check-input" id="selectAll"> All
+                                                            <input type="checkbox" class="form-check-input" id="selectAllSubsectors"> All
                                                         </label>
                                                     </li>
                                                     {% for subsector in subsectors|select('!=', None)|sort %}
                                                         <li>
                                                             <label class="dropdown-item">
-                                                                <input type="checkbox" class="form-check-input subsector-option"> {{ subsector }}
+                                                                <input type="checkbox" class="form-check-input subsector-option" data-value="{{ subsector }}"> {{ subsector }}
                                                             </label>
                                                         </li>
                                                     {% endfor %}
-
                                                 </ul>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-xl-2 col-md-4">
-                                            <div class="btn-group">
+                                            <div class="btn-group" style="width: 100%;">
                                                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuSegment" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                                     Segment
                                                 </button>
-                                                <ul class="dropdown-menu" aria-labelledby="segmentDropdown">
+                                                <ul class="dropdown-menu" aria-labelledby="segmentDropdown" id="segment-filter">
                                                     <!-- All option -->
                                                     <li>
                                                         <label class="dropdown-item">
@@ -265,13 +266,14 @@
                                                     {% for segment in segments|select('!=', None)|sort %}
                                                         <li>
                                                             <label class="dropdown-item">
-                                                                <input type="checkbox" class="form-check-input segment-option"> {{ segment }}
+                                                                <input type="checkbox" class="form-check-input segment-option" data-value="{{ segment }}"> {{ segment }}
                                                             </label>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
+                                        
                                         
 
                                         
