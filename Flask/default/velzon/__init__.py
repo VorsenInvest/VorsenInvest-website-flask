@@ -31,6 +31,7 @@ def create_app():
 
     login_manager = LoginManager(app)
     login_manager.login_view= 'pages.login'
+    login_manager.init_app(app)
         
     from .models import User, UserInfo
     with app.app_context():

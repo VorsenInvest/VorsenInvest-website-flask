@@ -33,6 +33,8 @@ File: Main Js File
 		if (document.getElementById("header-lang-img")) {
 			if (lang == "en") {
 				document.getElementById("header-lang-img").src = "/static/images/flags/us.svg";
+			} else if (lang == "pt-br") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/br.svg";
 			} else if (lang == "sp") {
 				document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
 			} else if (lang == "gr") {

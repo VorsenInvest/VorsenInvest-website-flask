@@ -138,6 +138,12 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="pt-br" title="Portuguese-BR">
+                                    <img src="{{url_for('static' ,filename='images/flags/br.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                    <span class="align-middle">Português(BR)</span>
+                                </a>
+
+                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="en" title="English">
                                     <img src="{{url_for('static' ,filename='images/flags/us.svg')}}" alt="user-image" class="me-2 rounded" height="18">
                                     <span class="align-middle">English</span>
@@ -673,15 +679,15 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <h6 class="dropdown-header">Welcome {{ user_info.first_name }}!</h6>
-                                <a class="dropdown-item" href="/pages/profile"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                                <a class="dropdown-item" href="/apps/chat"><i class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
-                                <a class="dropdown-item" href="/apps/tasks/kanban"><i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
-                                <a class="dropdown-item" href="/pages/faqs"><i class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Help</span></a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/pages/profile"><i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Balance : <b>$5971.67</b></span></a>
-                                <a class="dropdown-item" href="/pages/settings"><span class="badge bg-success-subtle text-success mt-1 float-end">New</span><i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
-                                <a class="dropdown-item" href="/authentication/auth-lockscreen-basic"><i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
+                                <h6 class="dropdown-header" data-key="t-welcome">Welcome {{ user_info.first_name }}!</h6>
+                                <!--<a class="dropdown-item" href="/pages/profile"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>-->
+                                <!--<a class="dropdown-item" href="/apps/chat"><i class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>-->
+                                <!--<a class="dropdown-item" href="/apps/tasks/kanban"><i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>-->
+                                <a class="dropdown-item" href="/pages/faqs"><i class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-help">Help</span></a>
+                                <!--<div class="dropdown-divider"></div>-->
+                                <a class="dropdown-item" href="/pages/profile"><i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-balance">Balance: <b>1000 Vs</b></span></a>
+                                <a class="dropdown-item" href="/pages/settings"><span class="badge bg-success-subtle text-success mt-1 float-end">New</span><i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-settings">Settings</span></a>
+                                <a class="dropdown-item" href="/authentication/auth-lockscreen-basic"><i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-lock-screen">Lock screen</span></a>
                                 
                                <a class="dropdown-item" href="/account/logout">
                                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> 
