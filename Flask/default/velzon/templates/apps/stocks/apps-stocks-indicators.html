@@ -1,5 +1,5 @@
 {% extends "partials/base.html" %}
-{% block title %}Stock List{% endblock title %}
+{% block title %}Stock Indicators{% endblock title %}
 {% block extra_css %}
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        .dropdown-menu {
+            max-height: 400px; /* Adjust this value as needed to fit 10 lines */
+            overflow-y: auto; /* Enables vertical scrolling */
+        }
+    </style>
     
 {% endblock extra_css %}
 {% block content %}
@@ -36,7 +42,134 @@
                         </div>
                     </div>
                     <!-- end page title -->
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Stocks</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                                <span class="counter-value" data-target="{{ unique_symbols_count }}">0</span></h4>
+                                                <br>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i data-feather="activity" class="text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
 
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Economic Sectors</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_economicSectors_count }}">0</span></h4>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-home" class="text-decoration-underline">View all economic sectors</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="ri-layout-top-line text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    
+
+                    
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Subsectors</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_subsectors_count }}">0</span></h4>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-profile" class="text-decoration-underline">View all subsectors</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="ri-layout-5-line text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                        <div class="col-xl-3 col-md-6">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Segments</p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <!--
+                                            <h5 class="text-danger fs-14 mb-0">
+                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                            </h5>
+                                            -->
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_segments_count }}">0</span></h4>
+                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-messages" class="text-decoration-underline">View all segments</a>
+                                        </div>
+                                        <div class="avatar-sm flex-shrink-0">
+                                            <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <i class="ri-table-line text-info"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </div>
                     <div class="card">
                         <div class="card-body">
                             <p class="text-muted">Use class to generate equal-width elements with all horizontal space will be occupied by nav links.</p>
@@ -101,7 +234,6 @@
                             </div>
                         </div><!-- end card-body -->
                     </div><!-- end card -->
- 
                     <div class="row" id="contactList">
                         <div class="col-lg-12">
                             <div class="card">
@@ -118,12 +250,8 @@
                                 </div>
                                 <div class="card-body border border-dashed border-end-0 border-start-0">
                                     <div class="row g-2">
-                                        <div class="col-xl-4 col-md-6">
-                                            <div class="search-box">
-                                                <input type="text" class="form-control search" placeholder="Search stocks...">
-                                                <i class="ri-search-line search-icon"></i>
-                                            </div>
-                                        </div>
+                                    
+                                    
                                         <!--end col-->
                                         <!--
                                         <div class="col-xl-3 col-md-6">
@@ -137,90 +265,159 @@
                                         -->
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idEconomicSector" id="idEconomicSector">
-                                                <option value="all">All</option>
-                                                <option value="Buy">Buy</option>
-                                                <option value="Sell">Sell</option>
-                                            </select>
+                                            <div class="btn-group" style="width: 100%;">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuEconomicSector" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Economic Sector
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="economicSectorDropdown">
+                                                    <!-- All option -->
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input" id="selectAllEconomicSectors"> All
+                                                        </label>
+                                                    </li>
+                                                    {% for economicSector in economicSectors|select('!=', None)|sort %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input economicSector-option-fund" data-value="{{ economicSector }}"> {{ economicSector }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
+                                        
+                                        
+                                        
                                         <!--end col-->
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idSubSector" id="idSubSector">
-                                                <option value="all">All</option>
-                                                <option value="Buy">Buy</option>
-                                                <option value="Sell">Sell</option>
-                                            </select>
+                                            <div class="btn-group" style="width: 100%;">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuSubsector" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Subsector
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="subSectorDropdown" id="subsector-filter">
+                                                    <!-- All option -->
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input" id="selectAllSubsectors"> All
+                                                        </label>
+                                                    </li>
+                                                    {% for subsector in subsectors|select('!=', None)|sort %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input subsector-option-fund" data-value="{{ subsector }}"> {{ subsector }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <!--end col-->
+                                        
                                         <div class="col-xl-2 col-md-4">
-                                            <select class="form-control" data-choices data-choices-search-false name="idSegment" id="idSegment">
-                                                <option value="all">All</option>
-                                                <option value="Successful">Successful</option>
-                                                <option value="Cancelled">Cancelled</option>
-                                                <option value="Pending">Pending</option>
-                                            </select>
+                                            <div class="btn-group" style="width: 100%;">
+                                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuSegment" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                                    Segment
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="segmentDropdown" id="segment-filter">
+                                                    <!-- All option -->
+                                                    <li>
+                                                        <label class="dropdown-item">
+                                                            <input type="checkbox" class="form-check-input" id="selectAllSegments"> All
+                                                        </label>
+                                                    </li>
+                                                    {% for segment in segments|select('!=', None)|sort %}
+                                                        <li>
+                                                            <label class="dropdown-item">
+                                                                <input type="checkbox" class="form-check-input segment-option-fund" data-value="{{ segment }}"> {{ segment }}
+                                                            </label>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <!--end col-->
-                                        <div class="col-xl-1 col-md-4">
-                                            <button class="btn btn-success w-100" onclick="filterData();">Filters</button>
-                                        </div>
+                                        
+                                        
+
+                                        
                                     </div>
                                     <!--end row-->
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-bordered dt-responsive nowrap align-middle mdl-data-table table-hover" style="width:100%" id="stocksTable">
+                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="stock-ind-fund">
                                         <thead>
                                             <tr>
                                                 <th>Ticker</th>
                                                 <th>Economic Sector</th>
                                                 <th>Subsector</th>
                                                 <th>Segment</th>
-                                                <!-- Add more headers if needed -->
+                                                <!-- Financial Indicators -->
+                                                <th>Quick Ratio</th>
+                                                <th>Current Ratio</th>
+                                                <th>Debt to Equity</th>
+                                                <th>Revenue per Share</th>
+                                                <th>Return on Assets</th>
+                                                <th>Return on Equity</th>
+                                                <th>Earnings Growth</th>
+                                                <th>Revenue Growth</th>
+                                                <th>Gross Margins</th>
+                                                <th>EBITDA Margins</th>
+                                                <th>Operating Margins</th>
+                                                <th>Profit Margins</th>
+                                                <th>Held % Insiders</th>
+                                                <th>Held % Institutions</th>
+                                                <th>Beta</th>
+                                                <th>Book Value</th>
+                                                <th>Earnings Quarterly Growth</th>
+                                                <th>Trailing EPS</th>
+                                                <th>Forward EPS</th>
+                                                <th>Enterprise to EBITDA</th>
+                                                <th>Enterprise to EBIT</th>
+                                                <th>Dividend Yield</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for row in table_data_fund %}
                                             <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">PETR4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment</a></td>
+                                                <td>{{ row['symbol'] }}</td>
+                                                <td>{{ row['economicSector'] }}</td>
+                                                <td>{{ row['subSector'] }}</td>
+                                                <td>{{ row['segment'] }}</td>
+                                                <!-- Financial Indicators -->
+                                                <td>{{ row['quickRatio'] }}</td>
+                                                <td>{{ row['currentRatio'] }}</td>
+                                                <td>{{ row['debtToEquity'] }}</td>
+                                                <td>{{ row['revenuePerShare'] }}</td>
+                                                <td>{{ row['returnOnAssets'] }}</td>
+                                                <td>{{ row['returnOnEquity'] }}</td>
+                                                <td>{{ row['earningsGrowth'] }}</td>
+                                                <td>{{ row['revenueGrowth'] }}</td>
+                                                <td>{{ row['grossMargins'] }}</td>
+                                                <td>{{ row['ebitdaMargins'] }}</td>
+                                                <td>{{ row['operatingMargins'] }}</td>
+                                                <td>{{ row['profitMargins'] }}</td>
+                                                <td>{{ row['heldPercentInsiders'] }}</td>
+                                                <td>{{ row['heldPercentInstitutions'] }}</td>
+                                                <td>{{ row['beta'] }}</td>
+                                                <td>{{ row['bookValue'] }}</td>
+                                                <td>{{ row['earningsQuarterlyGrowth'] }}</td>
+                                                <td>{{ row['trailingEps'] }}</td>
+                                                <td>{{ row['forwardEps'] }}</td>
+                                                <td>{{ row['enterpriseToEbitda'] }}</td>
+                                                <td>{{ row['enterpriseToEbit'] }}</td>
+                                                <td>{{ row['dividendYield'] }}</td>
                                             </tr>
-                                            <!-- Additional rows -->
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">MGLU3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 2</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 2</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 2</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">ITUB4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 3</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 3</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="javascript:void(0);" class="link-primary">BBDC4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Economic Sector 4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Subsector 4</a></td>
-                                                <td><a href="javascript:void(0);" class="link-primary">Segment 4</a></td>
-                                            </tr>
-                                            <tr>
-                                            <td><a href="javascript:void(0);" class="link-primary">VALE3</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Economic Sector 5</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Subsector 5</a></td>
-                                            <td><a href="javascript:void(0);" class="link-primary">Segment 5</a></td>
-                                            </tr>
-                                            <!-- Continue adding more rows as needed -->
-                                            </tbody>
-                                            </table>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
                                             
-                                            </div>
+                                </div>
                             </div>
                             <!--end card-->
                         </div>
                         <!--end col-->
                     </div>
                     <!--end row-->
+
 
                 </div>
                 <!-- container-fluid -->
@@ -236,7 +433,9 @@
 {% block extra_js %}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--datatable js-->
+<!--datatable js-->
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
@@ -247,4 +446,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
 <script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
+<script src="{{ url_for('static', filename='js/pages/stocks-indicators.init.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 {% endblock extra_js %}

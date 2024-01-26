@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template, session, redirect, url_for, jsonify, request
 from flask_login import login_required
 from .models import User, UserInfo, UserImage, StockListInfo
-from .pages import fetch_data_from_database
+from .pages import fetch_data_from_database, fetch_data_from_database_fund
 
 apps = Blueprint('apps',__name__,template_folder='templates',
     static_folder='static',)
@@ -353,7 +353,36 @@ def stocks_list():
 @apps.route('/apps/stocks/indicators')
 @login_required
 def stocks_indicators():
-    return render_template('apps/stocks/apps-stocks-indicators.html')           
+    print("stocks_indicators route called")
+    # Check if all required data is in the session
+    if 'table_data_fund' not in session or 'subsectors' not in session or 'segments' not in session or 'economicSectors' not in session:
+        print("Fetching new data from database")
+        # Fetch and store all necessary data, including unique counts if needed
+        session['table_data_fund'], session['subsectors'], session['segments'], session['economicSectors'], _, _, _, _ = fetch_data_from_database_fund()
+    else:
+        print("Data already in session")
+
+    # Calculate the counts of unique items for each category
+    unique_economicSectors_count = len(set(session['economicSectors']))
+    unique_subsectors_count = len(set(session['subsectors']))
+    unique_segments_count = len(set(session['segments']))
+    
+    # Extract symbols from table_data_fund and count unique symbols
+    symbols = [item['symbol'] for item in session['table_data_fund']]
+    unique_symbols_count = len(set(symbols))
+     # Print the data for debugging
+    print("table_data_fund:", session['table_data_fund'])
+
+    # Pass all data and counts to the template
+    return render_template('apps/stocks/apps-stocks-indicators.html', 
+                           table_data_fund=session['table_data_fund'], 
+                           subsectors=session['subsectors'],
+                           segments=session['segments'],
+                           economicSectors=session['economicSectors'],
+                           unique_economicSectors_count=unique_economicSectors_count,
+                           unique_subsectors_count=unique_subsectors_count,
+                           unique_segments_count=unique_segments_count,
+                           unique_symbols_count=unique_symbols_count)          
 
 @apps.route('/apps/sectors/list')
 @login_required

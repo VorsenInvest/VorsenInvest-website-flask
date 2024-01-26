@@ -202,7 +202,18 @@
     "t-level-2.2":"Nível 2.2",
     "t-level-3.1":"Nível 3.1",
     "t-level-3.2":"Nível 3.2",
-    "t-stocks":"Ações"
+
+    "t-stocks":"Ações",
+    "t-market-intelligence":"Inteligência de Mercado",
+    "t-stocks-list":"Lista de Ações",
+    "t-stocks-indicators":"Indicadores de Ações",
+    "t-sectors":"Setores",
+    "t-sectors-list":"Lista de Setores",
+    "t-sectors-indicators":"Indicadores Setoriais",
+    
+    "t-welcome":"Bem-vindo",
+    "t-help":"Ajuda",
+    "t-balance":"Balanço"
 }
 
 

@@ -16,6 +16,14 @@ function initializeTables() {
         "searching": true  // This line enables search functionality
     });
 
+    let stockIndicators = new DataTable('#stock-ind-fund', {
+        "scrollY": "420px",
+        "scrollCollapse": true,
+        "paging": false,
+        "scrooX": true,
+        "searching": true  // This line enables search functionality
+    });
+
     let sectorList = new DataTable('#sector-list',);
     let subsectorList = new DataTable('#subsector-list',);
     let segmentList = new DataTable('#segment-list',);

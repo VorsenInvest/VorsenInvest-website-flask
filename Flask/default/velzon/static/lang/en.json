@@ -210,5 +210,18 @@
     "t-level-2.2":"Level 2.2",
     "t-level-3.1":"Level 3.1",
     "t-level-3.2":"Level 3.2",
-    "t-stocks":"Stocks"
+
+    "t-stocks":"Stocks",
+    "t-market-intelligence":"Market Intelligence",
+    "t-stocks-list":"Stock List",
+    "t-stocks-indicators":"Stocks Indicators",
+    "t-sectors":"Sectors",
+    "t-sectors-list":"Sectors List",
+    "t-sectors-indicators":"Sectorial Indicators",
+    
+    "t-welcome":"Welcome",
+    "t-help":"Help",
+    "t-balance":"Balance"
+      
+    
 }

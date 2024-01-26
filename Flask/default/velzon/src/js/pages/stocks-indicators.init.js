@@ -1,74 +1,105 @@
-/*
-Template Name: Velzon - Admin & Dashboard Template
-Author: Themesbrand
-Website: https://Themesbrand.com/
-Contact: Themesbrand@gmail.com
-File: stocks-indicators init js
-*/
+$(document).ready(function() {
 
-// List Js
-var perPage = 10;
+    // Check if the DataTable instance already exists
+    if (!$.fn.DataTable.isDataTable('#stock-ind-fund')) {
+        var table = $('#stock-ind-fund').DataTable({
+            // DataTables configuration options
+        });
+    } else {
+        // If it already exists, retrieve the existing instance
+        var table = $('#stock-ind-fund').DataTable();
+    }
 
-//Table
-var options = {
-    valueNames: [
-        "ticker_name",
-        "economic_sector_name",
-        "subsector_name",
-        "segment_name",
-    ],
-    page: perPage,
-    pagination: true,
-    plugins: [
-        ListPagination({
-            left: 2,
-            right: 2
-        })
-    ]
-};
-
-
-
-function filterData(){
-    var iseconomicsector = document.getElementById("idEconomicSector").value;
-    var issubsector = document.getElementById("idSubSector").value;
-    var issegment = document.getElementById("idSegment").value;
-
-    contactList.filter(function (data) {
-        matchData = new DOMParser().parseFromString(data.values().status, "text/html");
-        var status = matchData.body.firstElementChild.innerHTML;
-        var economicsectorFilter = false;
-        var subsectorFilter = false;
-        var segmentFilter = false;
-
-
-        if (status == "all" || iseconomicsector == "all") {
-            economicsectorFilter = true;
-        } else {
-            economicsectorFilter = status == iseconomicsector;
-        }
-
-        if (status == "all" || issubsector == "all") {
-            subsectorFilter = true;
-        } else {
-            subsectorFilter = status == issubsector;
-        }
-
-        if (status == "all" || issegment == "all") {
-            segmentFilter = true;
-        } else {
-            segmentFilter = status == issegment;
-        }
-
-
-        if(economicsectorFilter && subsectorFilter && segmentFilter){
-            return economicsectorFilter && subsectorFilter && segmentFilter
-        }  else if (economicsectorFilter && subsectorFilter && pickerVal == "") {
-            return economicsectorFilter && subsectorFilter;
-        } else if (subsectorFilter && segmentFilter && pickerVal == "") {
-            return subsectorFilter && segmentFilter;
-        }
+    // Event listener for Subsector Dropdown (assuming multiple selections are possible)
+    $('.subsector-option-fund').change(function() {
+        var selectedSubsectors = $('.subsector-option-fund:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var subsectorFilter = selectedSubsectors.join('|');
+        table.column(2).search(subsectorFilter, true, false).draw();
     });
 
-    contactList.update();
-}
+    // Event listener for Segment Dropdown (assuming multiple selections are possible)
+    $('.segment-option-fund').change(function() {
+        var selectedSegments = $('.segment-option-fund:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var segmentFilter = selectedSegments.join('|');
+        table.column(3).search(segmentFilter, true, false).draw();
+    });
+
+    
+    // Event listener for Economic Sector Dropdown
+    $('.economicSector-option-fund').change(function() {
+        var selectedSectors = $('.economicSector-option-fund:checked').map(function() {
+            return $(this).data('value');
+        }).get();
+        var economicSectorFilter = selectedSectors.join('|');
+        table.column(1).search(economicSectorFilter, true, false).draw();
+    });
+
+    // Event listener for "Select All" Subsector
+    $('#selectAllSubsectors').change(function() {
+        var selected = $(this).prop('checked');
+        $('.subsector-option-fund').prop('checked', selected).trigger('change');
+    });
+
+    // Event listener for "Select All" Segment
+    $('#selectAllSegments').change(function() {
+        var selected = $(this).prop('checked');
+        $('.segment-option-fund').prop('checked', selected).trigger('change');
+    });
+
+    // Event listener for "Select All" Economic Sectors
+    $('#selectAllEconomicSectors').change(function() {
+        var selected = $(this).prop('checked');
+        $('.economicSector-option-fund').prop('checked', selected).trigger('change');
+    });
+
+    // Subsector
+    $('#selectAll').change(function() {
+        $('.subsector-option-fund').prop('checked', this.checked);
+    });
+
+    $('.subsector-option-fund').change(function() {
+        updateSelectAllState(this, '.subsector-option-fund', '#selectAll');
+    });
+
+    // Segment
+    $('#selectAllSegments').change(function() {
+        $('.segment-option-fund').prop('checked', this.checked);
+    });
+
+    $('.segment-option-fund').change(function() {
+        updateSelectAllState(this, '.segment-option-fund', '#selectAllSegments');
+    });
+
+    // Economic Sector
+    $('#selectAllEconomicSectors').change(function() {
+        $('.economicSector-option-fund').prop('checked', this.checked);
+    });
+
+    $('.economicSector-option-fund').change(function() {
+        updateSelectAllState(this, '.economicSector-option-fund', '#selectAllEconomicSectors');
+    });
+
+    function updateSelectAllState(checkbox, optionClass, selectAllId) {
+        if (!checkbox.checked) {
+            $(selectAllId).prop('checked', false);
+        } else {
+            var allChecked = $(optionClass).length === $(optionClass + ':checked').length;
+            $(selectAllId).prop('checked', allChecked);
+        }
+    }
+
+    // Re-calculate and update counts when data changes
+    table.on('draw', function() {
+        updateUniqueCounts();
+    });
+
+});
+
+
+
+
+

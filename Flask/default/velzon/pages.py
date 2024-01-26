@@ -55,6 +55,102 @@ def fetch_data_from_database():
         print("Error fetching data from database:", e)
         return [], [], [], [], [], [], [], []
 
+def fetch_data_from_database_fund():
+    try:
+        # Query the database to retrieve unique subSector, segment, and economicSector values
+        subsectors = db.session.query(StockListInfo.subSector.distinct()).all()
+        segments = db.session.query(StockListInfo.segment.distinct()).all()
+        economicSectors = db.session.query(StockListInfo.economicSector.distinct()).all()
+
+        # Extract and sort values, excluding rows where any field is None
+        subsector_values = sorted([subsector[0] for subsector in subsectors if all(subsector)])
+        segment_values = sorted([segment[0] for segment in segments if all(segment)])
+        economicSector_values = sorted([economicSector[0] for economicSector in economicSectors if all(economicSector)])
+
+        # Query the database to retrieve other columns, excluding rows with None in any column
+        data = db.session.query(
+            StockListInfo.symbol,
+                StockListInfo.economicSector,
+                StockListInfo.subSector,
+                StockListInfo.segment,
+                StockListInfo.quickRatio,
+                StockListInfo.currentRatio,
+                StockListInfo.debtToEquity,
+                StockListInfo.revenuePerShare,
+                StockListInfo.returnOnAssets,
+                StockListInfo.returnOnEquity,
+                StockListInfo.earningsGrowth,
+                StockListInfo.revenueGrowth,
+                StockListInfo.grossMargins,
+                StockListInfo.ebitdaMargins,
+                StockListInfo.operatingMargins,
+                StockListInfo.profitMargins,
+                StockListInfo.heldPercentInsiders,
+                StockListInfo.heldPercentInstitutions,
+                StockListInfo.beta,
+                StockListInfo.bookValue,
+                StockListInfo.earningsQuarterlyGrowth,
+                StockListInfo.trailingEps,
+                StockListInfo.forwardEps,
+                StockListInfo.enterpriseToEbitda,
+                StockListInfo.enterpriseToEbit,
+                StockListInfo.dividendYield
+            ).filter(
+                StockListInfo.symbol != None,
+                StockListInfo.economicSector != None,
+                StockListInfo.subSector != None,
+                StockListInfo.segment != None
+            ).all()
+
+        # Process the data and populate the unique sets
+        formatted_data = []
+        unique_symbols = set()
+        unique_economicSectors = set()
+        unique_subsectors = set()
+        unique_segments = set()
+
+        for d in data:
+            formatted_data.append({'symbol': d[0],
+                'economicSector': d[1],
+                'subSector': d[2],
+                'segment': d[3],
+                'quickRatio': d[4],
+                'currentRatio': d[5],
+                'debtToEquity': d[6],
+                'revenuePerShare': d[7],
+                'returnOnAssets': d[8],
+                'returnOnEquity': d[9],
+                'earningsGrowth': d[10],
+                'revenueGrowth': d[11],
+                'grossMargins': d[12],
+                'ebitdaMargins': d[13],
+                'operatingMargins': d[14],
+                'profitMargins': d[15],
+                'heldPercentInsiders': d[16],
+                'heldPercentInstitutions': d[17],
+                'beta': d[18],
+                'bookValue': d[19],
+                'earningsQuarterlyGrowth': d[20],
+                'trailingEps': d[21],
+                'forwardEps': d[22],
+                'enterpriseToEbitda': d[23],
+                'enterpriseToEbit': d[24],
+                'dividendYield': d[25]})
+            unique_symbols.add(d[0])
+            unique_economicSectors.add(d[1])
+            unique_subsectors.add(d[2])
+            unique_segments.add(d[3])
+
+        # Convert sets to sorted lists
+        unique_symbols = sorted(unique_symbols)
+        unique_economicSectors = sorted(unique_economicSectors)
+        unique_subsectors = sorted(unique_subsectors)
+        unique_segments = sorted(unique_segments)
+
+        return formatted_data, subsector_values, segment_values, economicSector_values, unique_symbols, unique_economicSectors, unique_subsectors, unique_segments
+    except Exception as e:
+        print("Error fetching data from database:", e)
+        return [], [], [], [], [], [], [], []
 
 
 
@@ -292,10 +388,15 @@ def login_post():
             flash("Invalid Credentials", "error")
             return redirect(url_for('pages.login'))
 
-        data = fetch_data_from_database()
+        #data = fetch_data_from_database()
         # Print to verify what's being stored in the session
-        print("Data being stored in session:", data)
-        session['table_data'] = data
+        #print("Data being stored in session:", data)
+        #session['table_data'] = data
+
+        #data_fund = fetch_data_from_database_fund()
+        # Print to verify what's being stored in the session
+        #print("Data being stored in session:", data_fund)
+        #session['table_data_fund'] = data_fund
 
         login_user(user, remember=remember)
         flash("Login successful!", "success")  # Add a success message
