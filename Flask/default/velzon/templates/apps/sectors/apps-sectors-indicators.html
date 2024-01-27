@@ -144,30 +144,31 @@
                                                                     <h5 class="card-title mb-0">Economic Sector</h5>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="stock-ind-fund">
+                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="economic-sector-ind-fund">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th>Key</th>
-                                                                                <th>Weighted Mean Quick Ratio</th>
-                                                                                <th>Weighted Mean Current Ratio</th>
-                                                                                <th>Weighted Mean Debt to Equity</th>
-                                                                                <th>Weighted Mean Revenue Per Share</th>
-                                                                                <th>Weighted Mean Return on Assets</th>
-                                                                                <th>Weighted Mean Return on Equity</th>
-                                                                                <th>Weighted Mean Earnings Growth</th>
-                                                                                <th>Weighted Mean Revenue Growth</th>
-                                                                                <th>Weighted Mean Gross Margins</th>
-                                                                                <th>Weighted Mean EBITDA Margins</th>
-                                                                                <th>Weighted Mean Operating Margins</th>
-                                                                                <th>Weighted Mean Profit Margins</th>
-                                                                                <th>Weighted Mean Beta</th>
-                                                                                <th>Weighted Mean Book Value</th>
-                                                                                <th>Weighted Mean Earnings Quarterly Growth</th>
-                                                                                <th>Weighted Mean Trailing EPS</th>
-                                                                                <th>Weighted Mean Forward EPS</th>
-                                                                                <th>Weighted Mean Enterprise to EBITDA</th>
-                                                                                <th>Weighted Mean Enterprise to EBIT</th>
-                                                                                <th>Weighted Mean Dividend Yield</th>
+                                                                                <th>Ticker</th>
+                                                                                <th>Quick Ratio</th>
+                                                                                <th>Current Ratio</th>
+                                                                                <th>Debt to Equity</th>
+                                                                                <th>Revenue Per Share</th>
+                                                                                <th>Return on Assets</th>
+                                                                                <th>Return on Equity</th>
+                                                                                <th>Earnings Growth</th>
+                                                                                <th>Revenue Growth</th>
+                                                                                <th>Gross Margins</th>
+                                                                                <th>EBITDA Margins</th>
+                                                                                <th>Operating Margins</th>
+                                                                                <th>Profit Margins</th>
+                                                                                <th>Beta</th>
+                                                                                <th>Book Value</th>
+                                                                                <th>Earnings Quarterly Growth</th>
+                                                                                <th>Trailing EPS</th>
+                                                                                <th>Forward EPS</th>
+                                                                                <th>Enterprise to EBITDA</th>
+                                                                                <th>Enterprise to EBIT</th>
+                                                                                <th>Dividend Yield</th>
+
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -213,12 +214,57 @@
                                                                     <h5 class="card-title mb-0">Subsectors</h5>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="subsector-list">
- 
-                                                                        <tbody>
-                                                                            {% for sector in unique_subsectors %}
+                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="subsector-ind-fund">
+                                                                        <thead>
                                                                             <tr>
-                                                                                <td>{{ sector }}</td>
+                                                                                <th>Ticker</th>
+                                                                                <th>Quick Ratio</th>
+                                                                                <th>Current Ratio</th>
+                                                                                <th>Debt to Equity</th>
+                                                                                <th>Revenue Per Share</th>
+                                                                                <th>Return on Assets</th>
+                                                                                <th>Return on Equity</th>
+                                                                                <th>Earnings Growth</th>
+                                                                                <th>Revenue Growth</th>
+                                                                                <th>Gross Margins</th>
+                                                                                <th>EBITDA Margins</th>
+                                                                                <th>Operating Margins</th>
+                                                                                <th>Profit Margins</th>
+                                                                                <th>Beta</th>
+                                                                                <th>Book Value</th>
+                                                                                <th>Earnings Quarterly Growth</th>
+                                                                                <th>Trailing EPS</th>
+                                                                                <th>Forward EPS</th>
+                                                                                <th>Enterprise to EBITDA</th>
+                                                                                <th>Enterprise to EBIT</th>
+                                                                                <th>Dividend Yield</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            {% for data in table_data_subsectors_fund %}
+                                                                            <tr>
+                                                                                <td>{{ data.key }}</td>
+                                                                                <td>{{ data.weighted_mean_quickRatio }}</td>
+                                                                                <td>{{ data.weighted_mean_currentRatio }}</td>
+                                                                                <td>{{ data.weighted_mean_debtToEquity }}</td>
+                                                                                <td>{{ data.weighted_mean_revenuePerShare }}</td>
+                                                                                <td>{{ data.weighted_mean_returnOnAssets }}</td>
+                                                                                <td>{{ data.weighted_mean_returnOnEquity }}</td>
+                                                                                <td>{{ data.weighted_mean_earningsGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_revenueGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_grossMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_ebitdaMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_operatingMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_profitMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_beta }}</td>
+                                                                                <td>{{ data.weighted_mean_bookValue }}</td>
+                                                                                <td>{{ data.weighted_mean_earningsQuarterlyGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_trailingEps }}</td>
+                                                                                <td>{{ data.weighted_mean_forwardEps }}</td>
+                                                                                <td>{{ data.weighted_mean_enterpriseToEbitda }}</td>
+                                                                                <td>{{ data.weighted_mean_enterpriseToEbit }}</td>
+                                                                                <td>{{ data.weighted_mean_dividendYield }}</td>
                                                                             </tr>
                                                                             {% endfor %}
                                                                         </tbody>
@@ -238,12 +284,57 @@
                                                                     <h5 class="card-title mb-0">Segments</h5>
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="segment-list">
-
-                                                                        <tbody>
-                                                                            {% for sector in unique_segments %}
+                                                                    <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="segment-ind-fund">
+                                                                        <thead>
                                                                             <tr>
-                                                                                <td>{{ sector }}</td>
+                                                                                <th>Ticker</th>
+                                                                                <th>Quick Ratio</th>
+                                                                                <th>Current Ratio</th>
+                                                                                <th>Debt to Equity</th>
+                                                                                <th>Revenue Per Share</th>
+                                                                                <th>Return on Assets</th>
+                                                                                <th>Return on Equity</th>
+                                                                                <th>Earnings Growth</th>
+                                                                                <th>Revenue Growth</th>
+                                                                                <th>Gross Margins</th>
+                                                                                <th>EBITDA Margins</th>
+                                                                                <th>Operating Margins</th>
+                                                                                <th>Profit Margins</th>
+                                                                                <th>Beta</th>
+                                                                                <th>Book Value</th>
+                                                                                <th>Earnings Quarterly Growth</th>
+                                                                                <th>Trailing EPS</th>
+                                                                                <th>Forward EPS</th>
+                                                                                <th>Enterprise to EBITDA</th>
+                                                                                <th>Enterprise to EBIT</th>
+                                                                                <th>Dividend Yield</th>
+
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            {% for data in table_data_segments_fund %}
+                                                                            <tr>
+                                                                                <td>{{ data.key }}</td>
+                                                                                <td>{{ data.weighted_mean_quickRatio }}</td>
+                                                                                <td>{{ data.weighted_mean_currentRatio }}</td>
+                                                                                <td>{{ data.weighted_mean_debtToEquity }}</td>
+                                                                                <td>{{ data.weighted_mean_revenuePerShare }}</td>
+                                                                                <td>{{ data.weighted_mean_returnOnAssets }}</td>
+                                                                                <td>{{ data.weighted_mean_returnOnEquity }}</td>
+                                                                                <td>{{ data.weighted_mean_earningsGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_revenueGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_grossMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_ebitdaMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_operatingMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_profitMargins }}</td>
+                                                                                <td>{{ data.weighted_mean_beta }}</td>
+                                                                                <td>{{ data.weighted_mean_bookValue }}</td>
+                                                                                <td>{{ data.weighted_mean_earningsQuarterlyGrowth }}</td>
+                                                                                <td>{{ data.weighted_mean_trailingEps }}</td>
+                                                                                <td>{{ data.weighted_mean_forwardEps }}</td>
+                                                                                <td>{{ data.weighted_mean_enterpriseToEbitda }}</td>
+                                                                                <td>{{ data.weighted_mean_enterpriseToEbit }}</td>
+                                                                                <td>{{ data.weighted_mean_dividendYield }}</td>
                                                                             </tr>
                                                                             {% endfor %}
                                                                         </tbody>

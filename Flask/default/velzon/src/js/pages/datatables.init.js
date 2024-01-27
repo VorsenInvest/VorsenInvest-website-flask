@@ -26,6 +26,36 @@ function initializeTables() {
         "searching": true  // This line enables search functionality
     });
 
+    let economicsectorIndicators = new DataTable('#economic-sector-ind-fund', {
+        "scrollY": "420px",
+        "scrollCollapse": true,
+        "paging": false,
+        "scrollX": true,
+        "responsive": false,
+        "autoWidth": false,
+        "searching": true  // This line enables search functionality
+    });
+
+    let subsectorIndicators = new DataTable('#subsector-ind-fund', {
+        "scrollY": "420px",
+        "scrollCollapse": true,
+        "paging": false,
+        "scrollX": true,
+        "responsive": false,
+        "autoWidth": false,
+        "searching": true  // This line enables search functionality
+    });
+
+    let segmentIndicators = new DataTable('#segment-ind-fund', {
+        "scrollY": "420px",
+        "scrollCollapse": true,
+        "paging": false,
+        "scrollX": true,
+        "responsive": false,
+        "autoWidth": false,
+        "searching": true  // This line enables search functionality
+    });
+
     let sectorList = new DataTable('#sector-list',);
     let subsectorList = new DataTable('#subsector-list',);
     let segmentList = new DataTable('#segment-list',);
