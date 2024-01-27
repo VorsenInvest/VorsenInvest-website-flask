@@ -42,194 +42,62 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
-                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Stocks</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <!--
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                            </h5>
-                                            -->
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                <span class="counter-value" data-target="{{ unique_symbols_count }}">0</span></h4>
-                                                <br>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i data-feather="activity" class="text-info"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
 
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Economic Sectors</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <!--
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                            </h5>
-                                            -->
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_economicSectors_count }}">0</span></h4>
-                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-home" class="text-decoration-underline">View all economic sectors</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="ri-layout-top-line text-info"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                    
-
-                    
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Subsectors</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <!--
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                            </h5>
-                                            -->
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_subsectors_count }}">0</span></h4>
-                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-profile" class="text-decoration-underline">View all subsectors</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="ri-layout-5-line text-info"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-3 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 overflow-hidden">
-                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Segments</p>
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <!--
-                                            <h5 class="text-danger fs-14 mb-0">
-                                                <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                            </h5>
-                                            -->
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="{{ unique_segments_count }}">0</span></h4>
-                                            <a href="{{ url_for('apps.sectors_list') }}#custom-v-pills-messages" class="text-decoration-underline">View all segments</a>
-                                        </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="ri-table-line text-info"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                    </div>
                     <div class="card">
                         <div class="card-body">
-                            <p class="text-muted">Use class to generate equal-width elements with all horizontal space will be occupied by nav links.</p>
+                            <!--<p class="text-muted">Use class to generate equal-width elements with all horizontal space will be occupied by nav links.</p>-->
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
+                            <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" data-bs-toggle="tab" href="#base-justified-fundamentalist" role="tab" aria-selected="false">
-                                        Fundamentalist indicators
+                                        <span data-key="t-fund-title">Fundamentalist Indicators</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#base-justified-price" role="tab" aria-selected="false">
-                                        Price indicators
+                                        <span data-key="t-price-title"></span>Price Indicators</span>s
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#base-justified-financial-statement" role="tab" aria-selected="false">
-                                        Financial statements data
+                                        <span data-key="t-fin-statement-data-title"></span>Financial Statement Data</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#base-justified-income-statement" role="tab" aria-selected="true">
-                                        Income statement data
+                                        <span data-key="t-income-statement-data-title"></span>Income Statement Data</span>
                                     </a>
                                 </li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content  text-muted">
                                 <div class="tab-pane active" id="base-justified-fundamentalist" role="tabpanel">
-                                    <h6>Graphic Design</h6>
+                                    <h6><span data-key="t-fund-title">Fundamentalist Indicators</span></h6>
                                     <p class="mb-0">
-                                        They all have something to say beyond the words on the page. They can come across as casual or neutral, exotic or graphic. That's why it's important to think about your message, then choose a font that fits. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                                        <span data-key="t-fund-text">Fundamentalist indicators are essential in assessing the intrinsic value of securities through fundamental analysis, focusing on economic and financial factors. These metrics help gauge a company's underlying value and forecast its performance. They are crucial for investors aiming to make informed decisions based on a company's fundamental health and growth potential.
+                                        </span>
                                     </p>
                                 </div>
                                 <div class="tab-pane" id="base-justified-price" role="tabpanel">
-                                    <h6>Product</h6>
+                                    <h6><span data-key="t-price-title"></span>Price Indicators</span></h6>
                                     <p class="mb-0">
-                                        You've probably heard that opposites attract. The same is true for fonts. Don't be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.
-                                    </p>
+                                        <span data-key="t-price-text">Price indicators are key tools in technical analysis, used to interpret market trends and predict future price movements of securities. Unlike fundamentalist indicators that focus on intrinsic value, price indicators analyze historical price data and trading volumes to identify patterns and signals. These indicators help traders and investors to make decisions based on market sentiment, trends, and potential price changes, guiding their strategies in buying or selling securities.
+                                        </span>
+                                        </p>
                                 </div>
                                 <div class="tab-pane" id="base-justified-financial-statement" role="tabpanel">
-                                    <h6>Messages</h6>
+                                    <h6><span data-key="t-fin-statement-data-title"></span>Financial Statement Data</span></h6>
                                     <p class="mb-0">
-                                        Etsy mixtape wayfarers, ethical wes anderson tofu before they
-                                        sold out mcsweeney's organic lomo retro fanny pack lo-fi
-                                        farm-to-table readymade. Messenger bag gentrify pitchfork
-                                        tattooed craft beer, iphone skateboard locavore carles etsy
-                                        salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
-                                    </p>
+                                        <span data-key="t-fin-statement-data-text">Financial statements data encapsulates the comprehensive financial information of a company, providing insights into its operational efficiency, financial health, and cash flow status. This data is derived from three main reports: the balance sheet, income statement, and cash flow statement. Together, these documents offer a detailed view of a company's financial performance, asset and liability management, and liquidity, crucial for stakeholders to assess the company's stability and growth prospects.
+                                        </span>
+                                        </p>
                                 </div>
                                 <div class="tab-pane" id="base-justified-income-statement" role="tabpanel">
-                                    <h6>Settings</h6>
+                                    <h6><span data-key="t-income-statement-data-title"></span>Income Statement Data</span></h6>
                                     <p class="mb-0">
-                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-                                        art party before they sold out master cleanse gluten-free squid
-                                        scenester freegan cosby sweater. Fanny pack portland seitan DIY,
-                                        art party locavore wolf cliche high life echo park Austin. Cred
-                                        vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
-                                        farm-to-table VHS.
-                                    </p>
+                                        <span data-key="t-income-statement-data-text">Income statement data focuses on a company's revenue generation and expense management over a specific period, highlighting profitability. It details revenues, costs of goods sold, gross profit, operating expenses, and net income, offering a clear picture of the company's operational success and financial viability. This data is pivotal for evaluating a company's ability to generate profits from its core business activities.
+                                        </span>
+                                        </p>
                                 </div>
                             </div>
                         </div><!-- end card-body -->
@@ -238,7 +106,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header d-flex align-items-center border-0">
-                                    <h5 class="card-title mb-0 flex-grow-1">Stocks</h5>
+                                    <!--<h5 class="card-title mb-0 flex-grow-1"><span data-key="t-stocks"></span>Stocks</span></h5>-->
                                     <div class="flex-shrink-0">
                                         <!--
                                         <div class="flax-shrink-0 hstack gap-2">
