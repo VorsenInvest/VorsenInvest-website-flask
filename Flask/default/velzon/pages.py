@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template,request,redirect,url_for,flash, jsonify, Response, current_app, session, send_from_directory
 from flask_login import login_user,logout_user,login_required, current_user
 from pyrfc3339 import generate
-from .models import User, UserInfo, UserImage, StockListInfo, DeleteAccountForm
+from .models import User, UserInfo, UserImage, StockListInfo, DeleteAccountForm, EconomicSectorInfoFund
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
 import os, logging
@@ -151,6 +151,67 @@ def fetch_data_from_database_fund():
     except Exception as e:
         print("Error fetching data from database:", e)
         return [], [], [], [], [], [], [], []
+
+def fetch_data_weighted_economic_sector():
+    try:
+        # Query the database to retrieve all records, ensuring the 'key' is not None
+        data = db.session.query(
+            EconomicSectorInfoFund.key,
+            EconomicSectorInfoFund.weighted_mean_quickRatio,
+            EconomicSectorInfoFund.weighted_mean_currentRatio,
+            EconomicSectorInfoFund.weighted_mean_debtToEquity,
+            EconomicSectorInfoFund.weighted_mean_revenuePerShare,
+            EconomicSectorInfoFund.weighted_mean_returnOnAssets,
+            EconomicSectorInfoFund.weighted_mean_returnOnEquity,
+            EconomicSectorInfoFund.weighted_mean_earningsGrowth,
+            EconomicSectorInfoFund.weighted_mean_revenueGrowth,
+            EconomicSectorInfoFund.weighted_mean_grossMargins,
+            EconomicSectorInfoFund.weighted_mean_ebitdaMargins,
+            EconomicSectorInfoFund.weighted_mean_operatingMargins,
+            EconomicSectorInfoFund.weighted_mean_profitMargins,
+            EconomicSectorInfoFund.weighted_mean_beta,
+            EconomicSectorInfoFund.weighted_mean_bookValue,
+            EconomicSectorInfoFund.weighted_mean_earningsQuarterlyGrowth,
+            EconomicSectorInfoFund.weighted_mean_trailingEps,
+            EconomicSectorInfoFund.weighted_mean_forwardEps,
+            EconomicSectorInfoFund.weighted_mean_enterpriseToEbitda,
+            EconomicSectorInfoFund.weighted_mean_enterpriseToEbit,
+            EconomicSectorInfoFund.weighted_mean_dividendYield
+        ).filter(
+            EconomicSectorInfoFund.key != None
+        ).all()
+
+        # Process the data
+        formatted_data = []
+        for d in data:
+            formatted_data.append({
+                'key': d[0],
+                'weighted_mean_quickRatio': d[1],
+                'weighted_mean_currentRatio': d[2],
+                'weighted_mean_debtToEquity': d[3],
+                'weighted_mean_revenuePerShare': d[4],
+                'weighted_mean_returnOnAssets': d[5],
+                'weighted_mean_returnOnEquity': d[6],
+                'weighted_mean_earningsGrowth': d[7],
+                'weighted_mean_revenueGrowth': d[8],
+                'weighted_mean_grossMargins': d[9],
+                'weighted_mean_ebitdaMargins': d[10],
+                'weighted_mean_operatingMargins': d[11],
+                'weighted_mean_profitMargins': d[12],
+                'weighted_mean_beta': d[13],
+                'weighted_mean_bookValue': d[14],
+                'weighted_mean_earningsQuarterlyGrowth': d[15],
+                'weighted_mean_trailingEps': d[16],
+                'weighted_mean_forwardEps': d[17],
+                'weighted_mean_enterpriseToEbitda': d[18],
+                'weighted_mean_enterpriseToEbit': d[19],
+                'weighted_mean_dividendYield': d[20]
+            })
+
+        return formatted_data
+    except Exception as e:
+        print("Error fetching data from database:", e)
+        return []
 
 
 
@@ -387,8 +448,6 @@ def login_post():
         if not user or not check_password_hash(user.password,password):
             flash("Invalid Credentials", "error")
             return redirect(url_for('pages.login'))
-
-        session.permanent = True  # Make the session permanent so it respects the PERMANENT_SESSION_LIFETIME config
 
         #data = fetch_data_from_database()
         # Print to verify what's being stored in the session

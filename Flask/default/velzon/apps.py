@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template, session, redirect, url_for, jsonify, request
 from flask_login import login_required
 from .models import User, UserInfo, UserImage, StockListInfo
-from .pages import fetch_data_from_database, fetch_data_from_database_fund
+from .pages import fetch_data_from_database, fetch_data_from_database_fund, fetch_data_weighted_economic_sector
 
 apps = Blueprint('apps',__name__,template_folder='templates',
     static_folder='static',)
@@ -429,7 +429,16 @@ def sectors_list():
 @apps.route('/apps/sectors/indicators')
 @login_required
 def sectors_indicators():
-    return render_template('apps/sectors/apps-sectors-indicators.html')  
+    print("sectors_indicators route called")
+    
+    # Fetch data directly using the adapted function
+    table_data_econ_sectors_fund = fetch_data_weighted_economic_sector()
+    print("Data fetched from database")
+
+    # Since we no longer have subsectors, segments, and economicSectors, we remove the associated code
+
+    return render_template('apps/sectors/apps-sectors-indicators.html',
+                           table_data_econ_sectors_fund=table_data_econ_sectors_fund)  
 
 @apps.route('/apps/exchange/indicators')
 @login_required

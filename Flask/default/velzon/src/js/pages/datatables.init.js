@@ -20,7 +20,9 @@ function initializeTables() {
         "scrollY": "420px",
         "scrollCollapse": true,
         "paging": false,
-        "scrooX": true,
+        "scrollX": true,
+        "responsive": false,
+        "autoWidth": false,
         "searching": true  // This line enables search functionality
     });
 
