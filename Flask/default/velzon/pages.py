@@ -388,6 +388,8 @@ def login_post():
             flash("Invalid Credentials", "error")
             return redirect(url_for('pages.login'))
 
+        session.permanent = True  # Make the session permanent so it respects the PERMANENT_SESSION_LIFETIME config
+
         #data = fetch_data_from_database()
         # Print to verify what's being stored in the session
         #print("Data being stored in session:", data)

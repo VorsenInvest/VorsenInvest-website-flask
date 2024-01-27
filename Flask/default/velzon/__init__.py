@@ -17,10 +17,10 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS') == 'True'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS', 'False').lower() in ['true', '1', 't']
     app.config['SESSION_TYPE'] = os.getenv('SESSION_TYPE')
 
-    app.secret_key = os.getenv('SECRET_KEY')  # Keep this line in your Python script
+    #app.secret_key = os.getenv('SECRET_KEY')  # Keep this line in your Python script
     app.config['SESSION_SQLALCHEMY'] = db
 
 
