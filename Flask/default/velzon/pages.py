@@ -238,7 +238,8 @@ def fetch_data_weighted_segment():
             SegmentInfoFund.weighted_mean_enterpriseToEbit,
             SegmentInfoFund.weighted_mean_dividendYield
         ).filter(
-            SegmentInfoFund.key != None
+            SegmentInfoFund.key != None,  # Exclude rows where 'key' is None
+            SegmentInfoFund.key != ''  # Exclude rows where 'key' is an empty string
         ).all()
 
         # Process the data

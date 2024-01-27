@@ -213,8 +213,31 @@
     
     "t-welcome":"Bem-vindo",
     "t-help":"Ajuda",
-    "t-balance":"Balanço"
+    "t-balance":"Balanço",
 
+    
+    "t-ticker": "Código",
+    "t-quick-ratio": "Índice de Liquidez Corrente",
+    "t-current-ratio": "Índice de Liquidez Seca",
+    "t-debt-to-equity": "Dívida sobre Patrimônio",
+    "t-revenue-per-share": "Receita por Ação",
+    "t-return-on-assets": "Retorno sobre Ativos",
+    "t-return-on-equity": "Retorno sobre o Patrimônio",
+    "t-earnings-growth": "Crescimento dos Lucros",
+    "t-revenue-growth": "Crescimento da Receita",
+    "t-gross-margins": "Margens Brutas",
+    "t-ebitda-margins": "Margens EBITDA",
+    "t-operating-margins": "Margens Operacionais",
+    "t-profit-margins": "Margens de Lucro",
+    "t-beta": "Beta",
+    "t-book-value": "Valor Patrimonial por Ação",
+    "t-earnings-quarterly-growth": "Crescimento Trimestral dos Lucros",
+    "t-trailing-eps": "Lucro por Ação Acumulado",
+    "t-forward-eps": "Lucro por Ação Futuro",
+    "t-enterprise-to-ebitda": "Valor da Empresa para EBITDA",
+    "t-enterprise-to-ebit": "Valor da Empresa para EBIT",
+    "t-dividend-yield": "Divident Yield"
+    
     
 }
 
