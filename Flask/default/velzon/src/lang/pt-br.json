@@ -235,7 +235,10 @@
     "t-forward-eps": "Lucro por Ação Futuro",
     "t-enterprise-to-ebitda": "Valor da Empresa para EBITDA",
     "t-enterprise-to-ebit": "Valor da Empresa para EBIT",
-    "t-dividend-yield": "Divident Yield"
+    "t-dividend-yield": "Divident Yield",
+
+    "t-page-title": "Vorsen - Invista com Inteligência Artificial",
+    "t-page-title-start": "Início | Vorsen - Invista com Inteligência Artificial"
     
     
 }

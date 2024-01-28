@@ -46,6 +46,7 @@ File: Custom Bootstrap Css File
   --vz-light: #f3f6f9;
   --vz-dark: #212529;
   --vz-primary-rgb: 64, 81, 137;
+  --vz-orange-vorsen-rgb: 254, 136, 1;
   --vz-secondary-rgb: 53, 119, 241;
   --vz-success-rgb: 10, 179, 156;
   --vz-info-rgb: 41, 156, 219;
@@ -9472,6 +9473,12 @@ textarea.form-control-lg {
   --vz-text-opacity: 1;
   color: rgba(var(--vz-primary-rgb), var(--vz-text-opacity)) !important;
 }
+
+.text-orange-vorsen {
+  --vz-text-opacity: 1;
+  color: rgba(var(--vz-orange-vorsen-rgb), var(--vz-text-opacity)) !important;
+}
+
 
 .text-secondary {
   --vz-text-opacity: 1;

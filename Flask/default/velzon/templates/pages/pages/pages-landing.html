@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Landing | Velzon - Admin & Dashboard Template</title>
+    <title data-key="t-page-title-start"> Start | Vorsen - Artificial Intelligence Investing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -34,8 +34,8 @@
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="{{url_for('static' ,filename='images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="17">
-                    <img src="{{url_for('static' ,filename='images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="17">
+                    <img src="{{url_for('static' ,filename='images/logo-horizontal-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="15">
+                    <img src="{{url_for('static' ,filename='images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="30">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="mdi mdi-menu"></i>
@@ -65,7 +65,66 @@
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
+                    <div class="dropdown ms-1 topbar-head-dropdown header-item">
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img id="header-lang-img" src="{{url_for('static' ,filename='images/flags/us.svg')}}" alt="Header Language" height="20" class="rounded">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="pt-br" title="Portuguese-BR">
+                                <img src="{{url_for('static' ,filename='images/flags/br.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">Português(BR)</span>
+                            </a>
 
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="en" title="English">
+                                <img src="{{url_for('static' ,filename='images/flags/us.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">English</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp" title="Spanish">
+                                <img src="{{url_for('static' ,filename='images/flags/spain.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">Española</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr" title="German">
+                                <img src="{{url_for('static' ,filename='images/flags/germany.svg')}}" alt="user-image" class="me-2 rounded"
+                                    height="18"> <span class="align-middle">Deutsche</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it" title="Italian">
+                                <img src="{{url_for('static' ,filename='images/flags/italy.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">Italiana</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru" title="Russian">
+                                <img src="{{url_for('static' ,filename='images/flags/russia.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">русский</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ch" title="Chinese">
+                                <img src="{{url_for('static' ,filename='images/flags/china.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">中国人</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="fr" title="French">
+                                <img src="{{url_for('static' ,filename='images/flags/french.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">français</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ar" title="Arabic">
+                                <img src="{{url_for('static' ,filename='images/flags/ae.svg')}}" alt="user-image" class="me-2 rounded" height="18">
+                                <span class="align-middle">Arabic</span>
+                            </a>
+                        </div>
+                    </div>
                     <div class="">
                         <a href="/authentication/auth-signin-basic" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
                         <a href="/authentication/auth-signup-basic" class="btn btn-primary">Sign Up</a>
@@ -77,17 +136,178 @@
         <!-- end navbar -->
 
         <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
-
+        <section class="section pb-0 hero-section" id="hero">
+        </section>
         <!-- start hero section -->
+        <section class="section bg-primary bg-dark" id="hero">
+            <div class="bg-overlay bg-overlay-pattern"></div>
+            <div class="container">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <div class="text-muted">
+                            <h1 class="display-6 fw-semibold mb-3 lh-base text-light-emphasis">Welcome to <span class="text-warning">Vorsen Invest</span></h1>
+                            <h5 class="fs-12 text-uppercase text-light-emphasis">Artificial Intelligence Investing</h5>
+                            <h4 class="mb-3 text-primary">A New and Innovative Way of Investing</h4>
+                            <p class="mb-4 ff-secondary text-light-emphasis">As the pioneering Brazilian company leveraging cutting-edge artificial intelligence, we stand at the forefront of transforming information services for investors. Our innovative approach harnesses the power of AI to deliver unparalleled insights, empowering investors with advanced, real-time analytics and data-driven decision-making tools. This fusion of technology and expertise sets a new benchmark in investment intelligence, propelling investors towards more informed, strategic, and successful financial outcomes. Our commitment lies in revolutionizing the investment landscape, offering an unmatched level of precision and foresight in every aspect of investor support.</p>
+
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Artificial Itelligence</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Machine Learning</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Market Intelligence</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Greenblatt and Magic Formula</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Markowitz Portfolio</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="vstack gap-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Asset and Liability Management (ALM)</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Markowitz Portfolio</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Risk Analysis and Value-at-Risk (VaR)</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Monte Carlo Simulations</h5>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-2">
+                                                <div class="avatar-xs icon-effect">
+                                                    <div class="avatar-title bg-transparent text-success rounded-circle h2">
+                                                        <i class="ri-check-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Fair Price</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <a href="/" class="btn btn-primary">Get Started <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
+                        <div>
+                            <img src="{{url_for('static' ,filename='images/landing/features/img-2.png')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end shape -->
+        </section>
+        <!-- end hero section -->
         <section class="section pb-0 hero-section" id="hero">
             <div class="bg-overlay bg-overlay-pattern"></div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-sm-10">
                         <div class="text-center mt-lg-5 pt-5">
-                            <h1 class="display-6 fw-semibold mb-3 lh-base">The better way to manage your website with <span class="text-success">Velzon </span></h1>
-                            <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
-
+                            <h1 class="display-6 fw-semibold mb-3 lh-base">The best way to manage your investments with <span class="text-warning">Vorsen Invest </span></h1>
+                            <p class="lead text-muted lh-base">
+                                Vorsen stands at the pinnacle of investment solutions, offering a seamlessly responsive and multi-dimensional platform tailored for the discerning investor. Our premium services are underpinned by exclusive, state-of-the-art coding and innovative methodologies. We empower your investment journey with the most advanced artificial intelligence technology, ensuring that every decision is backed by precision, insight, and cutting-edge market analysis. Experience the future of investment with Vorsen, where technology meets financial acumen to redefine success.
+                            </p>
+                            
                             <div class="d-flex gap-2 justify-content-center mt-4">
                                 <a href="/authentication/auth-signup-basic" class="btn btn-primary">Get Started <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                                 <a href="/pages/pricing" class="btn btn-danger">View Plans <i class="ri-eye-line align-middle ms-1"></i></a>
@@ -151,39 +371,39 @@
                     <div class="col-lg-12">
 
                         <div class="text-center mt-5">
-                            <h5 class="fs-20">Trusted <span class="text-primary text-decoration-underline">by</span> the world's best</h5>
+                            <h5 class="fs-20">Engineered with cutting edge technology</h5>
 
                             <!-- Swiper -->
                             <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/amazon.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/numpy.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/walmart.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/pandas.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/lenovo.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/tensorflow.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/paypal.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/pytorch.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/shopify.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/scikit-learn.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
                                         <div class="client-images">
-                                            <img src="{{url_for('static' ,filename='images/clients/verizon.svg')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                            <img src="{{url_for('static' ,filename='images/clients/keras.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
                                 </div>
@@ -554,7 +774,7 @@
                     <!-- end col -->
                     <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
                         <div>
-                            <img src="{{url_for('static' ,filename='images/landing/features/img-2.png')}}" alt="" class="img-fluid">
+                            <img src="{{url_for('static' ,filename='images/landing/features/img-4.png')}}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -628,11 +848,11 @@
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
                             <h3 class="mb-3 fw-semibold">Choose the plan that's right for you</h3>
-                            <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you business.</p>
+                            <p class="text-muted mb-4">Simple pricing. No hidden fees. Advanced features for you investments.</p>
 
                             <div class="d-flex justify-content-center align-items-center">
                                 <div>
-                                    <h5 class="fs-14 mb-0">Month</h5>
+                                    <h5 class="fs-14 mb-0">Monthly</h5>
                                 </div>
                                 <div class="form-check form-switch fs-20 ms-3 " onclick="check()">
                                     <input class="form-check-input" type="checkbox" id="plan-switch">
@@ -655,28 +875,37 @@
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <h5 class="mb-1 fw-semibold">Basic Plan</h5>
-                                        <p class="text-muted mb-0">For Startup</p>
+                                        <p class="text-muted mb-0">To start with Vorsen Invest and get to know our features</p>
                                     </div>
-                                    <div class="avatar-sm">
-                                        <div class="avatar-title bg-light rounded-circle text-primary">
-                                            <i class="ri-book-mark-line fs-20"></i>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month"><sup><small>$</small></sup><span class="ff-secondary fw-bold">19</span> <span class="fs-13 text-muted">/Month</span></h1>
-                                    <h1 class="annual"><sup><small>$</small></sup><span class="ff-secondary fw-bold">171</span> <span class="fs-13 text-muted">/Year</span></h1>
+                                    <h1 class="month">R$ <span class="ff-secondary fw-bold">Free</span></h1>
+                                    <h1 class="annual">R$ <span class="ff-secondary fw-bold">Free</span></h1>
                                 </div>
 
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-starter">Starter</span></li>
+                                        
                                         <li>
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 text-success me-1">
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Upto <b>3</b> Projects
+                                                    <b>Basic</b> Dashboards
+                                                </div>
+                                            </div>
+                                        </li>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Stock Information
                                                 </div>
                                             </div>
                                         </li>
@@ -686,7 +915,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Upto <b>299</b> Customers
+                                                    Stock Indicators
                                                 </div>
                                             </div>
                                         </li>
@@ -696,7 +925,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Scalable Bandwidth
+                                                    Sectorial Information
                                                 </div>
                                             </div>
                                         </li>
@@ -706,7 +935,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>5</b> FTP Login
+                                                    <b>Basic</b> Magic Formula Portfolio
                                                 </div>
                                             </div>
                                         </li>
@@ -716,7 +945,18 @@
                                                     <i class="ri-close-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>24/7</b> Support
+                                                    Sectorial Indicators Access
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Fair Price
                                                 </div>
                                             </div>
                                         </li>
@@ -726,7 +966,7 @@
                                                     <i class="ri-close-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Storage
+                                                    <b>0</b> Monthly Credits for Artificial Intelligence Simulations
                                                 </div>
                                             </div>
                                         </li>
@@ -736,7 +976,37 @@
                                                     <i class="ri-close-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Domain
+                                                    Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Monte Carlo Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Asset and Liability Management (ALM)
                                                 </div>
                                             </div>
                                         </li>
@@ -752,32 +1022,28 @@
                     <div class="col-lg-4">
                         <div class="card plan-box mb-0 ribbon-box right">
                             <div class="card-body p-4 m-2">
-                                <div class="ribbon-two ribbon-two-danger"><span>Popular</span></div>
+                                <div class="ribbon-two ribbon-two-danger"></div>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
-                                        <h5 class="mb-1 fw-semibold">Pro Business</h5>
-                                        <p class="text-muted mb-0">Professional plans</p>
-                                    </div>
-                                    <div class="avatar-sm">
-                                        <div class="avatar-title bg-light rounded-circle text-primary">
-                                            <i class="ri-medal-fill fs-20"></i>
-                                        </div>
+                                        <h5 class="mb-1 fw-semibold">Advanced Investor</h5>
+                                        <p class="text-muted mb-0">For serious investors that want to elevate investing to another level</p>
                                     </div>
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month"><sup><small>$</small></sup><span class="ff-secondary fw-bold">29</span> <span class="fs-13 text-muted">/Month</span></h1>
-                                    <h1 class="annual"><sup><small>$</small></sup><span class="ff-secondary fw-bold">261</span> <span class="fs-13 text-muted">/Year</span></h1>
+                                    <h1 class="month">R$ <span class="ff-secondary fw-bold">39,90</span> <span class="fs-13 text-muted">/Month</span></h1>
+                                    <h1 class="annual">R$<span class="ff-secondary fw-bold">383,00</span> <span class="fs-13 text-muted">/Year</span></h1>
                                 </div>
 
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-basic-plan-plus">Basic Plan +</span></li>
                                         <li>
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 text-success me-1">
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Upto <b>15</b> Projects
+                                                    <b>Advanced</b> Dashboards
                                                 </div>
                                             </div>
                                         </li>
@@ -787,7 +1053,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Customers
+                                                    Stock Information
                                                 </div>
                                             </div>
                                         </li>
@@ -797,7 +1063,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Scalable Bandwidth
+                                                    Stock Indicators
                                                 </div>
                                             </div>
                                         </li>
@@ -807,7 +1073,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>12</b> FTP Login
+                                                    Sectorial Information
                                                 </div>
                                             </div>
                                         </li>
@@ -817,7 +1083,27 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>24/7</b> Support
+                                                    Sectorial Indicators Access
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Advanced</b> Magic Formula Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Basic</b> Stock Fair Price
                                                 </div>
                                             </div>
                                         </li>
@@ -827,7 +1113,7 @@
                                                     <i class="ri-close-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Storage
+                                                    <b>1.000</b> Monthly Credits for Artificial Intelligence Simulations
                                                 </div>
                                             </div>
                                         </li>
@@ -837,7 +1123,331 @@
                                                     <i class="ri-close-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Domain
+                                                    Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Monte Carlo Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Asset and Liability Management (ALM)
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Get Started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end col-->
+
+                    <div class="col-lg-4">
+                        <div class="card plan-box mb-0 ribbon-box right">
+                            <div class="card-body p-4 m-2">
+                                <div class="ribbon-two ribbon-two-danger"><span>Popular</span></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1 fw-semibold">Pro Investor</h5>
+                                        <p class="text-muted mb-0">For players that want to outwin the market</p>
+                                    </div>
+                                </div>
+                                <div class="py-4 text-center">
+                                    <h1 class="month">R$ <span class="ff-secondary fw-bold">74,90</span> <span class="fs-13 text-muted">/Month</span></h1>
+                                    <h1 class="annual">R$<span class="ff-secondary fw-bold">719,00</span> <span class="fs-13 text-muted">/Year</span></h1>
+                                </div>
+
+                                <div>
+                                    <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-basic-plan">Advanced Investor Plan +</span></li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Pro</b> Dashboards
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Stock Information
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Stock Indicators
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Sectorial Information
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Sectorial Indicators Access
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Pro</b> Magic Formula Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Advanced</b> Stock Fair Price
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>2.000</b> Monthly Credits for Artificial Intelligence Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Basic </b>Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Monte Carlo Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-danger me-1">
+                                                    <i class="ri-close-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Asset and Liability Management (ALM)
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Get Started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card plan-box mb-0 ribbon-box right">
+                            <div class="card-body p-4 m-2">
+                                <div class="ribbon-two ribbon-two-danger"></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1 fw-semibold">Premium Investor</h5>
+                                        <p class="text-muted mb-0">For investors that want to use the AI and machine learning power</p>
+                                    </div>
+                                </div>
+                                <div class="py-4 text-center">
+                                    <h1 class="month">R$ <span class="ff-secondary fw-bold">119,90</span> <span class="fs-13 text-muted">/Month</span></h1>
+                                    <h1 class="annual">R$<span class="ff-secondary fw-bold">1.151,00</span> <span class="fs-13 text-muted">/Year</span></h1>
+                                </div>
+
+                                <div>
+                                    <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-basic-plan">Pro Investor Plan +</span></li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Premium</b> Dashboards
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Stock Information
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Stock Indicators
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Sectorial Information
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Sectorial Indicators Access
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Premium</b> Magic Formula Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Premium</b> Stock Fair Price
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>4000</b> Monthly Credits for Artificial Intelligence Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Advanced </b>Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Monte Carlo Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Asset and Liability Management (ALM)
                                                 </div>
                                             </div>
                                         </li>
@@ -851,33 +1461,30 @@
                     </div>
                     <!--end col-->
                     <div class="col-lg-4">
-                        <div class="card plan-box mb-0">
+                        <div class="card plan-box mb-0 ribbon-box right">
                             <div class="card-body p-4 m-2">
+                                <div class="ribbon-two ribbon-two-danger"></div>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
-                                        <h5 class="mb-1 fw-semibold">Platinum Plan</h5>
-                                        <p class="text-muted mb-0">Enterprise Businesses</p>
-                                    </div>
-                                    <div class="avatar-sm">
-                                        <div class="avatar-title bg-light rounded-circle text-primary">
-                                            <i class="ri-stack-fill fs-20"></i>
-                                        </div>
+                                        <h5 class="mb-1 fw-semibold">Ultimate Investor</h5>
+                                        <p class="text-muted mb-0">Unlock the full potential of artificial intelligence and welcome the future</p>
                                     </div>
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month"><sup><small>$</small></sup><span class="ff-secondary fw-bold">39</span> <span class="fs-13 text-muted">/Month</span></h1>
-                                    <h1 class="annual"><sup><small>$</small></sup><span class="ff-secondary fw-bold">351</span> <span class="fs-13 text-muted">/Year</span></h1>
+                                    <h1 class="month">R$ <span class="ff-secondary fw-bold">199,90</span> <span class="fs-13 text-muted">/Month</span></h1>
+                                    <h1 class="annual">R$<span class="ff-secondary fw-bold">1.919,00</span> <span class="fs-13 text-muted">/Year</span></h1>
                                 </div>
 
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-basic-plan">Premium Investor Plan +</span></li>
                                         <li>
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 text-success me-1">
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Projects
+                                                    <b>Ultimate</b> Dashboards
                                                 </div>
                                             </div>
                                         </li>
@@ -887,7 +1494,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Customers
+                                                    Stock Information
                                                 </div>
                                             </div>
                                         </li>
@@ -897,7 +1504,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Scalable Bandwidth
+                                                    Stock Indicators
                                                 </div>
                                             </div>
                                         </li>
@@ -907,7 +1514,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> FTP Login
+                                                    Sectorial Information
                                                 </div>
                                             </div>
                                         </li>
@@ -917,7 +1524,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>24/7</b> Support
+                                                    Sectorial Indicators Access
                                                 </div>
                                             </div>
                                         </li>
@@ -927,7 +1534,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Unlimited</b> Storage
+                                                    <b>Ultimate</b> Magic Formula Portfolio
                                                 </div>
                                             </div>
                                         </li>
@@ -937,7 +1544,57 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    Domain
+                                                    <b>Ultimate</b> Stock Fair Price
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>10.000</b> Monthly Credits for Artificial Intelligence Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Ultimate </b>Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Monte Carlo Simulations
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    Asset and Liability Management (ALM)
                                                 </div>
                                             </div>
                                         </li>
@@ -949,7 +1606,124 @@
                             </div>
                         </div>
                     </div>
-                    <!--end col-->
+                    <div class="col-lg-4">
+                        <div class="card plan-box mb-0 ribbon-box right">
+                            <div class="card-body p-4 m-2">
+                                <div class="ribbon-two ribbon-two-danger"></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1">
+                                        <h5 class="mb-1 fw-semibold">Consulting</h5>
+                                        <p class="text-muted mb-0">If you want to have a personilized service and customized calculations</p>
+                                    </div>
+                                </div>
+                                <div class="py-4 text-center">
+                                    <h1 class="month"><span class="ff-secondary fw-bold">TBD</span> <span class="fs-13 text-muted"></span></h1>
+                                    <h1 class="annual"><span class="ff-secondary fw-bold">TBD</span> <span class="fs-13 text-muted"></span></h1>
+                                </div>
+
+                                <div>
+                                    <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
+                                        <li class="menu-title"><span data-key="t-basic-plan">Customized Consulting</span></li>
+
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Develop</b> Coding for Specific Needs
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Develop </b>Machine Learning Algorithms
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Develop </b>Reinforced Learning Algorithms
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Calculations </b>on Markowitz Portfolio
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Perform </b>Statistical and Probabilistic Analysis
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Expand </b>Code to Other Stock Market Exchanges
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Perform </b>Customized Risk Analysis and Value-at-Risk (VaR)
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Run </b>Monte Carlo Simulations for your Assets
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 text-success me-1">
+                                                    <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <b>Tailor </b>an Asset and Liability Management (ALM) Model
+                                                </div>
+                                            </div>
+                                        </li>
+                                       <br> 
+                                    </ul>
+                                    <div class="mt-4">
+                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--end row-->
             </div>
