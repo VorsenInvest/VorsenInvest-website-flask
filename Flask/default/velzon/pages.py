@@ -585,8 +585,8 @@ def login_post():
         #session['table_data_fund'] = data_fund
 
         login_user(user, remember=remember)
-        flash("Login successful!", "success")  # Add a success message
-        return redirect(url_for('dashboards.index'))
+        #flash("Login successful!")  # Add a success message
+        return redirect(url_for('dashboards.dashboard_analytics'))
 
 @pages.route('/account/signup')  
 def signup(): 
