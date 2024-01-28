@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
+                    
                     <div class="card">
                         <div class="card-body">
                             <!--<p class="text-muted">Use class to generate equal-width elements with all horizontal space will be occupied by nav links.</p>-->
@@ -106,7 +106,7 @@
                     <div class="col-xxl-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
-                                <h5 class="card-title mb-0 flex-grow-1">Economic Sectors, Subsectors, and Segments</h5>
+                                <h5 class="card-title mb-0 flex-grow-1"><span  data-key="t-sec-sub-seg">Economic Sectors, Subsectors, and Segments</span></h5>
                                 <div class="flex-shrink-0">
                                     <!--
                                     <div class="flax-shrink-0 hstack gap-2">
@@ -356,6 +356,12 @@
 
             {% block footer %}
             {% include "partials/footer.html" %}
+            <script>
+                // Call getLanguage when the document is ready
+                $(document).ready(function() {
+                    window.getLanguage();
+                });
+            </script>
             {% endblock footer %}
             </div>
             <!-- end main content-->
@@ -381,7 +387,7 @@
 <!-- Inline script to call getLanguage() when the document is ready -->
 <script>
     $(document).ready(function() {
-        getLanguage();
+        window.getLanguage();
     });
 </script>
 {% endblock extra_js %}

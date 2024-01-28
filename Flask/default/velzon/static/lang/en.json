@@ -210,7 +210,6 @@
     "t-level-2.2":"Level 2.2",
     "t-level-3.1":"Level 3.1",
     "t-level-3.2":"Level 3.2",
-
     "t-stocks":"Stocks",
     "t-market-intelligence":"Market Intelligence",
     "t-stocks-list":"Stock List",
@@ -218,10 +217,35 @@
     "t-sectors":"Sectors",
     "t-sectors-list":"Sectors List",
     "t-sectors-indicators":"Sectorial Indicators",
-    
     "t-welcome":"Welcome",
     "t-help":"Help",
-    "t-balance":"Balance"
+    "t-balance":"Balance",
+    "t-ticker": "Ticker",
+    "t-quick-ratio": "Quick Ratio",
+    "t-current-ratio": "Current Ratio",
+    "t-debt-to-equity": "Debt to Equity",
+    "t-revenue-per-share": "Revenue Per Share",
+    "t-return-on-assets": "Return on Assets",
+    "t-return-on-equity": "Return on Equity",
+    "t-earnings-growth": "Earnings Growth",
+    "t-revenue-growth": "Revenue Growth",
+    "t-gross-margins": "Gross Margins",
+    "t-ebitda-margins": "EBITDA Margins",
+    "t-operating-margins": "Operating Margins",
+    "t-profit-margins": "Profit Margins",
+    "t-beta": "Beta",
+    "t-book-value": "Book Value",
+    "t-earnings-quarterly-growth": "Earnings Quarterly Growth",
+    "t-trailing-eps": "Trailing EPS",
+    "t-forward-eps": "Forward EPS",
+    "t-enterprise-to-ebitda": "Enterprise to EBITDA",
+    "t-enterprise-to-ebit": "Enterprise to EBIT",
+    "t-dividend-yield": "Dividend Yield",
+    "t-page-title": "Vorsen - Artificial Intelligence Investing",
+    "t-page-title-start": "Start | Vorsen - Artificial Intelligence Investing",
+    "t-fund-title": "Fundamentalist Indicators",
+    "t-sec-sub-seg": "Economic Sectors, Subsectors, and Segments"
+
       
     
 }

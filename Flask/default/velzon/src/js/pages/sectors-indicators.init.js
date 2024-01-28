@@ -4,6 +4,9 @@ $(document).ready(function() {
     if (!$.fn.DataTable.isDataTable('#stock-ind-fund')) {
         var table = $('#stock-ind-fund').DataTable({
             // DataTables configuration options
+            "initComplete": function(settings, json) {
+                window.getLanguage();  // Call getLanguage() after DataTable is initialized
+            }
         });
     } else {
         // If it already exists, retrieve the existing instance
@@ -96,7 +99,7 @@ $(document).ready(function() {
     table.on('draw', function() {
         updateUniqueCounts();
     });
-    getLanguage();
+    window.getLanguage();
 });
 
 

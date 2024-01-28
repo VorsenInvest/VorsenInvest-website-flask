@@ -10,7 +10,7 @@ File: Main Js File
 (function () {
 	("use strict");
 
-	/**
+	/**s
 	 *  global variables
 	 */
 	var navbarMenuHTML = document.querySelector(".navbar-menu").innerHTML;
@@ -58,7 +58,10 @@ File: Main Js File
 
 	// Multi language setting
 	window.getLanguage = function () {
+		console.log("getLanguage called");
 		language == null ? setLanguage(default_lang) : false;
+		console.log("Current language: " + language); // Add this line
+		console.log("Requesting language file from: /static/lang/" + language + ".json"); // Add this line
 		var request = new XMLHttpRequest();
 		// Instantiating the request object
 		request.open("GET", "/static/lang/" + language + ".json");
@@ -67,7 +70,10 @@ File: Main Js File
 			// Check if the request is compete and was successful
 			if (this.readyState === 4 && this.status === 200) {
 				var data = JSON.parse(this.responseText);
+				console.log("Loaded language data:", data); // Add this line
 				Object.keys(data).forEach(function (key) {
+					console.log("Translating elements for key:", key, elements); // Add this line
+
 					var elements = document.querySelectorAll("[data-key='" + key + "']");
 					Array.from(elements).forEach(function (elem) {
 						elem.textContent = data[key];
@@ -1988,7 +1994,11 @@ File: Main Js File
 		pluginData();
 		initLanguage();
 		isCollapseMenu();
-		initMenuItemScroll();
+		initMenuItemScroll();		
+		initLanguage();
+		setLanguage();
+		window.getLanguage();
+
 	}
 	init();
 
@@ -2017,6 +2027,11 @@ File: Main Js File
 		timeOutFunctionId = setTimeout(setResize, 2000);
 	});
 })();
+
+// Make sure window.getLanguage() is called after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    window.getLanguage();
+});
 
 
 //
