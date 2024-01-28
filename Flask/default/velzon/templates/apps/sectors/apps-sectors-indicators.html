@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Sectorial Indicators</h4>
+                                <h4 class="mb-sm-0" data-key="t-sectors-indicators">Sectorial Indicators</h4>
 
                                 <!--
                                 <div class="page-title-right">
@@ -377,5 +377,11 @@
 <script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
 <script src="{{ url_for('static', filename='js/pages/sectors-indicators.init.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="{{url_for('static' ,filename='js/app.js')}}"></script>
+<!-- Inline script to call getLanguage() when the document is ready -->
+<script>
+    $(document).ready(function() {
+        getLanguage();
+    });
+</script>
 {% endblock extra_js %}

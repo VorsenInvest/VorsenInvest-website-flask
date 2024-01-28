@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     // Check if the DataTable instance already exists
     if (!$.fn.DataTable.isDataTable('#stock-ind-fund')) {
         var table = $('#stock-ind-fund').DataTable({
@@ -96,7 +96,7 @@ $(document).ready(function() {
     table.on('draw', function() {
         updateUniqueCounts();
     });
-
+    getLanguage();
 });
 
 

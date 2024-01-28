@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<html lang="en" lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html lang="pt-br" lang="pt-br" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 <head>
     <meta charset="utf-8" />
-    <title>{% block title %}{% endblock title %} | <span>data-key="t-ticker">Vorsen - Artificial Intelligence Investing</span></title>
+    <title>{% block title %}<span data-key="t-page-title"></span>{% endblock title %} | Vorsen - Artificial Intelligence Investing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -60,13 +60,18 @@
     <script src="{{url_for('static' ,filename='js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
     <script src="{{url_for('static' ,filename='js/plugins.js')}}"></script>
 
+
     {% block extra_js %}
     {% endblock extra_js %}
 
     <!-- App js -->
     <script src="{{url_for('static' ,filename='js/app.js')}}"></script>
     <script src="{{ url_for('static', filename='js/pages/alert.js') }}"></script>
-
+    <script>
+        $(document).ready(function() {
+            getLanguage();
+        });
+    </script>
     {% endblock javascript %}
 
 </body>

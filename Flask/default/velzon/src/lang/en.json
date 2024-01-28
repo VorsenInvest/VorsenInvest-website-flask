@@ -210,7 +210,6 @@
     "t-level-2.2":"Level 2.2",
     "t-level-3.1":"Level 3.1",
     "t-level-3.2":"Level 3.2",
-
     "t-stocks":"Stocks",
     "t-market-intelligence":"Market Intelligence",
     "t-stocks-list":"Stock List",
@@ -218,11 +217,9 @@
     "t-sectors":"Sectors",
     "t-sectors-list":"Sectors List",
     "t-sectors-indicators":"Sectorial Indicators",
-    
     "t-welcome":"Welcome",
     "t-help":"Help",
     "t-balance":"Balance",
-
     "t-ticker": "Ticker",
     "t-quick-ratio": "Quick Ratio",
     "t-current-ratio": "Current Ratio",
@@ -244,10 +241,10 @@
     "t-enterprise-to-ebitda": "Enterprise to EBITDA",
     "t-enterprise-to-ebit": "Enterprise to EBIT",
     "t-dividend-yield": "Dividend Yield",
-    
     "t-page-title": "Vorsen - Artificial Intelligence Investing",
-    "t-page-title-start": "Start | Vorsen - Artificial Intelligence Investing"
-
+    "t-page-title-start": "Start | Vorsen - Artificial Intelligence Investing",
+    "t-fund-title": "Fundamentalist Indicators",
+    "t-sec-sub-seg": "Economic Sectors, Subsectors, and Segments"
 
       
     

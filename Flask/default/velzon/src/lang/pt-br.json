@@ -202,7 +202,6 @@
     "t-level-2.2":"Nível 2.2",
     "t-level-3.1":"Nível 3.1",
     "t-level-3.2":"Nível 3.2",
-
     "t-stocks":"Ações",
     "t-market-intelligence":"Inteligência de Mercado",
     "t-stocks-list":"Lista de Ações",
@@ -210,11 +209,9 @@
     "t-sectors":"Setores",
     "t-sectors-list":"Lista de Setores",
     "t-sectors-indicators":"Indicadores Setoriais",
-    
     "t-welcome":"Bem-vindo",
     "t-help":"Ajuda",
     "t-balance":"Balanço",
-
     "t-ticker": "Código",
     "t-quick-ratio": "Índice de Liquidez Corrente",
     "t-current-ratio": "Índice de Liquidez Seca",
@@ -236,9 +233,10 @@
     "t-enterprise-to-ebitda": "Valor da Empresa para EBITDA",
     "t-enterprise-to-ebit": "Valor da Empresa para EBIT",
     "t-dividend-yield": "Divident Yield",
-
     "t-page-title": "Vorsen - Invista com Inteligência Artificial",
-    "t-page-title-start": "Início | Vorsen - Invista com Inteligência Artificial"
+    "t-page-title-start": "Início | Vorsen - Invista com Inteligência Artificial",
+    "t-fund-title": "Indicadores Fundamentalistas",
+    "t-sec-sub-seg": "Setores Econômicos, Subsetores e Segmentos"
     
     
 }

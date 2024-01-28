@@ -15,7 +15,7 @@ File: Main Js File
 	 */
 	var navbarMenuHTML = document.querySelector(".navbar-menu").innerHTML;
 	var horizontalMenuSplit = 7; // after this number all horizontal menus will be moved in More menu options
-	var default_lang = "en"; // set Default Language
+	var default_lang = "pt-br"; // set Default Language
 	var language = localStorage.getItem("language");
 
 	function initLanguage() {
@@ -52,12 +52,12 @@ File: Main Js File
 			}
 			localStorage.setItem("language", lang);
 			language = localStorage.getItem("language");
-			getLanguage();
+			window.getLanguage();
 		}
 	}
 
 	// Multi language setting
-	function getLanguage() {
+	window.getLanguage = function () {
 		language == null ? setLanguage(default_lang) : false;
 		var request = new XMLHttpRequest();
 		// Instantiating the request object
