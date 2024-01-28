@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
+<html lang="pt-br" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
 <head>
 
@@ -67,7 +67,7 @@
                     </ul>
                     <div class="dropdown ms-1 topbar-head-dropdown header-item">
                         <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img id="header-lang-img" src="{{url_for('static' ,filename='images/flags/us.svg')}}" alt="Header Language" height="20" class="rounded">
+                            <img id="header-lang-img" src="{{url_for('static' ,filename='images/flags/br.svg')}}" alt="Header Language" height="20" class="rounded">
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
@@ -145,8 +145,8 @@
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="text-muted">
-                            <h1 class="display-6 fw-semibold mb-3 lh-base text-light-emphasis">Welcome to <span class="text-warning">Vorsen Invest</span></h1>
                             <h5 class="fs-12 text-uppercase text-light-emphasis">Artificial Intelligence Investing</h5>
+                            <h1 class="display-6 fw-semibold mb-3 lh-base text-light-emphasis"><span data-key="l-welcome">Welcome to <span class="text-warning">Vorsen Invest</span></span></h1>
                             <h4 class="mb-3 text-primary">A New and Innovative Way of Investing</h4>
                             <p class="mb-4 ff-secondary text-light-emphasis">As the pioneering Brazilian company leveraging cutting-edge artificial intelligence, we stand at the forefront of transforming information services for investors. Our innovative approach harnesses the power of AI to deliver unparalleled insights, empowering investors with advanced, real-time analytics and data-driven decision-making tools. This fusion of technology and expertise sets a new benchmark in investment intelligence, propelling investors towards more informed, strategic, and successful financial outcomes. Our commitment lies in revolutionizing the investment landscape, offering an unmatched level of precision and foresight in every aspect of investor support.</p>
 
@@ -2559,6 +2559,7 @@
                 </div>
             </div>
         </footer>
+        
         <!-- end footer -->
 
         <!--start back-to-top-->
@@ -2585,6 +2586,89 @@
 
     <!-- landing init -->
     <script src="{{url_for('static' ,filename='js/pages/landing.init.js')}}"></script>
+    <script src="{{url_for('static' ,filename='js/app.js')}}"></script>
+    <!-- Inline script to call getLanguage() when the document is ready -->
+    <script>
+        $(document).ready(function() {
+            window.getLanguage();
+        });
+    </script>
+    <script>
+        (function () {
+            "use strict";
+
+            // Global variables
+            var navbarMenuHTML = document.querySelector(".navbar-menu").innerHTML;
+            var horizontalMenuSplit = 7; // After this number all horizontal menus will be moved in More menu options
+            var default_lang = "pt-br"; // Set Default Language
+            var language = localStorage.getItem("language");
+
+            function initLanguage() {
+                (language === null) ? setLanguage(default_lang) : setLanguage(language);
+                var languages = document.getElementsByClassName("language");
+                languages && Array.from(languages).forEach(function (dropdown) {
+                    dropdown.addEventListener("click", function (event) {
+                        console.log("Language dropdown clicked. Language:", dropdown.getAttribute("data-lang")); 
+                        setLanguage(dropdown.getAttribute("data-lang"));
+                    });
+                });
+            }
+
+            function setLanguage(lang) {
+                console.log("Setting language to:", lang); 
+
+                var headerLangImg = document.getElementById("header-lang-img");
+                if (headerLangImg) {
+                    var flagSrc = {
+                        "en": "/static/images/flags/us.svg",
+                        "pt-br": "/static/images/flags/br.svg",
+                        "sp": "/static/images/flags/spain.svg",
+                        "gr": "/static/images/flags/germany.svg",
+                        "it": "/static/images/flags/italy.svg",
+                        "ru": "/static/images/flags/russia.svg",
+                        "ch": "/static/images/flags/china.svg",
+                        "fr": "/static/images/flags/french.svg",
+                        "ar": "/static/images/flags/ae.svg"
+                    };
+                    headerLangImg.src = flagSrc[lang] || flagSrc["pt-br"];
+                }
+                localStorage.setItem("language", lang);
+                language = localStorage.getItem("language");
+                window.getLanguage();
+            }
+
+            window.getLanguage = function () {
+                console.log("getLanguage called");
+                if (language == null) setLanguage(default_lang);
+                console.log("Current language: " + language);
+                console.log("Requesting language file from: /static/lang/" + language + ".json");
+                var request = new XMLHttpRequest();
+                request.open("GET", "/static/lang/" + language + ".json");
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var data = JSON.parse(this.responseText);
+                        console.log("Loaded language data:", data);
+                        Object.keys(data).forEach(function (key) {
+                            var elements = document.querySelectorAll("[data-key='" + key + "']");
+                            Array.from(elements).forEach(function (elem) {
+                                elem.textContent = data[key];
+                            });
+                        });
+                    }
+                };
+                request.send();
+            }
+
+            function init() {
+                initLanguage();
+                window.getLanguage();
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                init();
+            });
+        })();
+    </script>
 </body>
 
 </html>

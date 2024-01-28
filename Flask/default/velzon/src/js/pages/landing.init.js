@@ -6,17 +6,97 @@ Contact: Themesbrand@gmail.com
 File: landing Js File
 */
 
-//  Window scroll sticky class add
-function windowScroll() {
-    var navbar = document.getElementById("navbar");
-    if (navbar) {
-        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
-            navbar.classList.add("is-sticky");
-        } else {
-            navbar.classList.remove("is-sticky");
-        }
-    }
-}
+
+(function () {
+	("use strict");
+
+	/**s
+	 *  global variables
+	 */
+
+	var default_lang = "pt-br"; // set Default Language
+	var language = localStorage.getItem("language");
+
+	function initLanguage() {
+		// Set new language
+		(language === null) ? setLanguage(default_lang) : setLanguage(language);
+		var languages = document.getElementsByClassName("language");
+		languages && Array.from(languages).forEach(function (dropdown) {
+            dropdown.addEventListener("click", function (event) {
+                console.log("Language dropdown clicked. Language:", dropdown.getAttribute("data-lang")); // Debug statement
+                setLanguage(dropdown.getAttribute("data-lang"));
+            });
+        });
+	}
+
+	function setLanguage(lang) {
+        console.log("Setting language to:", lang); // Debug statement
+
+		if (document.getElementById("header-lang-img")) {
+			if (lang == "en") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/us.svg";
+			} else if (lang == "pt-br") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/br.svg";
+			} else if (lang == "sp") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
+			} else if (lang == "gr") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/germany.svg";
+			} else if (lang == "it") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/italy.svg";
+			} else if (lang == "ru") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/russia.svg";
+			} else if (lang == "ch") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/china.svg";
+			} else if (lang == "fr") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/french.svg";
+			} else if (lang == "ar") {
+				document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
+			}
+			localStorage.setItem("language", lang);
+			language = localStorage.getItem("language");
+			window.getLanguage();
+		}
+	}
+
+	// Multi language setting
+	window.getLanguage = function () {
+		console.log("getLanguage called");
+		language == null ? setLanguage(default_lang) : false;
+		console.log("Current language: " + language); // Add this line
+		console.log("Requesting language file from: /static/lang/" + language + ".json"); // Add this line
+		var request = new XMLHttpRequest();
+		// Instantiating the request object
+		request.open("GET", "/static/lang/" + language + ".json");
+		// Defining event listener for readystatechange event
+		request.onreadystatechange = function () {
+			// Check if the request is compete and was successful
+			if (this.readyState === 4 && this.status === 200) {
+				var data = JSON.parse(this.responseText);
+				console.log("Loaded language data:", data); // Add this line
+				Object.keys(data).forEach(function (key) {
+					console.log("Translating elements for key:", key, elements); // Add this line
+
+					var elements = document.querySelectorAll("[data-key='" + key + "']");
+					Array.from(elements).forEach(function (elem) {
+						elem.textContent = data[key];
+					});
+				});
+			}
+		};
+		// Sending the request to the server
+		request.send();
+	}
+    function init() {
+	
+		initLanguage();
+		window.getLanguage();
+
+	}
+    document.addEventListener('DOMContentLoaded', function() {
+        init();
+    });
+})();
+
 
 window.addEventListener('scroll', function (ev) {
     ev.preventDefault();
