@@ -126,8 +126,8 @@
                         </div>
                     </div>
                     <div class="">
-                        <a href="/authentication/auth-signin-basic" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
-                        <a href="/authentication/auth-signup-basic" class="btn btn-primary">Sign Up</a>
+                        <a href="/account/login" class="btn btn-link fw-medium text-decoration-none text-body">Sign in</a>
+                        <a href="/account/signup" class="btn btn-primary">Sign Up</a>
                     </div>
                 </div>
 
@@ -136,7 +136,7 @@
         <!-- end navbar -->
 
         <div class="vertical-overlay" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent.show"></div>
-        <section class="section pb-0 hero-section" id="hero">
+        <section class="section pb-0 hero-section" id="first-line">
         </section>
         <!-- start hero section -->
         <section class="section bg-primary bg-dark" id="hero">
@@ -162,7 +162,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h5 class="fs-14 mb-0 text-light-emphasis">Artificial Itelligence</h5>
+                                                <h5 class="fs-14 mb-0 text-light-emphasis">Artificial Intelligence</h5>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center">
@@ -297,19 +297,19 @@
             <!-- end shape -->
         </section>
         <!-- end hero section -->
-        <section class="section pb-0 hero-section" id="hero">
+        <section class="section pb-0 hero-section" id="hero2">
             <div class="bg-overlay bg-overlay-pattern"></div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-sm-10">
                         <div class="text-center mt-lg-5 pt-5">
-                            <h1 class="display-6 fw-semibold mb-3 lh-base">The best way to manage your investments with <span class="text-warning">Vorsen Invest </span></h1>
+                            <h1 class="display-6 fw-semibold mb-3 lh-base">The best way to manage your investments with <span class="text-secondary">Vorsen Invest </span></h1>
                             <p class="lead text-muted lh-base">
                                 Vorsen stands at the pinnacle of investment solutions, offering a seamlessly responsive and multi-dimensional platform tailored for the discerning investor. Our premium services are underpinned by exclusive, state-of-the-art coding and innovative methodologies. We empower your investment journey with the most advanced artificial intelligence technology, ensuring that every decision is backed by precision, insight, and cutting-edge market analysis. Experience the future of investment with Vorsen, where technology meets financial acumen to redefine success.
                             </p>
                             
                             <div class="d-flex gap-2 justify-content-center mt-4">
-                                <a href="/authentication/auth-signup-basic" class="btn btn-primary">Get Started <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <a href="/account/signup" class="btn btn-primary">Get Started <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                                 <a href="/pages/pricing" class="btn btn-danger">View Plans <i class="ri-eye-line align-middle ms-1"></i></a>
                             </div>
                         </div>
@@ -406,6 +406,11 @@
                                             <img src="{{url_for('static' ,filename='images/clients/keras.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
                                         </div>
                                     </div>
+                                    <div class="swiper-slide">
+                                        <div class="client-images">
+                                            <img src="{{url_for('static' ,filename='images/clients/gym.png')}}" alt="client-img" class="mx-auto img-fluid d-block">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -419,13 +424,151 @@
         <!-- end client section -->
 
         <!-- start services -->
-        <section class="section" id="services">
+        <section class="section bg-dark" id="services">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">A Digital web design studio creating modern & engaging online</h1>
-                            <p class="text-muted">To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce the grammar</p>
+                            <h1 class="mb-3 ff-secondary fw-semibold lh-base text-light-emphasis">An online plataform to unlock the full potential of artificial intelligence in your investments</h1>
+                            <p class="text-muted text-light-emphasis">At the forefront of financial innovation, our company prides itself on delivering top-tier service in stock market intelligence and portfolio optimization, tailored to empower investors in their decision-making journey. Leveraging cutting-edge technology and deep market insights, we provide a comprehensive suite of tools and analytics that demystify complex market trends and data. Our commitment to innovation means we continually evolve our strategies and solutions, ensuring that investors have access to the most current and predictive intelligence available. This dedication not only positions us as leaders in financial services but also as trusted partners to our clients, helping them navigate the stock market with confidence, clarity, and foresight. Whether it's innovating in the industry or offering strategic insight, our goal remains unwavering: to help investors achieve optimal outcomes and elevate their investment portfolios</p>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
+
+                <div class="row g-8">
+                    <div class="col-lg-12">
+                        <div class="d-flex p-3">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-18 text-warning">Empowering Investment Decisions with Advanced Market Intelligence</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">Our company specializes in providing exceptional stock market intelligence, encompassing a wide array of financial and price indicators, meticulously compared across various economic sectors, subsectors, and segments. This holistic approach enables us to deliver in-depth insights that are crucial for investors seeking to make informed decisions. By integrating comprehensive market data with sophisticated analytical tools, we empower our clients with a nuanced understanding of market dynamics. Our expertise in dissecting financial trends and performance metrics not only equips investors with a competitive edge but also guides them in strategizing investments that align with their objectives. With our commitment to delivering actionable intelligence, we stand as a beacon of clarity in the complex world of stock market investments, aiding investors in navigating market fluctuations with confidence and foresight.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex p-3">
+                            <div class="flex-grow-1" style="text-align: right;">
+                                <h5 class="fs-18 text-warning">Revolutionizing Sector Analysis with Unparalleled Market Intelligence</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">Our company specializes in providing exceptional stock market intelligence, encompassing a wide array of financial and price indicators, meticulously compared across various economic sectors, subsectors, and segments. This holistic approach enables us to deliver in-depth insights that are crucial for investors seeking to make informed decisions. By integrating comprehensive market data with sophisticated analytical tools, we empower our clients with a nuanced understanding of market dynamics. Our expertise in dissecting financial trends and performance metrics not only equips investors with a competitive edge but also guides them in strategizing investments that align with their objectives. With our commitment to delivering actionable intelligence, we stand as a beacon of clarity in the complex world of stock market investments, aiding investors in navigating market fluctuations with confidence and foresight.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex p-3">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-18 text-warning">Insightful Fair Price Analysis</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">In the realm of financial analysis, our approach to determining a 'fair price' is meticulously crafted, drawing upon the esteemed principles established by Benjamin Graham. We delve beyond surface-level metrics, providing investors with profound insights into the potential future prices of stocks, guided by a consensus of expert analysts. Our methodology, rooted in Graham's philosophy, integrates a comprehensive analysis of financial fundamentals with current market trends, offering a well-rounded perspective on valuation. This approach not only aids investors in identifying stocks priced favorably in relation to their intrinsic value but also equips them with the foresight needed to anticipate future market movements. By adopting this rigorous and time-tested strategy, we empower investors with the confidence to make well-informed decisions, aligning their investments with a true reflection of market worth.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex p-3">
+                            <div class="flex-grow-1" style="text-align: right;">
+                                <h5 class="fs-18 text-warning">Enhanced Markowitz Portfolios Optimization with Monte Carlo Simulation and Deep Reinforcement Learning"</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">Building upon the foundational work of Harry Markowitz in portfolio theory, our firm takes a leap into the future of investment strategy by integrating Monte Carlo simulations and deep reinforcement learning using neural networks. This advanced approach to portfolio optimization transcends traditional boundaries, allowing for a more sophisticated analysis of risk and return. By applying Monte Carlo methods, we can model a vast array of market scenarios, providing a deeper understanding of potential outcomes and uncertainties. Complementing this, our use of deep reinforcement learning, powered by neural networks, continuously learns from market behaviors, adapting and optimizing portfolio allocations in real-time. This cutting-edge combination not only aligns with the principles of Markowitz's portfolio theory but also enhances it with a level of dynamism and precision previously unattainable, offering our clients a portfolio strategy that is both robust and finely tuned to the complexities of today's financial markets.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex p-3">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-18 text-warning">Advanced Risk Analysis Integrating AI with Statistical and Probabilistic Methods for Value at Risk Assessment</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">In the intricate domain of financial risk management, our firm stands at the vanguard, employing a blend of artificial intelligence, statistical, and probabilistic analyses to revolutionize Value at Risk (VaR) assessments. Our approach transcends traditional risk evaluation methods by integrating AI-driven algorithms that can parse through vast datasets, identifying subtle patterns and correlations that might elude conventional analyses. Leveraging the power of machine learning, our models are capable of forecasting potential losses with a greater degree of accuracy, taking into account a wide range of market conditions and variables. This sophisticated blend of AI and mathematical rigor allows us to quantify risk in a more nuanced manner, providing investors with a clearer understanding of their exposure and the probabilistic distribution of potential outcomes. Our advanced risk analysis methodology equips investors with the tools to make more informed decisions, effectively balancing potential returns against the backdrop of their risk tolerance and market volatility.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex p-3">
+                            <div class="flex-grow-1" style="text-align: right;">
+                                <h5 class="fs-18 text-warning">Mastering Predictability Monte Carlo Simulations</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">Monte Carlo simulations represent a pivotal element in our financial forecasting arsenal, providing deep insights into the potential future states of the market. By generating and analyzing thousands of plausible market scenarios, we harness the power of randomness and probability to model complex market behaviors and outcomes. This method is particularly invaluable in assessing the risks and probabilities of rare but impactful market events, enabling us to develop robust strategies that are resilient under various market conditions. Beyond mere risk assessment, these simulations aid in optimizing portfolio allocation, pricing complex derivatives, and strategic financial planning. By quantifying uncertainty and visualizing a spectrum of possible financial futures, Monte Carlo simulations empower us with a nuanced understanding of market dynamics, enhancing our decision-making processes with a level of sophistication and foresight that traditional models cannot match.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex p-3">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="avatar-sm">
+                                    <div class="avatar-title text-success rounded-circle">
+                                        <i class="las la-microchip fs-36"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-18 text-warning">Advanced ALM with AI-Driven Analytics and Optimization</h5>
+                                <p class="text-muted my-3 ff-secondary text-light-emphasis">In our Asset-Liability Management (ALM) approach, we harness the synergy of artificial intelligence and traditional financial acumen to elevate predictive accuracy and strategic planning. Utilizing advanced machine learning algorithms such as Linear Regression, Lasso Regression, and Ridge Regression, alongside the k-Nearest Neighbors (kNN) classification technique, we provide a more precise estimation of future liabilities and asset returns. Incorporating comprehensive time series analysis, our methodology excels in identifying market trends, while the integration of AI optimizes both in-sample and out-of-sample data, ensuring robustness against market changes. This is further refined by walk forward analysis, systematically adjusting our models to new, evolving data. Our AI-driven approach not only enhances portfolio management but also aligns with our clients' objectives, ensuring balanced decision-making amidst the complexities of the financial landscape.</p>
+                                <div>
+                                    <!--<a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+        <section class="section" id="features">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h1 class="mb-3 ff-secondary fw-semibold lh-base">An online plataform to unlock the full potential of artificial intelligence in your investments</h1>
+                            <p class="text-muted">At the core of our technological approach lies a sophisticated integration of deep learning and neural networks, designed to drive unparalleled advancements in data analysis and predictive modeling. Our systems are built upon intricate regression algorithms and advanced classification models, each meticulously crafted to interpret complex data patterns and extract meaningful insights. This powerful combination of deep learning and neural network methodologies not only enhances the accuracy of our predictions but also ensures a robust and dynamic response to evolving data trends. By leveraging these cutting-edge techniques, we are able to deliver solutions that are not just reactive, but proactively adaptive to the ever-changing landscape of data-driven decision making</p>
                         </div>
                     </div>
                     <!-- end col -->
@@ -438,13 +581,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-pencil-ruler-2-line fs-36"></i>
+                                        <i class="las la-microchip fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Creative Design</h5>
-                                <p class="text-muted my-3 ff-secondary">The creative design includes designs that are unique, effective and memorable.</p>
+                                <h5 class="fs-18">Artificial Intelligence</h5>
+                                <p class="text-muted my-3 ff-secondary">Artificial intelligence revolutionizes the way we interact with technology, creating smart solutions that learn and adapt.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -457,13 +600,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-palette-line fs-36"></i>
+                                        <i class="lab la-python fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Unlimited Colors</h5>
-                                <p class="text-muted my-3 ff-secondary">The collection of rules and guidelines which designers use to communicate with users through appealing.</p>
+                                <h5 class="fs-18">Python Libraries</h5>
+                                <p class="text-muted my-3 ff-secondary">Python, renowned for its simplicity and power, is the backbone of modern AI and machine learning, offering an extensive array of specialized libraries.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -476,13 +619,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-lightbulb-flash-line fs-36"></i>
+                                        <i class="las la-robot fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Strategy Solutions</h5>
-                                <p class="text-muted my-3 ff-secondary">Business development firm that provides strategic planning, market research services and project.</p>
+                                <h5 class="fs-18">Machine Learning</h5>
+                                <p class="text-muted my-3 ff-secondary">It's the driving force behind predictive analytics, providing the foundation for sophisticated data-driven decision-making.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -495,13 +638,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-customer-service-line fs-36"></i>
+                                        <i class="las la-network-wired fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Awesome Support</h5>
-                                <p class="text-muted my-3 ff-secondary">Awesome Support is the most versatile and feature-rich support plugin for all version.</p>
+                                <h5 class="fs-18">Deep Learning</h5>
+                                <p class="text-muted my-3 ff-secondary">Deep learning's ability to process and learn from unstructured data is revolutionizing fields from healthcare to finance.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -514,13 +657,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-stack-line fs-36"></i>
+                                        <i class="las la-brain fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Truly Multipurpose</h5>
-                                <p class="text-muted my-3 ff-secondary">You usually get a broad range of options to play with. This enables you to use a single theme across multiple.</p>
+                                <h5 class="fs-18">Neural Networks</h5>
+                                <p class="text-muted my-3 ff-secondary">These networks excel in identifying patterns and trends, adapting their responses as they learn from new data.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -533,13 +676,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-settings-2-line fs-36"></i>
+                                        <i class="las la-school fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Easy to customize</h5>
-                                <p class="text-muted my-3 ff-secondary">Personalise your own website, no matter what theme and what customization options.</p>
+                                <h5 class="fs-18">Reinforcement Learning</h5>
+                                <p class="text-muted my-3 ff-secondary">Reinforcement learning focuses on training models to make sequences of decisions, learning from interactions with the environment.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -553,13 +696,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-slideshow-line fs-36"></i>
+                                        <i class="las la-chart-line fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Responsive & Clean Design</h5>
-                                <p class="text-muted my-3 ff-secondary">Responsive design is a graphic user interface (GUI) design approach used to create content.</p>
+                                <h5 class="fs-18">Regression Algorithms</h5>
+                                <p class="text-muted my-3 ff-secondary">From predicting market movements to estimating real estate prices, these algorithms form the backbone of predictive analytics.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -572,13 +715,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-google-fill fs-36"></i>
+                                        <i class="las la-hourglass fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Google Font Collection</h5>
-                                <p class="text-muted my-3 ff-secondary">Google Fonts is a collection of 915 fonts, all available to use for free on your website.</p>
+                                <h5 class="fs-18">Time Series Analysis</h5>
+                                <p class="text-muted my-3 ff-secondary">It enables accurate forecasting, helping investors plan for future scenarios based on historical data patterns.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -591,13 +734,13 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar-sm icon-effect">
                                     <div class="avatar-title bg-transparent text-success rounded-circle">
-                                        <i class="ri-briefcase-5-line fs-36"></i>
+                                        <i class="las la-ticket-alt fs-36"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="fs-18">Top Industry Specialists</h5>
-                                <p class="text-muted my-3 ff-secondary">An industrial specialist works with industrial operations to ensure that manufacturing facilities work.</p>
+                                <h5 class="fs-18">Classification Algorithms</h5>
+                                <p class="text-muted my-3 ff-secondary">Classification algorithms categorize data into predefined classes, essential for applications like market sentiment analysis.</p>
                                 <div>
                                     <a href="#" class="fs-13 fw-medium">Learn More <i class="ri-arrow-right-s-line align-bottom"></i></a>
                                 </div>
@@ -613,7 +756,7 @@
         <!-- end services -->
 
         <!-- start features -->
-        <section class="section bg-light py-5" id="features">
+        <section class="section bg-light py-5">
             <div class="container">
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-6 col-sm-7 mx-auto">
@@ -628,8 +771,8 @@
                                     <i class="ri-collage-line fs-36"></i>
                                 </div>
                             </div>
-                            <h3 class="mb-3 fs-20">Huge collection of widgets</h3>
-                            <p class="mb-4 ff-secondary fs-16">Collection widgets specialize in displaying many elements of the same type, such as a collection of pictures from a collection of articles from a news app or a collection of messages from a communication app.</p>
+                            <h3 class="mb-3 fs-20">Totally Responsive</h3>
+                            <p class="mb-4 ff-secondary fs-16">Our app exemplifies the pinnacle of responsive design, providing a seamless and engaging user experience on any device. Engineered with a mobile-first philosophy, it flawlessly adjusts to different screen sizes and orientations, offering crisp visuals and intuitive navigation whether on a compact smartphone or a large desktop monitor. With its swift adaptability, the app ensures that users enjoy uninterrupted access to its features and functionalities, transcending the limitations of traditional apps. This responsiveness not only elevates user satisfaction but also showcases our commitment to delivering versatile and accessible digital solutions in a world where connectivity is ever-evolving.</p>
 
                             <div class="row pt-3">
                                 <div class="col-3">
@@ -640,13 +783,13 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="text-center">
-                                        <h4>150+</h4>
-                                        <p>Pages</p>
+                                        <h4>10+</h4>
+                                        <p>Interfaces</p>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="text-center">
-                                        <h4>7+</h4>
+                                        <h4>2</h4>
                                         <p>Functional Apps</p>
                                     </div>
                                 </div>
@@ -668,13 +811,13 @@
                 <div class="row align-items-center gy-4">
                     <div class="col-sm">
                         <div>
-                            <h4 class="text-white mb-0 fw-semibold">Build your web App/SaaS with Velzon dashboard</h4>
+                            <h4 class="text-white mb-0 fw-semibold">Sign up now to access all the functionalities</h4>
                         </div>
                     </div>
                     <!-- end col -->
                     <div class="col-sm-auto">
                         <div>
-                            <a href="https://1.envato.market/velzon-admin" target="_blank" class="btn bg-gradient btn-danger"><i class="ri-shopping-cart-2-line align-middle me-1"></i> Buy Now</a>
+                            <a href="/account/signup" target="_blank" class="btn bg-gradient btn-danger"><i class="align-middle me-1"></i> Sign Up</a>
                         </div>
                     </div>
                     <!-- end col -->
@@ -780,61 +923,6 @@
                 </div>
                 <!-- end row -->
 
-                <div class="row align-items-center mt-5 pt-lg-5 gy-4">
-                    <div class="col-lg-6 col-sm-7 col-10 mx-auto">
-                        <div>
-                            <img src="{{url_for('static' ,filename='images/landing/features/img-3.png')}}" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="text-muted ps-lg-5">
-                            <h5 class="fs-12 text-uppercase text-success">structure</h5>
-                            <h4 class="mb-3">Well Documented</h4>
-                            <p class="mb-4">used to describe something that is known about or known to be true because there are many documents that describe it, prove it, etc.</p>
-
-                            <div class="vstack gap-2">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <p class="mb-0">Dynamic Conetnt</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <p class="mb-0">Setup plugin's information.</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="avatar-xs icon-effect">
-                                            <div class="avatar-title bg-transparent text-success rounded-circle h2">
-                                                <i class="ri-check-fill"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <p class="mb-0">Themes customization information</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
             </div>
             <!-- end container -->
         </section>

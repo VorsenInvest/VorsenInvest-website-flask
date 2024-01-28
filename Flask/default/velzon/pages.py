@@ -551,6 +551,10 @@ def auth_500():
 def auth_offline():
     return render_template('pages/authentication/auth-offline.html')
 
+@pages.route('/')
+def index():
+    return render_template('pages/pages/pages-landing.html')
+
 #Actual Auth pages(working)  
 #Actual Auth pages(working)  
 @pages.route('/account/login')  
