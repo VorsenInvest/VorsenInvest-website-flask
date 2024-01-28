@@ -98,11 +98,6 @@ File: landing Js File
 })();
 
 
-window.addEventListener('scroll', function (ev) {
-    ev.preventDefault();
-    windowScroll();
-});
-
 // Collapse Menu
 const navLinks = document.querySelectorAll('.nav-item');
 const menuToggle = document.getElementById('navbarSupportedContent');
