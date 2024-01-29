@@ -419,8 +419,14 @@
     "l-question-encryption-use": "Does Vorsen Invest use encryption for data storage and communication?",
     "l-answer-encryption-use": "Yes, we use strong encryption standards for both data storage and communication to prevent unauthorized access and data breaches.",
     "l-question-data-breach-response": "How does Vorsen Invest respond to data breach or unauthorized access incidents?",
-    "l-answer-data-breach-response": "We have a robust incident response plan for data breaches or unauthorized access, including immediate notification to affected clients and swift action to secure the data."    
-    
+    "l-answer-data-breach-response": "We have a robust incident response plan for data breaches or unauthorized access, including immediate notification to affected clients and swift action to secure the data.",
+    "s-password-label": "Password",
+    "s-remember-me": "Remember me",
+    "s-sign-in-with": "Sign In with",
+    "s-dont-have-account": "Don't have an account ?",
+    "s-welcome-back": "Welcome Back !",
+    "s-sign-in-message": "Sign in to continue"
+
     
 
     

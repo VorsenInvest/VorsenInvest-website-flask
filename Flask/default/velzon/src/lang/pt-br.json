@@ -415,8 +415,13 @@
     "l-question-data-control": "Posso controlar quem acessa minhas informações pessoais e financeiras na Vorsen Invest?",
     "l-answer-data-control": "Absolutamente. Nossa plataforma fornece controle sobre seus dados, permitindo que você gerencie configurações de privacidade e decida quais informações compartilhar.",
     "l-question-data-breach-response": "Como a Vorsen Invest responde a incidentes de violação de dados ou acesso não autorizado?",
-    "l-answer-data-breach-response": "Temos um plano de resposta a incidentes robusto para violações de dados ou acesso não autorizado, incluindo notificação imediata aos clientes afetados e ação rápida para proteger os dados."    
-    
+    "l-answer-data-breach-response": "Temos um plano de resposta a incidentes robusto para violações de dados ou acesso não autorizado, incluindo notificação imediata aos clientes afetados e ação rápida para proteger os dados.",
+    "s-password-label": "Senha",
+    "s-remember-me": "Lembrar de mim",
+    "s-sign-in-with": "Entrar com",
+    "s-dont-have-account": "Não tem uma conta?",
+    "s-welcome-back": "Bem-vindo de volta!",
+    "s-sign-in-message": "Faça login para continuar" 
 
     
     
