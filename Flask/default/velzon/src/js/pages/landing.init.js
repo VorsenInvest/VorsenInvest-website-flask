@@ -31,31 +31,51 @@ File: landing Js File
 
 	function setLanguage(lang) {
         console.log("Setting language to:", lang); // Debug statement
-
-		if (document.getElementById("header-lang-img")) {
-			if (lang == "en") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/us.svg";
-			} else if (lang == "pt-br") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/br.svg";
-			} else if (lang == "sp") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
-			} else if (lang == "gr") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/germany.svg";
-			} else if (lang == "it") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/italy.svg";
-			} else if (lang == "ru") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/russia.svg";
-			} else if (lang == "ch") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/china.svg";
-			} else if (lang == "fr") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/french.svg";
-			} else if (lang == "ar") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
-			}
+        var headerLangImg = document.getElementById("header-lang-img");
+        if (headerLangImg) {
+            if (lang == "en") {
+                headerLangImg.src = "/static/images/flags/us.svg";
+            } else if (lang == "pt-br") {
+                headerLangImg.src = "/static/images/flags/br.svg";
+            } else if (lang == "sp") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
+            } else if (lang == "gr") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/germany.svg";
+            } else if (lang == "it") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/italy.svg";
+            } else if (lang == "ru") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/russia.svg";
+            } else if (lang == "ch") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/china.svg";
+            } else if (lang == "fr") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/french.svg";
+            } else if (lang == "ar") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
+            }
+        }
+        // Update the first image
+        var img2 = document.getElementById("img-2-id");
+        if (img2) {
+            if (lang == "en") {
+                img2.src = "/static/images/landing/features/img-2-en.png";
+            } else if (lang == "pt-br") {
+                img2.src = "/static/images/landing/features/img-2-pt-br.png";
+            }
+            // Add conditions for other languages if needed
+        }
+        // Update the second image
+        var img4 = document.getElementById("img-4-id");
+        if (img4) {
+            if (lang == "en") {
+                img4.src = "/static/images/landing/features/img-4-en.png";
+            } else if (lang == "pt-br") {
+                img4.src = "/static/images/landing/features/img-4-pt-br.png";
+            }
+            // Add conditions for other languages if needed
+        }
 			localStorage.setItem("language", lang);
 			language = localStorage.getItem("language");
 			window.getLanguage();
-		}
 	}
 
 	// Multi language setting

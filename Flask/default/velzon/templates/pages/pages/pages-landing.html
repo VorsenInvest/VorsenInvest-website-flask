@@ -145,7 +145,7 @@
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="text-muted">
                             <h5 class="fs-12 text-uppercase text-light-emphasis" data-key="l-artificial-intelligence-investing">Artificial Intelligence Investing</h5>
-                            <h1 class="display-6 fw-semibold mb-3 lh-base text-light-emphasis"><span data-key="l-welcome">Welcome to <span class="text-warning">Vorsen Invest</span></span></h1>
+                            <h1 class="display-6 fw-semibold mb-3 lh-base text-light-emphasis" data-key="l-welcome">Welcome to <span class="text-warning">Vorsen Invest</span></h1>
                             <h4 class="mb-3 text-primary" data-key="l-new-innovative-investing">A New and Innovative Way of Investing</h4>
                             <p class="mb-4 ff-secondary text-light-emphasis" data-key="l-ai-investing-description">
                                 As the pioneering Brazilian company leveraging cutting-edge artificial intelligence, we stand at the forefront of transforming information services for investors. Our innovative approach harnesses the power of AI to deliver unparalleled insights, empowering investors with advanced, real-time analytics and data-driven decision-making tools. This fusion of technology and expertise sets a new benchmark in investment intelligence, propelling investors towards more informed, strategic, and successful financial outcomes. Our commitment lies in revolutionizing the investment landscape, offering an unmatched level of precision and foresight in every aspect of investor support.
@@ -276,7 +276,7 @@
                     </div>
                     <!-- end col -->
                     <div class="col-12 col-sm-7 col-lg-6 order-1 order-lg-2 text-center">
-                        <img src="{{url_for('static', filename='images/landing/features/img-2.png')}}" alt="" class="img-fluid d-inline-block">
+                        <img id="img-2-id" src="{{url_for('static', filename='images/landing/features/img-2-en.png')}}" alt="Localized Content" class="img-fluid d-inline-block">
                     </div>
                     
                     
@@ -837,7 +837,7 @@
                     <!-- end col -->
                     <div class="col-sm-auto">
                         <div>
-                            <a href="/account/signup" target="_blank" class="btn bg-gradient btn-danger"><i class="align-middle me-1"></i> Sign Up</a>
+                            <a href="/account/signup" target="_blank" class="btn bg-gradient btn-danger"><i class="align-middle me-1"></i> <span data-key="l-sign-up">Sign Up</span></a>
                         </div>
                     </div>
                     <!-- end col -->
@@ -959,10 +959,8 @@
                         </div>
                     </div>
                     <!-- end col -->
-                    <div class="col-lg-6 col-sm-7 col-10 ms-auto order-1 order-lg-2">
-                        <div>
-                            <img src="{{url_for('static' ,filename='images/landing/features/img-4.png')}}" alt="" class="img-fluid">
-                        </div>
+                    <div class="col-12 col-sm-7 col-lg-6 order-1 order-lg-2 text-center">
+                        <img id="img-4-id" src="{{url_for('static', filename='images/landing/features/img-4-en.png')}}" alt="Localized Content" class="img-fluid d-inline-block">
                     </div>
                 </div>
                 <!-- end row -->
@@ -2041,8 +2039,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h3 class="mb-3 fw-semibold">Get In Touch</h3>
-                            <p class="text-muted mb-4 ff-secondary">We thrive when coming up with innovative ideas but also understand that a smart concept should be supported with faucibus sapien odio measurable results.</p>
+                                <h3 class="mb-3 fw-semibold" data-key="l-get-in-rouch">Get In Touch</h3>
+                            <p class="text-muted mb-4 ff-secondary" data-key="l-get-in-touch-description">Join us in revolutionizing investment strategies with artificial intelligence. Contact us to discover how our cutting-edge AI solutions can enhance your investment decisions and drive your financial success.</p>
                         </div>
                     </div>
                 </div>
@@ -2069,47 +2067,52 @@
                     </div>
                     -->
                     <!-- end col -->
-                    <div class="col-lg-8">
-                        <div>
-                            <form>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="mb-4">
-                                            <label for="name" class="form-label fs-13" data-key="l-name-label">Name</label>
-                                            <input name="name" id="name" type="text" class="form-control bg-light border-light" placeholder="Your name*" data-key="l-name-placeholder">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <div>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label for="name" class="form-label fs-13" data-key="l-name-label">Name</label>
+                                                <input name="name" id="name" type="text" class="form-control bg-light border-light">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <label for="email" class="form-label fs-13" data-key="l-email-label">Email</label>
+                                                <input name="email" id="email" type="email" class="form-control bg-light border-light">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="mb-4">
-                                            <label for="email" class="form-label fs-13" data-key="l-email-label">Email</label>
-                                            <input name="email" id="email" type="email" class="form-control bg-light border-light" placeholder="Your email*" data-key="l-email-placeholder">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="mb-4">
+                                                <label for="subject" class="form-label fs-13" data-key="l-subject-label">Subject</label>
+                                                <input type="text" class="form-control bg-light border-light" id="subject" name="subject">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="mb-4">
-                                            <label for="subject" class="form-label fs-13" data-key="l-subject-label">Subject</label>
-                                            <input type="text" class="form-control bg-light border-light" id="subject" name="subject" placeholder="Your Subject.." data-key="l-subject-placeholder" />
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="mb-3">
+                                                <label for="comments" class="form-label fs-13" data-key="l-message-label">Message</label>
+                                                <textarea name="comments" id="comments" rows="3" class="form-control bg-light border-light"></textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="mb-3">
-                                            <label for="comments" class="form-label fs-13" data-key="l-message-label">Message</label>
-                                            <textarea name="comments" id="comments" rows="3" class="form-control bg-light border-light" placeholder="Your message..." data-key="l-message-placeholder"></textarea>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-end">
+                                            <button type="submit" id="submit" name="send" class="submitBnt btn btn-primary">
+                                                <span data-key="l-send-message">Send Message</span>
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12 text-end">
-                                        <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="Send Message" data-key="l-send-button">
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <!-- end row -->
             </div>
@@ -2132,7 +2135,7 @@
                     <div class="col-lg-4 mt-4">
                         <div>
                             <div>
-                                <img src="{{url_for('static' ,filename='images/logo-light-full.png')}}" alt="logo light" height="20">
+                                <img src="{{url_for('static' ,filename='images/logo-light.png')}}" alt="logo light" height="30">
                             </div>
                             <div class="mt-4 fs-13">
                                 <p data-key="l-artificial-intelligence-investing">Artificial Intelligence Investing</p>

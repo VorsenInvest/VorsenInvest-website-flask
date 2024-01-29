@@ -237,7 +237,7 @@
     "t-page-title-start": "Início | Vorsen - Invista com Inteligência Artificial",
     "t-fund-title": "Indicadores Fundamentalistas",
     "t-sec-sub-seg": "Setores Econômicos, Subsetores e Segmentos",
-    "l-artificial-intelligence-investing": "Investimento em Inteligência Artificial",
+    "l-artificial-intelligence-investing": "Invista com Inteligência Artificial",
     "l-welcome": "Bem-vindo ao Vorsen Invest",
     "l-new-innovative-investing": "Uma Nova e Inovadora Forma de Investir",
     "l-ai-investing-description": "Como a pioneira empresa brasileira em inteligência artificial de ponta, estamos na vanguarda da transformação dos serviços de informação para investidores. Nossa abordagem inovadora utiliza o poder da IA para fornecer insights incomparáveis, capacitando investidores com análises avançadas em tempo real e ferramentas de tomada de decisão baseadas em dados. Essa fusão de tecnologia e expertise estabelece um novo padrão em inteligência de investimento, impulsionando investidores em direção a resultados financeiros mais informados, estratégicos e bem-sucedidos. Nosso compromisso está em revolucionar a paisagem de investimentos, oferecendo um nível inigualável de precisão e previsão em todos os aspectos do suporte ao investidor.",
@@ -366,7 +366,12 @@
     "l-ultimate-investor-description": "Desbloquear o potencial total da inteligência artificial e dar as boas-vindas ao futuro",
     "t-premium-plan-plus": "Plano de Investidor Premium +",
     "l-ultimate": "Ultimate",
-    "l-popular": "Popular"
+    "l-popular": "Popular",
+    "l-send-message": "Enviar Mensagem",
+    "l-get-in-rouch": "Entre em Contato",
+    "l-get-in-touch-description": "Junte-se a nós na revolução das estratégias de investimento com inteligência artificial. Entre em contato conosco para descobrir como nossas soluções avançadas de IA podem aprimorar suas decisões de investimento e impulsionar o seu sucesso financeiro."
+    
+
     
     
 
