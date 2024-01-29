@@ -298,7 +298,7 @@
                             
                             <div class="d-flex gap-2 justify-content-center mt-4">
                                 <a href="/account/signup" class="btn btn-primary" data-key="l-get-started">Get Started <i class="ri-arrow-right-line align-middle ms-1"></i></a>
-                                <a href="/pages/pricing" class="btn btn-danger" data-key="l-view-plans">View Plans <i class="ri-eye-line align-middle ms-1"></i></a>
+                                <a href="/#plans" class="btn btn-danger" data-key="l-view-plans">View Plans <i class="ri-eye-line align-middle ms-1"></i></a>
                             </div>
                         </div>
 
@@ -989,7 +989,8 @@
                                     <label class="form-check-label" for="plan-switch"></label>
                                 </div>
                                 <div>
-                                    <h5 class="fs-14 mb-0" data-key="l-annual">Annual <span class="badge bg-success-subtle text-success" data-key="l-annual-save">Save 20%</span></h5>
+                                    <!--<h5 class="fs-14 mb-0" data-key="l-annual">Annual <span class="badge bg-success-success text-success" data-key="l-annual-save">Save 20%</span></h5>-->
+                                    <h5 class="fs-14 mb-0"><span data-key="l-annual">Annual</span>    <span class="badge bg-secondary" data-key="l-annual-save">Save 20%</span></h5>
                                 </div>
                             </div>
                         </div>
@@ -1301,7 +1302,7 @@
                     <div class="col-lg-4">
                         <div class="card plan-box mb-0 ribbon-box right">
                             <div class="card-body p-4 m-2">
-                                <div class="ribbon-two ribbon-two-danger" data-key="l-popular">Popular</div>
+                                <div class="ribbon-two ribbon-two-danger"><span data-key="l-popular">Popular</span></div>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <h5 class="mb-1 fw-semibold" data-key="l-pro-investor">Pro Investor</h5>
@@ -1455,8 +1456,7 @@
                                 </div>
                                 <div class="py-4 text-center">
                                     <h1 class="month"><span data-key="l-currency">R$</span> <span class="ff-secondary fw-bold">119,90</span> <span class="fs-13 text-muted"><span data-key="l-month">/Month</span></span></h1>
-                                    <h1 class="annual"><span data-key="l-currency">R$</span> <span class="ff-secondary fw-bold">383,00</span> <span class="fs-13 text-muted"><span data-key="l-year">/Year</span></span></h1>                                                                    </div>
-
+                                    <h1 class="annual"><span data-key="l-currency">R$</span> <span class="ff-secondary fw-bold">1.151,00</span> <span class="fs-13 text-muted"><span data-key="l-year">/Year</span></span></h1>                                                                    </div>
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
                                         <li class="menu-title"><span data-key="t-pro-plan-plus">Pro Investor Plan +</span></li>
@@ -1600,11 +1600,8 @@
                                     </div>
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month" data-key="l-currency">R$ <span class="ff-secondary fw-bold">119,90</span> <span class="fs-13 text-muted" data-key="l-month">/Month</span></h1>
-                                    <h1 class="annual" data-key="l-currency">R$<span class="ff-secondary fw-bold">1.151,00</span> <span class="fs-13 text-muted" data-key="l-year">/Year</span></h1>
-
-                                                                    </div>
-
+                                    <h1 class="month"><span data-key="l-currency">R$</span> <span class="ff-secondary fw-bold">199,90</span> <span class="fs-13 text-muted"><span data-key="l-month">/Month</span></span></h1>
+                                    <h1 class="annual"><span data-key="l-currency">R$</span> <span class="ff-secondary fw-bold">1.919,00</span> <span class="fs-13 text-muted"><span data-key="l-year">/Year</span></span></h1>                                                                    </div>
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
                                         <li class="menu-title"><span data-key="t-premium-plan-plus">Premium Investor Plan +</span></li>
@@ -1742,25 +1739,25 @@
                                 <div class="ribbon-two ribbon-two-danger"></div>
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
-                                        <h5 class="mb-1 fw-semibold">Consulting</h5>
-                                        <p class="text-muted mb-0">If you want to have a personilized service and customized calculations</p>
+                                        <h5 class="mb-1 fw-semibold" data-key="t-consulting-title">Consulting</h5>
+                                        <p class="text-muted mb-0" data-key="t-consulting-description">If you want to have a personalized service and customized calculations</p>
                                     </div>
                                 </div>
                                 <div class="py-4 text-center">
-                                    <h1 class="month"><span class="ff-secondary fw-bold">TBD</span> <span class="fs-13 text-muted"></span></h1>
-                                    <h1 class="annual"><span class="ff-secondary fw-bold">TBD</span> <span class="fs-13 text-muted"></span></h1>
+                                    <h1 class="month"><span class="ff-secondary fw-bold" data-key="t-monthly-price">TBD</span> <span class="fs-13 text-muted"></span></h1>
+                                    <h1 class="annual"><span class="ff-secondary fw-bold" data-key="t-annual-price">TBD</span> <span class="fs-13 text-muted"></span></h1>
                                 </div>
 
                                 <div>
                                     <ul class="list-unstyled text-muted vstack gap-3 ff-secondary">
-                                        <li class="menu-title"><span data-key="t-basic-plan">Customized Consulting</span></li>
+                                        <li class="menu-title"><span data-key="t-customized-plan">Customized Consulting</span></li>
 
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 text-success me-1">
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Develop</b> Coding for Specific Needs
+                                                    <span data-key="t-develop-coding"><b>Develop</b> Coding for Specific Needs</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1770,7 +1767,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Develop </b>Machine Learning Algorithms
+                                                    <span data-key="t-develop-ml"><b>Develop </b>Machine Learning Algorithms</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1781,7 +1778,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Develop </b>Reinforced Learning Algorithms
+                                                    <span data-key="t-develop-rl"><b>Develop </b>Reinforced Learning Algorithms</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1791,7 +1788,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Calculations </b>on Markowitz Portfolio
+                                                    <span data-key="t-calc-markowitz"><b>Calculations </b>on Markowitz Portfolio</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1801,7 +1798,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Perform </b>Statistical and Probabilistic Analysis
+                                                    <span data-key="t-stat-prob-analysis"><b>Perform </b>Statistical and Probabilistic Analysis</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1811,7 +1808,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Expand </b>Code to Other Stock Market Exchanges
+                                                    <span data-key="t-expand-code"><b>Expand </b>Code to Other Stock Market Exchanges</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1821,7 +1818,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Perform </b>Customized Risk Analysis and Value-at-Risk (VaR)
+                                                    <span data-key="t-custom-risk-analysis"><b>Perform </b>Customized Risk Analysis and Value-at-Risk (VaR)</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1831,7 +1828,7 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Run </b>Monte Carlo Simulations for your Assets
+                                                    <span data-key="t-monte-carlo"><b>Run </b>Monte Carlo Simulations for your Assets</span>
                                                 </div>
                                             </div>
                                         </li>
@@ -1841,14 +1838,14 @@
                                                     <i class="ri-checkbox-circle-fill fs-15 align-middle"></i>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <b>Tailor </b>an Asset and Liability Management (ALM) Model
+                                                    <span data-key="t-alm-model"><b>Tailor </b>an Asset and Liability Management (ALM) Model</span>
                                                 </div>
                                             </div>
                                         </li>
                                        <br> 
                                     </ul>
                                     <div class="mt-4">
-                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100">Contact Us</a>
+                                        <a href="javascript:void(0);" class="btn btn-soft-success w-100" data-key="l-contact-us">Contact Us</a>
                                     </div>
                                 </div>
                             </div>
@@ -1867,12 +1864,15 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
-                            <h3 class="mb-3 fw-semibold">Frequently Asked Questions</h3>
-                            <p class="text-muted mb-4 ff-secondary">If you can not find answer to your question in our FAQ, you can always contact us or email us. We will answer you shortly!</p>
+                            <h3 class="mb-3 fw-semibold" data-key="l-faq-title">Frequently Asked Questions</h3>
+                            <p class="text-muted mb-4 ff-secondary" data-key="l-faq-description">If you cannot find an answer to your question in our FAQ, you can always contact us or email us. We will answer you shortly!</p>
 
                             <div class="hstack gap-2 justify-content-center">
-                                <button type="button" class="btn btn-primary btn-label rounded-pill"><i class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i> Email Us</button>
-                                <button type="button" class="btn btn-info btn-label rounded-pill"><i class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i> Send Us Tweet</button>
+                                <button type="button" class="btn btn-primary btn-label rounded-pill" data-key="l-contact-email-button">
+                                    <i class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i>
+                                    <span data-key="l-contact-email-text">Email Us</span>
+                                </button>
+                                                                <!--<button type="button" class="btn btn-info btn-label rounded-pill"><i class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i> Send Us Tweet</button>-->
                             </div>
                         </div>
                     </div>
@@ -1886,65 +1886,114 @@
                                 <i class="ri-question-line fs-24 align-middle text-success me-1"></i>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="mb-0 fw-semibold">General Questions</h5>
+                                <h5 class="mb-0 fw-semibold" data-key="l-general-questions-title">General Questions</h5>
                             </div>
                         </div>
                         <div class="accordion custom-accordionwithicon custom-accordion-border accordion-border-box" id="genques-accordion">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseOne" aria-expanded="true" aria-controls="genques-collapseOne">
-                                        What is the purpose of using themes ?
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseOne" aria-expanded="false" aria-controls="genques-collapseOne">
+                                        <span data-key="l-question-what-is-vorsen">What is Vorsen Invest?</span>
                                     </button>
                                 </h2>
-                                <div id="genques-collapseOne" class="accordion-collapse collapse show" aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
+                                <div id="genques-collapseOne" class="accordion-collapse collapse" aria-labelledby="genques-headingOne" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        A theme is a set of colors, fonts, effects, and more that can be applied to your entire presentation to give it a
-                                        consistent, professional look. You've already been using a theme, even if you didn't know it: the default Office theme, which consists.
+                                        <span data-key="l-answer-what-is-vorsen">Vorsen Invest is a pioneering Brazilian company specializing in using cutting-edge artificial intelligence to transform information services for investors. We provide advanced analytics and data-driven decision-making tools to empower investors.</span>
                                     </div>
-                                </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseTwo" aria-expanded="false" aria-controls="genques-collapseTwo">
-                                        Can a theme have more than one theme?
+                                        <span data-key="l-question-ai-enhancement">How does AI enhance investment decisions with Vorsen Invest?</span>
                                     </button>
                                 </h2>
                                 <div id="genques-collapseTwo" class="accordion-collapse collapse" aria-labelledby="genques-headingTwo" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        A story can have as many themes as the reader can identify based on recurring patterns and parallels within the story
-                                        itself. In looking at ways to separate themes into a hierarchy, we might find it useful to follow the example of a single book.
+                                        <span data-key="l-answer-ai-enhancement">Our AI technology delivers unparalleled insights by analyzing real-time market data, enabling investors to make informed, strategic decisions. We use machine learning, deep learning, and neural networks to provide comprehensive market intelligence.</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseThree" aria-expanded="false" aria-controls="genques-collapseThree">
-                                        What are theme features?
+                                        <span data-key="l-question-unique-services">What unique services does Vorsen Invest offer?</span>
                                     </button>
                                 </h2>
                                 <div id="genques-collapseThree" class="accordion-collapse collapse" aria-labelledby="genques-headingThree" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        Theme features is a set of specific functionality that may be enabled by theme authors. Themes must register each
-                                        individual Theme Feature that the author wishes to support. Theme support functions should be called in the theme's functions.
+                                        <span data-key="l-answer-unique-services">We offer a range of services including AI-driven market intelligence, Greenblatt and Magic Formula investing, Markowitz Portfolio optimization, Asset and Liability Management (ALM), advanced risk analysis, Monte Carlo Simulations, and insightful Fair Price analysis.</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="genques-headingFour">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseFour" aria-expanded="false" aria-controls="genques-collapseFour">
-                                        What is simple theme?
+                                        <span data-key="l-question-monte-carlo">How does Monte Carlo Simulation help in financial forecasting?</span>
                                     </button>
                                 </h2>
                                 <div id="genques-collapseFour" class="accordion-collapse collapse" aria-labelledby="genques-headingFour" data-bs-parent="#genques-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        Simple is a free WordPress theme, by Themify, built exactly what it is named for: simplicity. Immediately upgrade the
-                                        quality of your WordPress site with the simple theme To use the built-in Chrome theme editor.
+                                        <span data-key="l-answer-monte-carlo">Monte Carlo Simulation is used to model complex market behaviors and outcomes by generating thousands of potential market scenarios. This helps in assessing risks, optimizing portfolio allocation, and making strategic financial decisions.</span>
                                     </div>
                                 </div>
                             </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genques-headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseFive" aria-expanded="false" aria-controls="genques-collapseFive">
+                                        <span data-key="l-question-alm-help">Can Vorsen Invest help with ALM?</span>
+                                    </button>
+                                </h2>
+                                <div id="genques-collapseFive" class="accordion-collapse collapse" aria-labelledby="genques-headingFive" data-bs-parent="#genques-accordion">
+                                    <div class="accordion-body ff-secondary">
+                                        <span data-key="l-answer-alm-help">Yes, we integrate AI-driven analytics and optimization in our ALM approach, using machine learning algorithms to provide precise estimations of future liabilities and asset returns, ensuring balanced decision-making in the financial landscape.</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genques-headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseSix" aria-expanded="false" aria-controls="genques-collapseSix">
+                                        <span data-key="l-question-fair-price-method">What is the 'Fair Price' analysis method used by Vorsen Invest?</span>
+                                    </button>
+                                </h2>
+                                <div id="genques-collapseSix" class="accordion-collapse collapse" aria-labelledby="genques-headingSix" data-bs-parent="#genques-accordion">
+                                    <div class="accordion-body ff-secondary">
+                                        <span data-key="l-answer-fair-price-method">Our Fair Price analysis method is based on Benjamin Graham's principles, integrating comprehensive financial fundamentals with current market trends to provide deep insights into potential future stock prices.</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genques-headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseSeven" aria-expanded="false" aria-controls="genques-collapseSeven">
+                                        <span data-key="l-question-ml-dl-use">How does Vorsen Invest utilize Machine Learning and Deep Learning?</span>
+                                    </button>
+                                </h2>
+                                <div id="genques-collapseSeven" class="accordion-collapse collapse" aria-labelledby="genques-headingSeven" data-bs-parent="#genques-accordion">
+                                    <div class="accordion-body ff-secondary">
+                                        <span data-key="l-answer-ml-dl-use">We use machine learning and deep learning for various purposes, including portfolio optimization, risk analysis, and market intelligence. These technologies allow for sophisticated data processing and learning from market behaviors.</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genques-headingEight">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#genques-collapseEight" aria-expanded="false" aria-controls="genques-collapseEight">
+                                        <span data-key="l-question-customer-support">What type of customer support does Vorsen Invest offer?</span>
+                                    </button>
+                                </h2>
+                                <div id="genques-collapseEight" class="accordion-collapse collapse" aria-labelledby="genques-headingEight" data-bs-parent="#genques-accordion">
+                                    <div class="accordion-body ff-secondary">
+                                        <span data-key="l-answer-customer-support">We provide comprehensive support to our clients, including responsive customer service, consulting for personalized service, and customized investment strategies tailored to individual needs.</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <!--end accordion-->
 
+                    </div>
                     </div>
                     <!-- end col -->
                     <div class="col-lg-6">
@@ -1953,7 +2002,7 @@
                                 <i class="ri-shield-keyhole-line fs-24 align-middle text-success me-1"></i>
                             </div>
                             <div class="flex-grow-1">
-                                <h5 class="mb-0 fw-semibold">Privacy &amp; Security</h5>
+                                <h5 class="mb-0 fw-semibold" data-key="l-privacy-security-title">Privacy &amp; Security</h5>
                             </div>
                         </div>
 
@@ -1961,54 +2010,52 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="privacy-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseOne" aria-expanded="false" aria-controls="privacy-collapseOne">
-                                        Does Word have night mode?
+                                        <span data-key="l-question-data-privacy">What measures does Vorsen Invest take to ensure data privacy?</span>
                                     </button>
                                 </h2>
                                 <div id="privacy-collapseOne" class="accordion-collapse collapse" aria-labelledby="privacy-headingOne" data-bs-parent="#privacy-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        You can run Microsoft Word in dark mode, which uses a dark color palette to help reduce eye strain in low light
-                                        settings. You can choose to make the document white or black using the Switch Modes button in the ribbon's View tab.
+                                        <span data-key="l-answer-data-privacy">Vorsen Invest employs stringent data protection policies, adhering to privacy laws and regulations. We handle personal and financial information with the utmost confidentiality and never share it without consent.</span>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="privacy-headingTwo">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseTwo" aria-expanded="true" aria-controls="privacy-collapseTwo">
-                                        Is theme an opinion?
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseTwo" aria-expanded="false" aria-controls="privacy-collapseTwo">
+                                        <span data-key="l-question-data-security">How secure is my investment and personal data on the Vorsen Invest platform?</span>
                                     </button>
                                 </h2>
-                                <div id="privacy-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="privacy-headingTwo" data-bs-parent="#privacy-accordion">
+                                <div id="privacy-collapseTwo" class="accordion-collapse collapse" aria-labelledby="privacy-headingTwo" data-bs-parent="#privacy-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        A theme is an opinion the author expresses on the subject, for instance, the author's dissatisfaction with the narrow
-                                        confines of French bourgeois marriage during that period theme is an idea that a writer repeats.
+                                        <span data-key="l-answer-data-security">Our platform uses advanced security protocols like SSL encryption to safeguard all data transmissions. Regular security audits ensure robust defenses against cyber threats.</span>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="privacy-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseThree" aria-expanded="false" aria-controls="privacy-collapseThree">
-                                        How do you develop a theme?
+                                        <span data-key="l-question-encryption-use">Does Vorsen Invest use encryption for data storage and communication?</span>
                                     </button>
                                 </h2>
                                 <div id="privacy-collapseThree" class="accordion-collapse collapse" aria-labelledby="privacy-headingThree" data-bs-parent="#privacy-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        A short story, novella, or novel presents a narrative to its reader. Perhaps that narrative involves mystery, terror,
-                                        romance, comedy, or all of the above. These works of fiction may also contain memorable characters, vivid
-                                        world-building, literary devices.
+                                        <span data-key="l-answer-encryption-use">Yes, we use strong encryption standards for both data storage and communication to prevent unauthorized access and data breaches.</span>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="privacy-headingFour">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy-collapseFour" aria-expanded="false" aria-controls="privacy-collapseFour">
-                                        Do stories need themes?
+                                        <span data-key="l-question-data-breach-response">How does Vorsen Invest respond to data breach or unauthorized access incidents?</span>
                                     </button>
                                 </h2>
                                 <div id="privacy-collapseFour" class="accordion-collapse collapse" aria-labelledby="privacy-headingFour" data-bs-parent="#privacy-accordion">
                                     <div class="accordion-body ff-secondary">
-                                        A story can have as many themes as the reader can identify based on recurring patterns and parallels within the story
-                                        itself. In looking at ways to separate themes into a hierarchy, we might find it useful to follow the example of a
-                                        single book.
+                                        <span data-key="l-answer-data-breach-response">We have a robust incident response plan for data breaches or unauthorized access, including immediate notification to affected clients and swift action to secure the data.</span>
+
                                     </div>
                                 </div>
                             </div>
