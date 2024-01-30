@@ -1,6 +1,6 @@
 {% extends "pages/account/base_account.html" %}
 
-{% block title %}Sign Up{% endblock title %}
+{% block title %}Inscrever-se - Vorsen Invest{% endblock title %}
 
 {% block content %}
 <div class="row justify-content-center">
@@ -9,8 +9,8 @@
 
             <div class="card-body p-4">
                 <div class="text-center mt-2">
-                    <h5 class="text-primary">Create New Account</h5>
-                    <p class="text-muted">Get your free velzon account now</p>
+                    <h5 class="text-primary"><span data-key="t-create-new-account">Criar Nova Conta</span></h5>
+                    <p class="text-muted"><span data-key="t-get-free-account">Obtenha sua conta gratuita na Vorsen Invest agora</span></p>
                 </div>
                 <div class="p-2 mt-4">
                     
@@ -26,51 +26,51 @@
                         {% endif %}
                         {% endwith %}
                         <div class="mb-3">
-                            <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
+                            <label for="useremail" class="form-label"><span data-key="t-email">Email <span class="text-danger">*</span></span></label>
                             <input type="email" class="form-control" name="email" id="useremail" placeholder="Enter email address" required>
                             <div class="invalid-feedback">
-                                Please enter email
+                                <span data-key="t-please-enter-email">Por favor, insira o email</span>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
+                            <label for="username" class="form-label"><span data-key="t-username">Nome de Usuário <span class="text-danger">*</span></span></label>
                             <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
                             <div class="invalid-feedback">
-                                Please enter username
+                                <span data-key="t-please-enter-username">Por favor, insira o nome de usuário</span>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="password-input">Password</label>
+                            <label class="form-label" for="password-input"><span data-key="t-password">Senha</span></label>
                             <div class="position-relative auth-pass-inputgroup">
                                 <input type="password" class="form-control password-input pe-5" name="password" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                 <div class="invalid-feedback">
-                                    Please enter password
-                                </div>
+                                    <span data-key="t-enter-password">Por favor, insira a senha</span>
+                                    </div>
                             </div>
                         </div>
                         
                         
                         <div class="mb-4">
-                            <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</a></p>
+                            <p class="mb-0 fs-12 text-muted fst-italic"><span data-key="t-register-agreement">Ao se registrar, você concorda com os <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium" data-key="t-terms-of-use">Termos de Uso</a> <span data-key="t-of-vorsen-invest">da Vorsen Invest</span></span></p>
                         </div>
 
                         <div id="password-contain" class="p-3 bg-light mb-2 rounded">
-                            <h5 class="fs-13">Password must contain:</h5>
-                            <p id="pass-length" class="invalid fs-12 mb-2">Minimum <b>8 characters</b></p>
-                            <p id="pass-lower" class="invalid fs-12 mb-2">At <b>lowercase</b> letter (a-z)</p>
-                            <p id="pass-upper" class="invalid fs-12 mb-2">At least <b>uppercase</b> letter (A-Z)</p>
-                            <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b> (0-9)</p>
+                            <h5 class="fs-13"><span data-key="t-password-must-contain">A senha deve conter:</span></h5>
+                            <p id="pass-length" class="invalid fs-12 mb-2"><span data-key="t-min-characters">Mínimo <b>8 caracteres</b></span></p>
+                            <p id="pass-lower" class="invalid fs-12 mb-2"><span data-key="t-lowercase-letter">Pelo menos <b>uma letra minúscula</b> (a-z)</span></p>
+                            <p id="pass-upper" class="invalid fs-12 mb-2"><span data-key="t-uppercase-letter">Pelo menos <b>uma letra maiúscula</b> (A-Z)</span></p>
+                            <p id="pass-number" class="invalid fs-12 mb-0"><span data-key="t-number">Pelo menos <b>um número</b> (0-9)</span></p>
                         </div>
 
                         <div class="mt-4">
-                            <button class="btn btn-success w-100" type="submit">Sign Up</button>
+                            <button class="btn btn-success w-100" type="submit"><span data-key="t-sign-up">Inscrever-se</span></button>
                         </div>
 
                         <div class="mt-4 text-center">
                             <div class="signin-other-title">
-                                <h5 class="fs-13 mb-4 title text-muted">Create account with</h5>
+                                <h5 class="fs-13 mb-4 title text-muted"><span data-key="t-create-account-with">Criar conta com</span></h5>
                             </div>
 
                             <div>
@@ -89,7 +89,7 @@
         <!-- end card -->
 
         <div class="mt-4 text-center">
-            <p class="mb-0">Already have an account ? <a href="/account/login" class="fw-semibold text-primary text-decoration-underline"> Signin </a> </p>
+            <p class="mb-0"><span data-key="t-already-have-account">Já tem uma conta?</span> <a href="/account/login" class="fw-semibold text-primary text-decoration-underline"><span data-key="t-signin"> Entrar </span></a> </p>
         </div>
 
     </div>
