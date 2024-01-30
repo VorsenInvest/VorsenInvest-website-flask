@@ -1,16 +1,24 @@
 $(document).ready(function() {
     
-    // Check if the DataTable instance already exists
-    if (!$.fn.DataTable.isDataTable('#stock-ind-fund')) {
-        var table = $('#stock-ind-fund').DataTable({
+   // Initialize DataTable for Economic Sector
+   if (!$.fn.DataTable.isDataTable('#economic-sector-ind-fund')) {
+    var economicSectorTable = $('#economic-sector-ind-fund').DataTable({
+        // DataTables configuration options
+    });
+    }
+
+    // Initialize DataTable for Subsector
+    if (!$.fn.DataTable.isDataTable('#subsector-ind-fund')) {
+        var subsectorTable = $('#subsector-ind-fund').DataTable({
             // DataTables configuration options
-            "initComplete": function(settings, json) {
-                getLanguage();  // Call getLanguage() after DataTable is initialized
-            }
         });
-    } else {
-        // If it already exists, retrieve the existing instance
-        $.fn.dataTable.tables({visible: true, api: true}).columns.adjust();
+    }
+
+    // Initialize DataTable for Segment
+    if (!$.fn.DataTable.isDataTable('#segment-ind-fund')) {
+        var segmentTable = $('#segment-ind-fund').DataTable({
+            // DataTables configuration options
+        });
     }
 
     // Event listener for Subsector Dropdown (assuming multiple selections are possible)
