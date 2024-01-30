@@ -5,7 +5,7 @@ $(document).ready(function() {
         var table = $('#stock-ind-fund').DataTable({
             // DataTables configuration options
             "initComplete": function(settings, json) {
-                window.getLanguage();  // Call getLanguage() after DataTable is initialized
+                getLanguage();  // Call getLanguage() after DataTable is initialized
             }
         });
     } else {
@@ -99,7 +99,7 @@ $(document).ready(function() {
     table.on('draw', function() {
         updateUniqueCounts();
     });
-    window.getLanguage();
+    getLanguage();
 });
 
 

@@ -425,7 +425,17 @@
     "s-sign-in-with": "Sign In with",
     "s-dont-have-account": "Don't have an account ?",
     "s-welcome-back": "Welcome Back !",
-    "s-sign-in-message": "Sign in to continue"
+    "s-sign-in-message": "Sign in to continue",
+    
+    "t-price-title": "Price Indicators",
+    "t-fin-statement-data-title": "Financial Statement Data",
+    "t-income-statement-data-title": "Income Statement Data",
+    "t-fund-text": "Fundamentalist indicators are essential in assessing the intrinsic value of securities through fundamental analysis, focusing on economic and financial factors. These metrics help gauge a company's underlying value and forecast its performance. They are crucial for investors aiming to make informed decisions based on a company's fundamental health and growth potential.",
+    "t-price-text": "Price indicators are key tools in technical analysis, used to interpret market trends and predict future price movements of securities. Unlike fundamentalist indicators that focus on intrinsic value, price indicators analyze historical price data and trading volumes to identify patterns and signals. These indicators help traders and investors to make decisions based on market sentiment, trends, and potential price changes, guiding their strategies in buying or selling securities.",
+    "t-fin-statement-data-text": "Financial statements data encapsulates the comprehensive financial information of a company, providing insights into its operational efficiency, financial health, and cash flow status. This data is derived from three main reports: the balance sheet, income statement, and cash flow statement. Together, these documents offer a detailed view of a company's financial performance, asset and liability management, and liquidity, crucial for stakeholders to assess the company's stability and growth prospects.",
+    "t-income-statement-data-text": "Income statement data focuses on a company's revenue generation and expense management over a specific period, highlighting profitability. It details revenues, costs of goods sold, gross profit, operating expenses, and net income, offering a clear picture of the company's operational success and financial viability. This data is pivotal for evaluating a company's ability to generate profits from its core business activities."
+
+    
 
     
 

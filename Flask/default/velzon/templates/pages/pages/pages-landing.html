@@ -24,6 +24,10 @@
     <link href="{{url_for('static' ,filename='css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{url_for('static' ,filename='css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{url_for('static' ,filename='js/app.js')}}"></script>
+
+
+
 
 </head>
 
@@ -2298,19 +2302,15 @@
 
     <!--Swiper slider js-->
     <script src="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.js')}}"></script>
-
-    <!-- landing init -->
     <script src="{{url_for('static' ,filename='js/pages/landing.init.js')}}"></script>
 
+
+    <!-- landing init -->
+
+
     <!-- Inline script to call getLanguage() when the document is ready -->
     <!-- Inline script to call getLanguage() when the document is ready -->
-    <script>
-        // Ensure the document is ready before calling getLanguage
-        document.addEventListener('DOMContentLoaded', function () {
-            // Call the getLanguage function when the document is ready
-            getLanguage();
-        });
-    </script>
+
 
     
 </body>

@@ -421,7 +421,16 @@
     "s-sign-in-with": "Entrar com",
     "s-dont-have-account": "Não tem uma conta?",
     "s-welcome-back": "Bem-vindo de volta!",
-    "s-sign-in-message": "Faça login para continuar" 
+    "s-sign-in-message": "Faça login para continuar",
+    
+    "t-price-title": "Indicadores de Preço",
+    "t-fin-statement-data-title": "Dados de Demonstrações Financeiras",
+    "t-income-statement-data-title": "Dados da Demonstração de Resultados",
+    "t-fund-text": "Os indicadores fundamentalistas são essenciais para avaliar o valor intrínseco de títulos através da análise fundamental, focando em fatores econômicos e financeiros. Essas métricas ajudam a avaliar o valor subjacente de uma empresa e prever seu desempenho. São cruciais para investidores que desejam tomar decisões informadas baseadas na saúde fundamental e no potencial de crescimento da empresa.",
+    "t-price-text": "Os indicadores de preço são ferramentas-chave na análise técnica, usadas para interpretar tendências de mercado e prever movimentos futuros de preços de títulos. Diferentemente dos indicadores fundamentalistas que focam no valor intrínseco, os indicadores de preço analisam dados históricos de preços e volumes de negociação para identificar padrões e sinais. Esses indicadores ajudam traders e investidores a tomar decisões baseadas no sentimento do mercado, tendências e mudanças potenciais de preço, orientando suas estratégias de compra ou venda de títulos.",
+    "t-fin-statement-data-text": "Os dados de demonstrações financeiras encapsulam as informações financeiras abrangentes de uma empresa, fornecendo insights sobre sua eficiência operacional, saúde financeira e status de fluxo de caixa. Esses dados são derivados de três principais relatórios: balanço patrimonial, demonstração de resultados e demonstração de fluxo de caixa. Juntos, esses documentos oferecem uma visão detalhada do desempenho financeiro da empresa, gestão de ativos e passivos, e liquidez, cruciais para as partes interessadas avaliarem a estabilidade e as perspectivas de crescimento da empresa.",
+    "t-income-statement-data-text": "Os dados da demonstração de resultados concentram-se na geração de receita e gestão de despesas de uma empresa durante um período específico, destacando a lucratividade. Detalham receitas, custos dos bens vendidos, lucro bruto, despesas operacionais e lucro líquido, oferecendo uma imagem clara do sucesso operacional e viabilidade financeira da empresa. Esses dados são fundamentais para avaliar a capacidade da empresa de gerar lucros a partir de suas atividades comerciais principais."
+        
 
     
     

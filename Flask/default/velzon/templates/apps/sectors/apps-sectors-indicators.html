@@ -13,6 +13,9 @@
             overflow-y: auto; /* Enables vertical scrolling */
         }
     </style>
+    <script src="{{url_for('static' ,filename='js/app.js')}}"></script>
+    <!-- Inline script to call getLanguage() when the document is ready -->
+
     
 {% endblock extra_css %}
 {% block content %}
@@ -356,12 +359,7 @@
 
             {% block footer %}
             {% include "partials/footer.html" %}
-            <script>
-                // Call getLanguage when the document is ready
-                $(document).ready(function() {
-                    window.getLanguage();
-                });
-            </script>
+
             {% endblock footer %}
             </div>
             <!-- end main content-->
@@ -383,11 +381,5 @@
 <script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
 <script src="{{ url_for('static', filename='js/pages/sectors-indicators.init.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="{{url_for('static' ,filename='js/app.js')}}"></script>
-<!-- Inline script to call getLanguage() when the document is ready -->
-<script>
-    $(document).ready(function() {
-        window.getLanguage();
-    });
-</script>
+
 {% endblock extra_js %}
