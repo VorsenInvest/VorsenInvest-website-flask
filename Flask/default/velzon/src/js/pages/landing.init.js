@@ -74,6 +74,15 @@ File: landing Js File
             }
             // Add conditions for other languages if needed
         }
+        var logolightfull = document.getElementById("logolightfull-id");
+        if (logolightfull) {
+            if (lang == "en") {
+                logolightfull.src = "/static/images/logo-light-full-en.png";
+            } else if (lang == "pt-br") {
+                logolightfull.src = "/static/images/logo-light-full-pt-br.png";
+            }
+            // Add conditions for other languages if needed
+        }
 			localStorage.setItem("language", lang);
 			language = localStorage.getItem("language");
 			window.getLanguage();
