@@ -24,14 +24,14 @@ File: landing Js File
 		var languages = document.getElementsByClassName("language");
 		languages && Array.from(languages).forEach(function (dropdown) {
             dropdown.addEventListener("click", function (event) {
-                console.log("Language dropdown clicked. Language:", dropdown.getAttribute("data-lang")); // Debug statement
+                //console.log("Language dropdown clicked. Language:", dropdown.getAttribute("data-lang")); // Debug statement
                 window.setLanguage(dropdown.getAttribute("data-lang"));
             });
         });
 	}
 
 	window.setLanguage = function (lang) {
-        console.log("Setting language to:", lang); // Debug statement
+        //console.log("Setting language to:", lang); // Debug statement
         var headerLangImg = document.getElementById("header-lang-img");
         if (headerLangImg) {
             if (lang == "en") {
@@ -90,10 +90,10 @@ File: landing Js File
 
 	// Multi language setting
 	window.getLanguage = function () {
-		console.log("getLanguage called");
+		//console.log("getLanguage called");
 		language == null ? window.getLanguage(default_lang) : false;
-		console.log("Current language: " + language); // Add this line
-		console.log("Requesting language file from: /static/lang/" + language + ".json"); // Add this line
+		//console.log("Current language: " + language); // Add this line
+		//console.log("Requesting language file from: /static/lang/" + language + ".json"); // Add this line
 		var request = new XMLHttpRequest();
 		// Instantiating the request object
 		request.open("GET", "/static/lang/" + language + ".json");
@@ -102,9 +102,9 @@ File: landing Js File
 			// Check if the request is compete and was successful
 			if (this.readyState === 4 && this.status === 200) {
 				var data = JSON.parse(this.responseText);
-				console.log("Loaded language data:", data); // Add this line
+				//console.log("Loaded language data:", data); // Add this line
 				Object.keys(data).forEach(function (key) {
-					console.log("Translating elements for key:", key, elements); // Add this line
+					//console.log("Translating elements for key:", key, elements); // Add this line
 
 					var elements = document.querySelectorAll("[data-key='" + key + "']");
 					Array.from(elements).forEach(function (elem) {
