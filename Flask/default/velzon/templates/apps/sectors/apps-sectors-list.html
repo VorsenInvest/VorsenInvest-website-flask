@@ -1,5 +1,5 @@
 {% extends "partials/base.html" %}
-{% block title %}Sectors List{% endblock title %}
+{% block title %}Lista de Setores - Vorsen Invest{% endblock title %}
 {% block extra_css %}
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Listed Sectors</h4>
+                                <h4 class="mb-sm-0" data-key="t-listed-sectors">Setores Listados</h4>
 
                                 <!--
                                 <div class="page-title-right">
@@ -51,7 +51,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Stocks</p>
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0" data-key="t-total-stocks">Total de Ações</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <!--
@@ -65,8 +65,8 @@
                                         <div>
                                             <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                                 <span class="counter-value" data-target="{{ unique_symbols_count }}">0</span></h4>
-                                                <a href="{{ url_for('apps.stocks_list') }}" class="text-decoration-underline">View all stocks</a>
-                                        </div>
+                                                <a href="{{ url_for('apps.stocks_list') }}" class="text-decoration-underline" data-key="t-view-all-stocks">Ver todas as ações</a>
+                                            </div>
                                         <div class="avatar-sm flex-shrink-0">
                                             <span class="avatar-title bg-info-subtle rounded fs-3">
                                                 <i data-feather="activity" class="text-info"></i>
@@ -83,7 +83,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Economic Sectors</p>
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0" data-key="t-total-economic-sectors">Total de Setores Econômicos</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <!--
@@ -116,7 +116,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Subsectors</p>
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0" data-key="t-total-subsectors">Total de Subsectores</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <!--
@@ -147,7 +147,7 @@
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 overflow-hidden">
-                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Total Segments</p>
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0" data-key="t-total-segments">Total de Segmentos</p>
                                         </div>
                                         <div class="flex-shrink-0">
                                             <!--
@@ -176,7 +176,7 @@
                     <div class="col-xxl-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center border-0">
-                                <h5 class="card-title mb-0 flex-grow-1">Economic Sectors, Subsectors, and Segments</h5>
+                                <h5 class="card-title mb-0 flex-grow-1"><span data-key="t-sec-sub-seg">Setores Econômicos, Subsetores e Segmentos</span></h5>
                                 <div class="flex-shrink-0">
                                     <!--
                                     <div class="flax-shrink-0 hstack gap-2">
@@ -192,7 +192,7 @@
                                         <div class="col-lg-3">
                                             <div class="nav nav-pills flex-column nav-pills-tab custom-verti-nav-pills text-center" role="tablist" aria-orientation="vertical">
                                                 <a class="nav-link" id="custom-v-pills-home-tab" data-bs-toggle="pill" href="#custom-v-pills-home" role="tab" aria-controls="custom-v-pills-home" aria-selected="false">
-                                                    <i class="ri-layout-top-line d-block fs-20 mb-1"></i> Economic Sector
+                                                    <i class="ri-layout-top-line d-block fs-20 mb-1"></i> <span data-key="t-economic-sector">Setor Econômico</span> 
                                                 </a>
                                                 <a class="nav-link" id="custom-v-pills-profile-tab" data-bs-toggle="pill" href="#custom-v-pills-profile" role="tab" aria-controls="custom-v-pills-profile" aria-selected="false">
                                                     <i class="ri-layout-5-line d-block fs-20 mb-1"></i> Subsector
@@ -210,7 +210,7 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Economic Sector</h5>
+                                                                    <h5 class="card-title mb-0"><span data-key="t-economic-sectors">Setores Econômicos</span> </h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="sector-list">
@@ -234,7 +234,7 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Subsectors</h5>
+                                                                    <h5 class="card-title mb-0"><span data-key="t-subsectors">Subsetores</span></h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="subsector-list">
@@ -259,7 +259,7 @@
                                                         <div class="col-lg-12">
                                                             <div class="card">
                                                                 <div class="card-header">
-                                                                    <h5 class="card-title mb-0">Segments</h5>
+                                                                    <h5 class="card-title mb-0"><span data-key="t-segments">Segmentos</span></h5>
                                                                 </div>
                                                                 <div class="card-body">
                                                                     <table class="table table-bordered dt-responsive nowrap align-middle table-hover" style="width:100%" id="segment-list">
