@@ -586,7 +586,7 @@ def login_post():
 
         login_user(user, remember=remember)
         #flash("Login successful!")  # Add a success message
-        return redirect(url_for('dashboards.dashboard_analytics'))
+        return redirect(url_for('apps.stocks_list'))
 
 @pages.route('/account/signup')  
 def signup(): 
