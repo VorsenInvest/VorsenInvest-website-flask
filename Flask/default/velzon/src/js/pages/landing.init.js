@@ -6,7 +6,6 @@ Contact: Themesbrand@gmail.com
 File: landing Js File
 */
 
-
 (function () {
 	("use strict");
 
@@ -17,45 +16,45 @@ File: landing Js File
 	var default_lang = "pt-br"; // set Default Language
 	var language = localStorage.getItem("language");
 
-	function initLanguage() {
+
+	window.initLanguage = function () {
 		// Set new language
-		(language === null) ? setLanguage(default_lang) : setLanguage(language);
+
+		(language === null) ? window.getLanguage(default_lang) : window.getLanguage(language);
 		var languages = document.getElementsByClassName("language");
 		languages && Array.from(languages).forEach(function (dropdown) {
             dropdown.addEventListener("click", function (event) {
                 console.log("Language dropdown clicked. Language:", dropdown.getAttribute("data-lang")); // Debug statement
-                setLanguage(dropdown.getAttribute("data-lang"));
+                window.setLanguage(dropdown.getAttribute("data-lang"));
             });
         });
 	}
 
-	function setLanguage(lang) {
+	window.setLanguage = function (lang) {
         console.log("Setting language to:", lang); // Debug statement
-
-		if (document.getElementById("header-lang-img")) {
-			if (lang == "en") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/us.svg";
-			} else if (lang == "pt-br") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/br.svg";
-			} else if (lang == "sp") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
-			} else if (lang == "gr") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/germany.svg";
-			} else if (lang == "it") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/italy.svg";
-			} else if (lang == "ru") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/russia.svg";
-			} else if (lang == "ch") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/china.svg";
-			} else if (lang == "fr") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/french.svg";
-			} else if (lang == "ar") {
-				document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
-			}
-			localStorage.setItem("language", lang);
-			language = localStorage.getItem("language");
-			window.getLanguage();
-		}
+        var headerLangImg = document.getElementById("header-lang-img");
+        if (headerLangImg) {
+            if (lang == "en") {
+                headerLangImg.src = "/static/images/flags/us.svg";
+            } else if (lang == "pt-br") {
+                headerLangImg.src = "/static/images/flags/br.svg";
+            } else if (lang == "sp") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/spain.svg";
+            } else if (lang == "gr") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/germany.svg";
+            } else if (lang == "it") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/italy.svg";
+            } else if (lang == "ru") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/russia.svg";
+            } else if (lang == "ch") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/china.svg";
+            } else if (lang == "fr") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/french.svg";
+            } else if (lang == "ar") {
+                document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
+            }
+        }
+        // Update the first image
         var img2 = document.getElementById("img-2-id");
         if (img2) {
             if (lang == "en") {
@@ -75,21 +74,15 @@ File: landing Js File
             }
             // Add conditions for other languages if needed
         }
-        var logolightfull = document.getElementById("logolightfull-id");
-        if (logolightfull) {
-            if (lang == "en") {
-                logolightfull.src = "/static/images/logo-light-full-en.png";
-            } else if (lang == "pt-br") {
-                logolightfull.src = "/static/images/logo-light-full-pt-br.png";
-            }
-            // Add conditions for other languages if needed
-        }
+			localStorage.setItem("language", lang);
+			language = localStorage.getItem("language");
+			window.getLanguage();
 	}
 
 	// Multi language setting
 	window.getLanguage = function () {
 		console.log("getLanguage called");
-		language == null ? setLanguage(default_lang) : false;
+		language == null ? window.getLanguage(default_lang) : false;
 		console.log("Current language: " + language); // Add this line
 		console.log("Requesting language file from: /static/lang/" + language + ".json"); // Add this line
 		var request = new XMLHttpRequest();
@@ -115,8 +108,8 @@ File: landing Js File
 		request.send();
 	}
     function init() {
-
-		initLanguage();
+	
+		window.initLanguage();
 		window.getLanguage();
 
 	}
