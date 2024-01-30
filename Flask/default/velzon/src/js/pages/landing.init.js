@@ -52,9 +52,40 @@ File: landing Js File
 			} else if (lang == "ar") {
 				document.getElementById("header-lang-img").src = "/static/images/flags/ae.svg";
 			}
-			localStorage.setItem("language", lang);
-			language = localStorage.getItem("language");
-			window.getLanguage();
+            
+            var img2 = document.getElementById("img-2-id");
+            if (img2) {
+                if (lang == "en") {
+                    img2.src = "/static/images/landing/features/img-2-en.png";
+                } else if (lang == "pt-br") {
+                    img2.src = "/static/images/landing/features/img-2-pt-br.png";
+                }
+                // Add conditions for other languages if needed
+            }
+            // Update the second image
+            var img4 = document.getElementById("img-4-id");
+            if (img4) {
+                if (lang == "en") {
+                    img4.src = "/static/images/landing/features/img-4-en.png";
+                } else if (lang == "pt-br") {
+                    img4.src = "/static/images/landing/features/img-4-pt-br.png";
+                }
+                // Add conditions for other languages if needed
+            }
+            var logolightfull = document.getElementById("logolightfull-id");
+            if (logolightfull) {
+                if (lang == "en") {
+                    logolightfull.src = "/static/images/logo-light-full-en.png";
+                } else if (lang == "pt-br") {
+                    logolightfull.src = "/static/images/logo-light-full-pt-br.png";
+                }
+                // Add conditions for other languages if needed
+            }
+        }
+
+        localStorage.setItem("language", lang);
+        language = localStorage.getItem("language");
+        window.getLanguage();
 		}
 	}
 
