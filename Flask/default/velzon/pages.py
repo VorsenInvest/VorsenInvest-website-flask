@@ -152,190 +152,55 @@ def fetch_data_from_database_fund():
         print("Error fetching data from database:", e)
         return [], [], [], [], [], [], [], []
 
-def fetch_data_weighted_economic_sector():
+def fetch_data_weighted(type):
     try:
-        # Query the database to retrieve all records, ensuring the 'key' is not None
+        # Dynamically select the model based on the type
+        model = {
+            'economic_sector': EconomicSectorInfoFund,
+            'segment': SegmentInfoFund,
+            'subsector': SubsectorInfoFund
+        }.get(type, None)
+
+        if not model:
+            print(f"Invalid type: {type}")
+            return []
+
+        # Query the database
         data = db.session.query(
-            EconomicSectorInfoFund.key,
-            EconomicSectorInfoFund.weighted_mean_quickRatio,
-            EconomicSectorInfoFund.weighted_mean_currentRatio,
-            EconomicSectorInfoFund.weighted_mean_debtToEquity,
-            EconomicSectorInfoFund.weighted_mean_revenuePerShare,
-            EconomicSectorInfoFund.weighted_mean_returnOnAssets,
-            EconomicSectorInfoFund.weighted_mean_returnOnEquity,
-            EconomicSectorInfoFund.weighted_mean_earningsGrowth,
-            EconomicSectorInfoFund.weighted_mean_revenueGrowth,
-            EconomicSectorInfoFund.weighted_mean_grossMargins,
-            EconomicSectorInfoFund.weighted_mean_ebitdaMargins,
-            EconomicSectorInfoFund.weighted_mean_operatingMargins,
-            EconomicSectorInfoFund.weighted_mean_profitMargins,
-            EconomicSectorInfoFund.weighted_mean_beta,
-            EconomicSectorInfoFund.weighted_mean_bookValue,
-            EconomicSectorInfoFund.weighted_mean_earningsQuarterlyGrowth,
-            EconomicSectorInfoFund.weighted_mean_trailingEps,
-            EconomicSectorInfoFund.weighted_mean_forwardEps,
-            EconomicSectorInfoFund.weighted_mean_enterpriseToEbitda,
-            EconomicSectorInfoFund.weighted_mean_enterpriseToEbit,
-            EconomicSectorInfoFund.weighted_mean_dividendYield
+            model.key,
+            model.weighted_mean_quickRatio,
+            model.weighted_mean_currentRatio,
+            model.weighted_mean_debtToEquity,
+            model.weighted_mean_revenuePerShare,
+            model.weighted_mean_returnOnAssets,
+            model.weighted_mean_returnOnEquity,
+            model.weighted_mean_earningsGrowth,
+            model.weighted_mean_revenueGrowth,
+            model.weighted_mean_grossMargins,
+            model.weighted_mean_ebitdaMargins,
+            model.weighted_mean_operatingMargins,
+            model.weighted_mean_profitMargins,
+            model.weighted_mean_beta,
+            model.weighted_mean_bookValue,
+            model.weighted_mean_earningsQuarterlyGrowth,
+            model.weighted_mean_trailingEps,
+            model.weighted_mean_forwardEps,
+            model.weighted_mean_enterpriseToEbitda,
+            model.weighted_mean_enterpriseToEbit,
+            model.weighted_mean_dividendYield
         ).filter(
-            EconomicSectorInfoFund.key != None
+            model.key != None
         ).all()
 
         # Process the data
-        formatted_data = []
-        for d in data:
-            formatted_data.append({
-                'key': d[0],
-                'weighted_mean_quickRatio': d[1],
-                'weighted_mean_currentRatio': d[2],
-                'weighted_mean_debtToEquity': d[3],
-                'weighted_mean_revenuePerShare': d[4],
-                'weighted_mean_returnOnAssets': d[5],
-                'weighted_mean_returnOnEquity': d[6],
-                'weighted_mean_earningsGrowth': d[7],
-                'weighted_mean_revenueGrowth': d[8],
-                'weighted_mean_grossMargins': d[9],
-                'weighted_mean_ebitdaMargins': d[10],
-                'weighted_mean_operatingMargins': d[11],
-                'weighted_mean_profitMargins': d[12],
-                'weighted_mean_beta': d[13],
-                'weighted_mean_bookValue': d[14],
-                'weighted_mean_earningsQuarterlyGrowth': d[15],
-                'weighted_mean_trailingEps': d[16],
-                'weighted_mean_forwardEps': d[17],
-                'weighted_mean_enterpriseToEbitda': d[18],
-                'weighted_mean_enterpriseToEbit': d[19],
-                'weighted_mean_dividendYield': d[20]
-            })
-
-        return formatted_data
+        return [
+            {key: value for key, value in zip(model.__table__.columns.keys(), d)}
+            for d in data
+        ]
     except Exception as e:
-        print("Error fetching data from database:", e)
+        print(f"Error fetching data for {type} from database:", e)
         return []
 
-def fetch_data_weighted_segment():
-    try:
-        # Query the database to retrieve all records, ensuring the 'key' is not None
-        data = db.session.query(
-            SegmentInfoFund.key,
-            SegmentInfoFund.weighted_mean_quickRatio,
-            SegmentInfoFund.weighted_mean_currentRatio,
-            SegmentInfoFund.weighted_mean_debtToEquity,
-            SegmentInfoFund.weighted_mean_revenuePerShare,
-            SegmentInfoFund.weighted_mean_returnOnAssets,
-            SegmentInfoFund.weighted_mean_returnOnEquity,
-            SegmentInfoFund.weighted_mean_revenueGrowth,
-            SegmentInfoFund.weighted_mean_grossMargins,
-            SegmentInfoFund.weighted_mean_ebitdaMargins,
-            SegmentInfoFund.weighted_mean_operatingMargins,
-            SegmentInfoFund.weighted_mean_profitMargins,
-            SegmentInfoFund.weighted_mean_beta,
-            SegmentInfoFund.weighted_mean_bookValue,
-            SegmentInfoFund.weighted_mean_earningsQuarterlyGrowth,
-            SegmentInfoFund.weighted_mean_trailingEps,
-            SegmentInfoFund.weighted_mean_forwardEps,
-            SegmentInfoFund.weighted_mean_enterpriseToEbitda,
-            SegmentInfoFund.weighted_mean_enterpriseToEbit,
-            SegmentInfoFund.weighted_mean_dividendYield
-        ).filter(
-            SegmentInfoFund.key != None,  # Exclude rows where 'key' is None
-            SegmentInfoFund.key != ''  # Exclude rows where 'key' is an empty string
-        ).all()
-
-        # Process the data
-        formatted_data = []
-        for d in data:
-            print(d)  # Print the raw tuple to see its structure and length
-
-            formatted_data.append({
-                'key': d[0],
-                'weighted_mean_quickRatio': d[1],
-                'weighted_mean_currentRatio': d[2],
-                'weighted_mean_debtToEquity': d[3],
-                'weighted_mean_revenuePerShare': d[4],
-                'weighted_mean_returnOnAssets': d[5],
-                'weighted_mean_returnOnEquity': d[6],
-                'weighted_mean_earningsGrowth': d[7],
-                'weighted_mean_revenueGrowth': d[8],
-                'weighted_mean_grossMargins': d[9],
-                'weighted_mean_ebitdaMargins': d[10],
-                'weighted_mean_operatingMargins': d[11],
-                'weighted_mean_profitMargins': d[12],
-                'weighted_mean_beta': d[13],
-                'weighted_mean_bookValue': d[14],
-                'weighted_mean_earningsQuarterlyGrowth': d[15],
-                'weighted_mean_trailingEps': d[16],
-                'weighted_mean_forwardEps': d[17],
-                'weighted_mean_enterpriseToEbitda': d[18],
-                'weighted_mean_enterpriseToEbit': d[19],
-                'weighted_mean_dividendYield': d[20]
-            })
-
-        return formatted_data
-    except Exception as e:
-        print("Error fetching data from database:", e)
-        return []
-
-def fetch_data_weighted_subsector():
-    try:
-        # Query the database to retrieve all records, ensuring the 'key' is not None
-        data = db.session.query(
-            SubsectorInfoFund.key,
-            SubsectorInfoFund.weighted_mean_quickRatio,
-            SubsectorInfoFund.weighted_mean_currentRatio,
-            SubsectorInfoFund.weighted_mean_debtToEquity,
-            SubsectorInfoFund.weighted_mean_revenuePerShare,
-            SubsectorInfoFund.weighted_mean_returnOnAssets,
-            SubsectorInfoFund.weighted_mean_returnOnEquity,
-            SubsectorInfoFund.weighted_mean_earningsGrowth,
-            SubsectorInfoFund.weighted_mean_revenueGrowth,
-            SubsectorInfoFund.weighted_mean_grossMargins,
-            SubsectorInfoFund.weighted_mean_ebitdaMargins,
-            SubsectorInfoFund.weighted_mean_operatingMargins,
-            SubsectorInfoFund.weighted_mean_profitMargins,
-            SubsectorInfoFund.weighted_mean_beta,
-            SubsectorInfoFund.weighted_mean_bookValue,
-            SubsectorInfoFund.weighted_mean_earningsQuarterlyGrowth,
-            SubsectorInfoFund.weighted_mean_trailingEps,
-            SubsectorInfoFund.weighted_mean_forwardEps,
-            SubsectorInfoFund.weighted_mean_enterpriseToEbitda,
-            SubsectorInfoFund.weighted_mean_enterpriseToEbit,
-            SubsectorInfoFund.weighted_mean_dividendYield
-        ).filter(
-            SubsectorInfoFund.key != None
-        ).all()
-
-        # Process the data
-        formatted_data = []
-        for d in data:
-            formatted_data.append({
-                'key': d[0],
-                'weighted_mean_quickRatio': d[1],
-                'weighted_mean_currentRatio': d[2],
-                'weighted_mean_debtToEquity': d[3],
-                'weighted_mean_revenuePerShare': d[4],
-                'weighted_mean_returnOnAssets': d[5],
-                'weighted_mean_returnOnEquity': d[6],
-                'weighted_mean_earningsGrowth': d[7],
-                'weighted_mean_revenueGrowth': d[8],
-                'weighted_mean_grossMargins': d[9],
-                'weighted_mean_ebitdaMargins': d[10],
-                'weighted_mean_operatingMargins': d[11],
-                'weighted_mean_profitMargins': d[12],
-                'weighted_mean_beta': d[13],
-                'weighted_mean_bookValue': d[14],
-                'weighted_mean_earningsQuarterlyGrowth': d[15],
-                'weighted_mean_trailingEps': d[16],
-                'weighted_mean_forwardEps': d[17],
-                'weighted_mean_enterpriseToEbitda': d[18],
-                'weighted_mean_enterpriseToEbit': d[19],
-                'weighted_mean_dividendYield': d[20]
-            })
-
-        return formatted_data
-    except Exception as e:
-        print("Error fetching data from database:", e)
-        return []
     
 #Pages page
 @pages.route('/pages/starter')

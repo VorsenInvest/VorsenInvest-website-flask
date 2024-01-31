@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template, session, redirect, url_for, jsonify, request
 from flask_login import login_required
 from .models import User, UserInfo, UserImage, StockListInfo
-from .pages import fetch_data_from_database, fetch_data_from_database_fund, fetch_data_weighted_economic_sector, fetch_data_weighted_subsector, fetch_data_weighted_segment
+from .pages import fetch_data_from_database, fetch_data_from_database_fund, fetch_data_weighted
 
 apps = Blueprint('apps',__name__,template_folder='templates',
     static_folder='static',)
@@ -431,25 +431,25 @@ def sectors_list():
 def sectors_indicators():
     print("sectors_indicators route called")
     
-    # Fetch data directly using the adapted function
-# Fetch data for each category
-    table_data_econ_sectors_fund = fetch_data_weighted_economic_sector()
+    # Fetch data for each category using the adapted function
+    table_data_econ_sectors_fund = fetch_data_weighted('economic_sector')
     print("Economic Sectors Data:", table_data_econ_sectors_fund)
 
-    table_data_subsectors_fund = fetch_data_weighted_subsector()
+    table_data_subsectors_fund = fetch_data_weighted('subsector')
     print("Subsectors Data:", table_data_subsectors_fund)
 
-    table_data_segments_fund = fetch_data_weighted_segment()
+    table_data_segments_fund = fetch_data_weighted('segment')
     print("Segments Data:", table_data_segments_fund)
 
-    #table_data_segments_fund = fetch_data_weighted_segment()
+    # Data fetching log
     print("Data fetched from database")
 
 
     return render_template('apps/sectors/apps-sectors-indicators.html',
                            table_data_econ_sectors_fund=table_data_econ_sectors_fund,
                            table_data_subsectors_fund=table_data_subsectors_fund,
-                           table_data_segments_fund=table_data_segments_fund)  
+                           table_data_segments_fund=table_data_segments_fund)
+
 
 @apps.route('/apps/exchange/indicators')
 @login_required

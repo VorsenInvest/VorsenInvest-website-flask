@@ -62,86 +62,40 @@ class StockListInfo(db.Model):
     subSector = db.Column(db.String(255), nullable=False)
     segment = db.Column(db.String(255), nullable=False)
 
-class EconomicSectorInfoFund(db.Model):
+class WeightedInfoFund(db.Model):
+    __abstract__ = True  # Make this class abstract
+
+    key = db.Column(db.String(10), nullable=False, primary_key=True)
+    weighted_mean_quickRatio = db.Column(db.Float)
+    weighted_mean_currentRatio = db.Column(db.Float)
+    weighted_mean_debtToEquity = db.Column(db.Float)
+    weighted_mean_revenuePerShare = db.Column(db.Float)
+    weighted_mean_returnOnAssets = db.Column(db.Float)
+    weighted_mean_returnOnEquity = db.Column(db.Float)
+    weighted_mean_earningsGrowth = db.Column(db.Float)
+    weighted_mean_revenueGrowth = db.Column(db.Float)
+    weighted_mean_grossMargins = db.Column(db.Float)
+    weighted_mean_ebitdaMargins = db.Column(db.Float)
+    weighted_mean_operatingMargins = db.Column(db.Float)
+    weighted_mean_profitMargins = db.Column(db.Float)
+    weighted_mean_beta = db.Column(db.Float)
+    weighted_mean_bookValue = db.Column(db.Float)
+    weighted_mean_earningsQuarterlyGrowth = db.Column(db.Float)
+    weighted_mean_trailingEps = db.Column(db.Float)
+    weighted_mean_forwardEps = db.Column(db.Float)
+    weighted_mean_enterpriseToEbitda = db.Column(db.Float)
+    weighted_mean_enterpriseToEbit = db.Column(db.Float)
+    weighted_mean_dividendYield = db.Column(db.Float)
+
+class EconomicSectorInfoFund(WeightedInfoFund):
     __tablename__ = 'weighted_economic_sector'  # Specify the custom table name
 
-    # id is commented out as before
-    #id = db.Column(db.Integer, primary_key=True)
-    key = db.Column(db.String(10), nullable=False, primary_key=True)
-    weighted_mean_quickRatio = db.Column(db.Float)
-    weighted_mean_currentRatio = db.Column(db.Float)
-    weighted_mean_debtToEquity = db.Column(db.Float)
-    weighted_mean_revenuePerShare = db.Column(db.Float)
-    weighted_mean_returnOnAssets = db.Column(db.Float)
-    weighted_mean_returnOnEquity = db.Column(db.Float)
-    weighted_mean_earningsGrowth = db.Column(db.Float)
-    weighted_mean_revenueGrowth = db.Column(db.Float)
-    weighted_mean_grossMargins = db.Column(db.Float)
-    weighted_mean_ebitdaMargins = db.Column(db.Float)
-    weighted_mean_operatingMargins = db.Column(db.Float)
-    weighted_mean_profitMargins = db.Column(db.Float)
-    weighted_mean_beta = db.Column(db.Float)
-    weighted_mean_bookValue = db.Column(db.Float)
-    weighted_mean_earningsQuarterlyGrowth = db.Column(db.Float)
-    weighted_mean_trailingEps = db.Column(db.Float)
-    weighted_mean_forwardEps = db.Column(db.Float)
-    weighted_mean_enterpriseToEbitda = db.Column(db.Float)
-    weighted_mean_enterpriseToEbit = db.Column(db.Float)
-    weighted_mean_dividendYield = db.Column(db.Float)
-
-class SubsectorInfoFund(db.Model):
+class SubsectorInfoFund(WeightedInfoFund):
     __tablename__ = 'weighted_subsector'  # Specify the custom table name
 
-    # id is commented out as before
-    #id = db.Column(db.Integer, primary_key=True)
-    key = db.Column(db.String(10), nullable=False, primary_key=True)
-    weighted_mean_quickRatio = db.Column(db.Float)
-    weighted_mean_currentRatio = db.Column(db.Float)
-    weighted_mean_debtToEquity = db.Column(db.Float)
-    weighted_mean_revenuePerShare = db.Column(db.Float)
-    weighted_mean_returnOnAssets = db.Column(db.Float)
-    weighted_mean_returnOnEquity = db.Column(db.Float)
-    weighted_mean_earningsGrowth = db.Column(db.Float)
-    weighted_mean_revenueGrowth = db.Column(db.Float)
-    weighted_mean_grossMargins = db.Column(db.Float)
-    weighted_mean_ebitdaMargins = db.Column(db.Float)
-    weighted_mean_operatingMargins = db.Column(db.Float)
-    weighted_mean_profitMargins = db.Column(db.Float)
-    weighted_mean_beta = db.Column(db.Float)
-    weighted_mean_bookValue = db.Column(db.Float)
-    weighted_mean_earningsQuarterlyGrowth = db.Column(db.Float)
-    weighted_mean_trailingEps = db.Column(db.Float)
-    weighted_mean_forwardEps = db.Column(db.Float)
-    weighted_mean_enterpriseToEbitda = db.Column(db.Float)
-    weighted_mean_enterpriseToEbit = db.Column(db.Float)
-    weighted_mean_dividendYield = db.Column(db.Float)
-
-class SegmentInfoFund(db.Model):
+class SegmentInfoFund(WeightedInfoFund):
     __tablename__ = 'weighted_segment'  # Specify the custom table name
 
-    # id is commented out as before
-    #id = db.Column(db.Integer, primary_key=True)
-    key = db.Column(db.String(10), nullable=False, primary_key=True)
-    weighted_mean_quickRatio = db.Column(db.Float)
-    weighted_mean_currentRatio = db.Column(db.Float)
-    weighted_mean_debtToEquity = db.Column(db.Float)
-    weighted_mean_revenuePerShare = db.Column(db.Float)
-    weighted_mean_returnOnAssets = db.Column(db.Float)
-    weighted_mean_returnOnEquity = db.Column(db.Float)
-    weighted_mean_earningsGrowth = db.Column(db.Float)
-    weighted_mean_revenueGrowth = db.Column(db.Float)
-    weighted_mean_grossMargins = db.Column(db.Float)
-    weighted_mean_ebitdaMargins = db.Column(db.Float)
-    weighted_mean_operatingMargins = db.Column(db.Float)
-    weighted_mean_profitMargins = db.Column(db.Float)
-    weighted_mean_beta = db.Column(db.Float)
-    weighted_mean_bookValue = db.Column(db.Float)
-    weighted_mean_earningsQuarterlyGrowth = db.Column(db.Float)
-    weighted_mean_trailingEps = db.Column(db.Float)
-    weighted_mean_forwardEps = db.Column(db.Float)
-    weighted_mean_enterpriseToEbitda = db.Column(db.Float)
-    weighted_mean_enterpriseToEbit = db.Column(db.Float)
-    weighted_mean_dividendYield = db.Column(db.Float)
     
 class DeleteAccountForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])

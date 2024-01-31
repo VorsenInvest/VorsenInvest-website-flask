@@ -1,25 +1,21 @@
-$(document).ready(function() {
-    
-   // Initialize DataTable for Economic Sector
-   if (!$.fn.DataTable.isDataTable('#economic-sector-ind-fund')) {
-    var economicSectorTable = $('#economic-sector-ind-fund').DataTable({
-        // DataTables configuration options
+$(document).ready(function() { 
+    // Define an array of DataTable IDs and their corresponding configuration options
+    var dataTableConfigs = [
+        { id: '#economic-sector-ind-fund', options: {} },
+        { id: '#subsector-ind-fund', options: {} },
+        { id: '#segment-ind-fund', options: {} }
+    ];
+
+    // Loop through the array to initialize DataTables
+    dataTableConfigs.forEach(function(config) {
+        if (!$.fn.DataTable.isDataTable(config.id)) {
+            // If it doesn't exist, initialize a new DataTable
+            $(config.id).DataTable(config.options);
+        } else {
+            // If it already exists, retrieve the existing instance
+            var table = $(config.id).DataTable();
+        }
     });
-    }
-
-    // Initialize DataTable for Subsector
-    if (!$.fn.DataTable.isDataTable('#subsector-ind-fund')) {
-        var subsectorTable = $('#subsector-ind-fund').DataTable({
-            // DataTables configuration options
-        });
-    }
-
-    // Initialize DataTable for Segment
-    if (!$.fn.DataTable.isDataTable('#segment-ind-fund')) {
-        var segmentTable = $('#segment-ind-fund').DataTable({
-            // DataTables configuration options
-        });
-    }
 
     // Event listener for Subsector Dropdown (assuming multiple selections are possible)
     $('.subsector-option-fund').change(function() {
@@ -104,7 +100,15 @@ $(document).ready(function() {
     }
 
     // Re-calculate and update counts when data changes
-    table.on('draw', function() {
+    economicSectorTable.on('draw', function() {
+        updateUniqueCounts();
+    });
+    getLanguage();
+    subsectorTable.on('draw', function() {
+        updateUniqueCounts();
+    });
+    getLanguage();
+    segmentTable.on('draw', function() {
         updateUniqueCounts();
     });
     getLanguage();
