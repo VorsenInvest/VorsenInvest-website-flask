@@ -34,7 +34,7 @@ function initializeTables() {
         "responsive": false,
         "autoWidth": false,
         "searching": true  // This line enables search functionality
-    });
+    }); 
 
     let subsectorIndicators = new DataTable('#subsector-ind-fund', {
         "scrollY": "420px",
