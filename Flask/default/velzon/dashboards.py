@@ -39,3 +39,8 @@ def dashboard_nft():
 @login_required
 def dashboard_job():
     return render_template('dashboards/dashboard-job.html')  
+
+@dashboards.route('/dashboard-stocks-sectors/')
+@login_required
+def dashboard_stocks_sectors():
+    return render_template('dashboards/dashboard-stocks-sectors-info.html')  
