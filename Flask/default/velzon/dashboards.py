@@ -1,5 +1,6 @@
-from flask import Blueprint,render_template
+from flask import Blueprint,render_template, request
 from flask_login import login_required
+from .pages import fetch_data_from_database_fund
 
 dashboards = Blueprint('dashboards',__name__,template_folder='templates',
     static_folder='static',)
@@ -43,4 +44,19 @@ def dashboard_job():
 @dashboards.route('/dashboard-stocks-sectors/')
 @login_required
 def dashboard_stocks_sectors():
-    return render_template('dashboards/dashboard-stocks-sectors-info.html')  
+    print("stocks_indicators route called")
+    
+    # Fetch data directly, not storing in session
+    table_data_fund, subsectors, segments, economicSectors, _, _, _, _ = fetch_data_from_database_fund()
+    print("Data fetched from database")
+    
+    # Extract symbols from table_data_fund and count unique symbols
+    symbols = [item['symbol'] for item in table_data_fund]
+
+    # Pass all data and counts to the template
+    return render_template('dashboards/dashboard-stocks-sectors-info.html',
+                           symbols=symbols,
+                           table_data_fund=table_data_fund, 
+                           subsectors=subsectors,
+                           segments=segments,
+                           economicSectors=economicSectors)

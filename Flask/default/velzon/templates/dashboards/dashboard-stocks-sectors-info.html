@@ -1,7 +1,19 @@
 {% extends "partials/base.html" %}
 {% block title %}Dashboard Ações e Setores - Vorsen Invest{% endblock title %}
 {% block extra_css %}
-<link href="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet"  />
+    <link href="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet"  />
+    <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        .dropdown-menu {
+            max-height: 400px; /* Adjust this value as needed to fit 10 lines */
+            overflow-y: auto; /* Enables vertical scrolling */
+        }
+    </style>
 {% endblock extra_css %}
 {% block content %}
             <!-- ============================================================== -->
@@ -16,7 +28,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Informações das Ações, Setores Ecoonômicos, Subsetores e Segmentos Listados</h4>
+                                <h4 class="mb-sm-0">Informações das Ações, Setores Econômicos, Subsetores e Segmentos Listados</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -29,155 +41,88 @@
                         </div>
                     </div>
                     <!-- end page title -->
+                    <!-- Default dropdown -->
                     <div class="row">
                         <div class="col-xl-3">
                             <div class="card">
-                                <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Informações</h4>
-                                </div><!-- end card header -->
-                                <div class="card-body">
-                                    <div class="table-responsive table-card">
-                                        <table class="table table-hover table-borderless table-centered align-middle table-nowrap mb-0">
-                                            
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Código</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center"><!--
-                                                            <div class="me-2">
-                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
-                                                            </div>-->
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">PETR4</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                            
-                                                </tr><!-- end -->
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Tipo</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                        
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">PN</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr><!-- end -->
-                                                <tr><td class="text-muted bg-light-subtle">
-                                                    <div class="d-flex align-items-center">
-                
-                                                        <div>
-                                                            <h6 class="fs-13 mb-0">Nome</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                    
-                                                        <div>
-                                                            <h6 class="fs-12 mb-0">Petrobrás</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                
-                                                </tr><!-- end -->
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Setor Econômico</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                        
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">XXXXXXX</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr><!-- end -->
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Subsetor</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                        
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">yyyyyyyy</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    
-                                                </tr><!-- end -->
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Segmento</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                        
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">zzzzzzzz</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr><!-- end -->
-                                                <tr>
-                                                    <td class="text-muted bg-light-subtle">
-                                                        <div class="d-flex align-items-center">
-                    
-                                                            <div>
-                                                                <h6 class="fs-13 mb-0">Quantidade de Ações</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                        
-                                                            <div>
-                                                                <h6 class="fs-12 mb-0">zzzzzzzz</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr><!-- end -->
-                                            </tbody><!-- end tbody -->
-                                        </table><!-- end table -->
-                                    </div><!-- end tbody -->
-                                </div><!-- end cardbody -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
+                                <div class="list-group list-group-fill-success">
+                                    <a class="list-group-item list-group-item-action active"><i class="align-middle me-2"></i>Selecione uma opção</a>
+                                    <a href="#" id="stocksOption"class="list-group-item list-group-item-action"><i class="ri-shield-check-line align-middle me-2"></i>Ações</a>
+                                    <a href="#" id="segmentsOption" class="list-group-item list-group-item-action"><i class="ri-database-2-line align-middle me-2"></i>Segmento</a>
+                                    <a href="#" id="subsectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Subsetor</a>
+                                    <a href="#" id="economicSectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Segmento</a>
+                                    <a href="#" id="stockExchangeOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Bovespa</a>
+
+
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="card">
+                                <div class="btn-group">
+                                    <button type="button" id="stockButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span data-key="t-stock">Ação</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="stockDropdown">
+                                        {% for symbol in symbols|select('!=', None)|sort %}
+                                            <li>
+                                                <label class="dropdown-item">
+                                                    {{ symbol }}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="btn-group">
+                                    <button type="button" id="segmentkButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span data-key="t-segment">Segmento</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="segmentDropdown">
+                                        {% for segment in segments|select('!=', None)|sort %}
+                                            <li>
+                                                <label class="dropdown-item">
+                                                    {{ segment }}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="btn-group">
+                                    <button type="button" id="subsectorButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span data-key="t-subsector">Subsetor</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="subsectorDropdown">
+                                        {% for subsector in subsectors|select('!=', None)|sort %}
+                                            <li>
+                                                <label class="dropdown-item">
+                                                    {{ subsector }}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="btn-group">
+                                    <button type="button" id="economicSectorButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span data-key="t-economic-sector">Setor Econômico</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="economicSectorDropdown">
+                                        {% for economicSector in economicSectors|select('!=', None)|sort %}
+                                            <li>
+                                                <label class="dropdown-item">
+                                                    {{ economicSector }}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xl-3">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
@@ -214,6 +159,157 @@
                                                         <div class="d-flex align-items-center">
                     
                                                             <div>
+                                                                <h6 class="fs-13 mb-0">Data da Última Cotação</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                        
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PN</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                </tr><!-- end -->
+                                                <tr><td class="text-muted bg-light-subtle">
+                                                    <div class="d-flex align-items-center">
+                
+                                                        <div>
+                                                            <h6 class="fs-13 mb-0">Mínimo de 2 Semanas</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                    
+                                                        <div>
+                                                            <h6 class="fs-12 mb-0">kkkkk</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                </tr><!-- end -->
+                                                <tr><td class="text-muted bg-light-subtle">
+                                                    <div class="d-flex align-items-center">
+                
+                                                        <div>
+                                                            <h6 class="fs-13 mb-0">Máximo de 2 Semanas</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                    
+                                                        <div>
+                                                            <h6 class="fs-12 mb-0">Volume Financeiro Médio</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                </tr><!-- end -->
+                                                <tr><td class="text-muted bg-light-subtle">
+                                                    <div class="d-flex align-items-center">
+                
+                                                        <div>
+                                                            <h6 class="fs-13 mb-0">Volume Financeiro Médio</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                    
+                                                        <div>
+                                                            <h6 class="fs-12 mb-0">Uns milao</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">Último Balanço Processado</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                        
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">XXXXXXX</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">Valor de Mercado</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                        
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">yyyyyyyy</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    
+                                                </tr><!-- end -->
+                                                
+                                            </tbody><!-- end tbody -->
+                                        </table><!-- end table -->
+                                    </div><!-- end tbody -->
+                                </div><!-- end cardbody -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Informações</h4>
+                                </div><!-- end card header -->
+                                <div class="card-body">
+                                    <div class="table-responsive table-card">
+                                        <table class="table table-hover table-borderless table-centered align-middle table-nowrap mb-0">
+                                            
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">Código</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
                                                                 <h6 class="fs-13 mb-0">Tipo</h6>
                                                             </div>
                                                         </div>
@@ -326,6 +422,7 @@
                                 </div><!-- end cardbody -->
                             </div><!-- end card -->
                         </div><!-- end col -->
+
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
@@ -666,7 +763,7 @@
                                                         <div class="d-flex align-items-center">
                     
                                                             <div>
-                                                                <h6 class="fs-13 mb-0">Código</h6>
+                                                                <h6 class="fs-13 mb-0">P/L</h6>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -730,7 +827,351 @@
                                                     </td>
                                             
                                                 </tr><!-- end -->
-                                                
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">P/L</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">LPA atual</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">LPA futuro</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">P/VPA</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">PEG</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
+                                                <tr>
+                                                    <td class="text-muted bg-light-subtle">
+                                                        <div class="d-flex align-items-center">
+                    
+                                                            <div>
+                                                                <h6 class="fs-13 mb-0">P/L</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center"><!--
+                                                            <div class="me-2">
+                                                                <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
+                                                            </div>-->
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="bg-light-subtle"> 
+                                                        <div class="d-flex align-items-center">
+                                                            
+                                                            <div>
+                                                                <h6 class="fs-12 mb-0">PETR4</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr><!-- end -->
                                             </tbody><!-- end tbody -->
                                         </table><!-- end table -->
                                         </div><!-- end tbody -->
@@ -870,12 +1311,23 @@
             <!-- end main content-->
 {% endblock content %}
 {% block extra_js %}
-    <!-- apexcharts -->
-    <script src="{{url_for('static' ,filename='libs/apexcharts/dist/apexcharts.min.js')}}"></script>
-    
-    <!-- Swiper Js -->
-    <script src="{{url_for('static' ,filename='libs/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--datatable js-->
+    <!--datatable js-->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 
-    <!-- CRM js -->
+    <script src="{{url_for('static' ,filename='js/pages/datatables.init.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <script src="{{url_for('static' ,filename='js/pages/dashboard-stocks-sectors-info.init.js')}}"></script>
+    <script src="{{url_for('static' ,filename='libs/prismjs/prism.js')}}"></script>  
 {% endblock extra_js %}
