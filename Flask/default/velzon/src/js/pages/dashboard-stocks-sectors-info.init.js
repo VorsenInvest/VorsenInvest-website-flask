@@ -9,18 +9,23 @@ $(document).ready(function() {
         selectedText = $(this).text().trim(); // Update selectedText when an item is clicked
         $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedText);
     
-        console.log("Selected Text:", selectedText); // Debug line
-    
         // Assuming table_data_fund is available as a global JavaScript variable
         var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
+        var economicSector = getEconomicSectorForSymbol(selectedText, table_data_fund);
+        var subSector = getSubSectorForSymbol(selectedText, table_data_fund);
+        var segment = getSegmentForSymbol(selectedText, table_data_fund);
     
-        console.log("Quick Ratio:", quickRatio); // Debug line
-    
-        // Update the div with the quickRatio value only if both stockOption and selectedText are selected
+        // Update the divs only if both stockOption and selectedText are selected
         if (stockOptionSelected && selectedText) {
             $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
+            $('#economicSectorDisplay').text(economicSector !== null ? economicSector : 'Not Available');
+            $('#subSectorDisplay').text(subSector !== null ? subSector : 'Not Available');
+            $('#segmentDisplay').text(segment !== null ? segment : 'Not Available');
         } else {
             $('#quickRatioDisplay').text('');
+            $('#economicSectorDisplay').text('');
+            $('#subSectorDisplay').text('');
+            $('#segmentDisplay').text('');
         }
     });
     
@@ -29,22 +34,46 @@ $(document).ready(function() {
         stockOptionSelected = true; // Set stockOptionSelected to true when stockOption is clicked
     
         if (stockOptionSelected && selectedText) {
-            // If both stockOption and selectedText are selected, update the div with quickRatio
+            // If both stockOption and selectedText are selected, update the divs
             var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
+            var economicSector = getEconomicSectorForSymbol(selectedText, table_data_fund);
+            var subSector = getSubSectorForSymbol(selectedText, table_data_fund);
+            var segment = getSegmentForSymbol(selectedText, table_data_fund);
+    
             $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
+            $('#economicSectorDisplay').text(economicSector !== null ? economicSector : 'Not Available');
+            $('#subSectorDisplay').text(subSector !== null ? subSector : 'Not Available');
+            $('#segmentDisplay').text(segment !== null ? segment : 'Not Available');
         } else {
             $('#quickRatioDisplay').text('');
+            $('#economicSectorDisplay').text('');
+            $('#subSectorDisplay').text('');
+            $('#segmentDisplay').text('');
         }
     });
     
-    
-    
-
     // Function to search for the quickRatio by symbol
     function getQuickRatioForSymbol(symbol, data) {
         var item = data.find(item => item.symbol === symbol);
         return item ? item.quickRatio : null;
     }
+    
+    // Add similar functions for economicSector, subSector, and segment
+    function getEconomicSectorForSymbol(symbol, data) {
+        var item = data.find(item => item.symbol === symbol);
+        return item ? item.economicSector : null;
+    }
+    
+    function getSubSectorForSymbol(symbol, data) {
+        var item = data.find(item => item.symbol === symbol);
+        return item ? item.subSector : null;
+    }
+    
+    function getSegmentForSymbol(symbol, data) {
+        var item = data.find(item => item.symbol === symbol);
+        return item ? item.segment : null;
+    }
+    
 
     var mapping = {
         'stocksOption': '#stockButton',
