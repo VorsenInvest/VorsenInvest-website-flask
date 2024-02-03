@@ -15,10 +15,13 @@
         }
     </style>
     <script type="text/javascript">
-        // Convert the Python table_data_fund to a JSON object for JavaScript
+        // Convert the Python data to JSON objects for JavaScript
         var table_data_fund = {{ table_data_fund|tojson|safe }};
-
+        var weighted_data_economic_sector = {{ weighted_data_economic_sector|tojson|safe }};
+        var weighted_data_segment = {{ weighted_data_segment|tojson|safe }};
+        var weighted_data_subsector = {{ weighted_data_subsector|tojson|safe }};
     </script>
+
     
 {% endblock extra_css %}
 {% block content %}

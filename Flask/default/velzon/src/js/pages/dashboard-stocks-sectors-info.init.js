@@ -1,78 +1,143 @@
 $(document).ready(function() {
-    // Your existing code...
-    // ...
+    var selectedOption = ''; // To store the selected list option
+    var selectedSymbol = ''; // To store the selected symbol or key
+    var buttonValues = {}; // To store values for each button based on the option
 
-    var stockOptionSelected; // Initialize a flag for stockOption selection
-    var selectedText = ''; // Initialize the selectedText variable
-    
+    // Initialize selectedOption and selectedSymbol based on the current state of the page
+    selectedOption = $('#listOption').text().trim().toLowerCase(); // Assuming the dropdown has an id 'listOption'
+    selectedSymbol = $('#selectedButtonValue').text().trim(); // Assuming the element displaying the button value has an id 'selectedButtonValue'
+    buttonValues[selectedOption] = selectedSymbol; // Store the selected value for the current option
+
+    // Attempt to fetch and display quickRatio if both option and symbol are selected
+    function tryFetchAndDisplayQuickRatio() {
+        if (selectedOption && selectedSymbol) {
+            fetchAndDisplayQuickRatio();
+        } else {
+            console.log("Waiting for both option and symbol/key selection...");
+        }
+    }
+
+    // List selection event handlers
+    $('#stocksOption').click(function() { 
+        selectedOption = 'stock';
+        console.log("List option selected: stock");
+        selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'stock' if available
+        tryFetchAndDisplayQuickRatio();
+    });
+    $('#economicSectorsOption').click(function() { 
+        selectedOption = 'economic'; 
+        console.log("List option selected: economic");
+        selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'economic' if available
+        tryFetchAndDisplayQuickRatio();
+    });
+    $('#segmentsOption').click(function() { 
+        selectedOption = 'segment'; 
+        console.log("List option selected: segment");
+        selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'segment' if available
+        tryFetchAndDisplayQuickRatio();
+    });
+    $('#subsectorsOption').click(function() { 
+        selectedOption = 'subsector'; 
+        console.log("List option selected: subsector");
+        selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'subsector' if available
+        tryFetchAndDisplayQuickRatio();
+    });
+
+    // Update dropdown display text and store selected symbol or key
     $(".dropdown-menu a.dropdown-item").on('click', function() {
-        selectedText = $(this).text().trim(); // Update selectedText when an item is clicked
-        $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedText);
-    
-        // Assuming table_data_fund is available as a global JavaScript variable
-        var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
-        var economicSector = getEconomicSectorForSymbol(selectedText, table_data_fund);
-        var subSector = getSubSectorForSymbol(selectedText, table_data_fund);
-        var segment = getSegmentForSymbol(selectedText, table_data_fund);
-    
-        // Update the divs only if both stockOption and selectedText are selected
-        if (stockOptionSelected && selectedText) {
-            $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
-            $('#economicSectorDisplay').text(economicSector !== null ? economicSector : 'Not Available');
-            $('#subSectorDisplay').text(subSector !== null ? subSector : 'Not Available');
-            $('#segmentDisplay').text(segment !== null ? segment : 'Not Available');
-        } else {
-            $('#quickRatioDisplay').text('');
-            $('#economicSectorDisplay').text('');
-            $('#subSectorDisplay').text('');
-            $('#segmentDisplay').text('');
-        }
+        selectedSymbol = $(this).text().trim(); // Update selectedSymbol when an item is clicked
+        $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedSymbol);
+        console.log("Selected symbol/key:", selectedSymbol);
+        buttonValues[selectedOption] = selectedSymbol; // Store the selected value for the current option
+        tryFetchAndDisplayQuickRatio();
     });
-    
-    // Add an event handler for stockOption selection
-    $('#stocksOption').click(function() {
-        stockOptionSelected = true; // Set stockOptionSelected to true when stockOption is clicked
-    
-        if (stockOptionSelected && selectedText) {
-            // If both stockOption and selectedText are selected, update the divs
-            var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
-            var economicSector = getEconomicSectorForSymbol(selectedText, table_data_fund);
-            var subSector = getSubSectorForSymbol(selectedText, table_data_fund);
-            var segment = getSegmentForSymbol(selectedText, table_data_fund);
-    
-            $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
-            $('#economicSectorDisplay').text(economicSector !== null ? economicSector : 'Not Available');
-            $('#subSectorDisplay').text(subSector !== null ? subSector : 'Not Available');
-            $('#segmentDisplay').text(segment !== null ? segment : 'Not Available');
-        } else {
-            $('#quickRatioDisplay').text('');
-            $('#economicSectorDisplay').text('');
-            $('#subSectorDisplay').text('');
-            $('#segmentDisplay').text('');
-        }
+
+    // Button click event handlers to store the selected value without an option selected
+    $('#stockButton').click(function() {
+        selectedOption = 'stock';
+        selectedSymbol = $(this).text().trim();
+        console.log("Button value selected: stock -", selectedSymbol);
+        buttonValues[selectedOption] = selectedSymbol;
+        tryFetchAndDisplayQuickRatio();
     });
-    
-    // Function to search for the quickRatio by symbol
-    function getQuickRatioForSymbol(symbol, data) {
-        var item = data.find(item => item.symbol === symbol);
-        return item ? item.quickRatio : null;
+    $('#economicButton').click(function() {
+        selectedOption = 'economic';
+        selectedSymbol = $(this).text().trim();
+        console.log("Button value selected: economic -", selectedSymbol);
+        buttonValues[selectedOption] = selectedSymbol;
+        tryFetchAndDisplayQuickRatio();
+    });
+    $('#segmentButton').click(function() {
+        selectedOption = 'segment';
+        selectedSymbol = $(this).text().trim();
+        console.log("Button value selected: segment -", selectedSymbol);
+        buttonValues[selectedOption] = selectedSymbol;
+        tryFetchAndDisplayQuickRatio();
+    });
+    $('#subsectorButton').click(function() {
+        selectedOption = 'subsector';
+        selectedSymbol = $(this).text().trim();
+        console.log("Button value selected: subsector -", selectedSymbol);
+        buttonValues[selectedOption] = selectedSymbol;
+        tryFetchAndDisplayQuickRatio();
+    });
+
+
+
+
+
+    function fetchAndDisplayQuickRatio() {
+        console.log(`Fetching quickRatio for ${selectedOption}:`, selectedSymbol);
+        
+        // This variable should reflect the exact option selected, e.g., 'stock'
+        var option = selectedOption; // Make sure this is correctly set based on your UI logic
+        
+        var quickRatio = null;
+        switch(option) {
+            case 'stock':
+                quickRatio = findQuickRatioInData(selectedSymbol, 'symbol', table_data_fund, option);
+                break;
+            case 'economic':
+                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_economic_sector, option);
+                break;
+            case 'segment':
+                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_segment, option);
+                break;
+            case 'subsector':
+                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_subsector, option);
+                break;
+            default:
+                console.log(`Invalid option selected: ${option}`);
+        }
+        
+        console.log(`Displaying quickRatio:`, quickRatio !== null ? quickRatio : 'Not Available');
+        $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
     }
     
-    // Add similar functions for economicSector, subSector, and segment
-    function getEconomicSectorForSymbol(symbol, data) {
-        var item = data.find(item => item.symbol === symbol);
-        return item ? item.economicSector : null;
+
+    function findQuickRatioInData(symbolOrKey, keyName, dataList, option) {
+        // Correctly determine the ratio key name based on the selected option
+        var ratioKey = option === 'stock' ? 'quickRatio' : 'weighted_mean_quickRatio';
+        
+        console.log(`Looking for ${ratioKey} for ${symbolOrKey} in option: ${option}`);
+        
+        var item = dataList.find(item => item[keyName] === symbolOrKey);
+        if (item) {
+            if (item.hasOwnProperty(ratioKey)) {
+                console.log(`Found ${ratioKey}:`, item[ratioKey], `for`, symbolOrKey);
+                return item[ratioKey];
+            } else {
+                console.log(`Missing ${ratioKey} in:`, item);
+            }
+        } else {
+            console.log(`No item found for ${symbolOrKey} in option: ${option}`);
+        }
+        return null;
     }
     
-    function getSubSectorForSymbol(symbol, data) {
-        var item = data.find(item => item.symbol === symbol);
-        return item ? item.subSector : null;
-    }
     
-    function getSegmentForSymbol(symbol, data) {
-        var item = data.find(item => item.symbol === symbol);
-        return item ? item.segment : null;
-    }
+
+
     
 
     var mapping = {
