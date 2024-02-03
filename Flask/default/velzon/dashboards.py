@@ -52,6 +52,7 @@ def dashboard_stocks_sectors():
     
     # Extract symbols from table_data_fund and count unique symbols
     symbols = [item['symbol'] for item in table_data_fund]
+    print(table_data_fund)
 
     # Pass all data and counts to the template
     return render_template('dashboards/dashboard-stocks-sectors-info.html',

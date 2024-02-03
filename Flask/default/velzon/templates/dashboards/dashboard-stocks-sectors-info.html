@@ -14,6 +14,12 @@
             overflow-y: auto; /* Enables vertical scrolling */
         }
     </style>
+    <script type="text/javascript">
+        // Convert the Python table_data_fund to a JSON object for JavaScript
+        var table_data_fund = {{ table_data_fund|tojson|safe }};
+
+    </script>
+    
 {% endblock extra_css %}
 {% block content %}
             <!-- ============================================================== -->
@@ -46,15 +52,14 @@
                         <div class="col-xl-3">
                             <div class="card">
                                 <div class="list-group list-group-fill-success">
-                                    <a class="list-group-item list-group-item-action active"><i class="align-middle me-2"></i>Selecione uma opção</a>
-                                    <a href="#" id="stocksOption"class="list-group-item list-group-item-action"><i class="ri-shield-check-line align-middle me-2"></i>Ações</a>
-                                    <a href="#" id="segmentsOption" class="list-group-item list-group-item-action"><i class="ri-database-2-line align-middle me-2"></i>Segmentos</a>
-                                    <a href="#" id="subsectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Subsetores</a>
-                                    <a href="#" id="economicSectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Setores Econômicos</a>
-                                    <a href="#" id="stockExchangeOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Bovespa</a>
-
-
+                                    <button type="button" class="list-group-item list-group-item-action active" disabled><i class="align-middle me-2"></i>Selecione uma opção</button>
+                                    <button type="button" id="stocksOption" class="list-group-item list-group-item-action"><i class="ri-shield-check-line align-middle me-2"></i>Ações</button>
+                                    <button type="button" id="segmentsOption" class="list-group-item list-group-item-action"><i class="ri-database-2-line align-middle me-2"></i>Segmentos</button>
+                                    <button type="button" id="subsectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Subsetores</button>
+                                    <button type="button" id="economicSectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Setores Econômicos</button>
+                                    <button type="button" id="stockExchangeOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Bovespa</button>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="col-xl-3">
@@ -296,7 +301,7 @@
                                                                 <img src="{{url_for('static' ,filename='images/svg/crypto-icons/ltc.svg')}}" alt="" class="avatar-xxs">
                                                             </div>-->
                                                             <div>
-                                                                <h6 class="fs-12 mb-0">PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4PETR4</h6>
+                                                                <div id="quickRatioDisplay">Quick Ratio will be displayed here</div>
                                                             </div>
                                                         </div>
                                                     </td>

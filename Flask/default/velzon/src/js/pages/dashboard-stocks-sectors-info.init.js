@@ -2,15 +2,49 @@ $(document).ready(function() {
     // Your existing code...
     // ...
 
-    // Event handler for each dropdown item
+    var stockOptionSelected; // Initialize a flag for stockOption selection
+    var selectedText = ''; // Initialize the selectedText variable
+    
     $(".dropdown-menu a.dropdown-item").on('click', function() {
-        // Get the text of the clicked item
-        var selectedText = $(this).text();
-
-        // Set the button text to the selected item's text
+        selectedText = $(this).text().trim(); // Update selectedText when an item is clicked
         $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedText);
-
+    
+        console.log("Selected Text:", selectedText); // Debug line
+    
+        // Assuming table_data_fund is available as a global JavaScript variable
+        var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
+    
+        console.log("Quick Ratio:", quickRatio); // Debug line
+    
+        // Update the div with the quickRatio value only if both stockOption and selectedText are selected
+        if (stockOptionSelected && selectedText) {
+            $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
+        } else {
+            $('#quickRatioDisplay').text('');
+        }
     });
+    
+    // Add an event handler for stockOption selection
+    $('#stocksOption').click(function() {
+        stockOptionSelected = true; // Set stockOptionSelected to true when stockOption is clicked
+    
+        if (stockOptionSelected && selectedText) {
+            // If both stockOption and selectedText are selected, update the div with quickRatio
+            var quickRatio = getQuickRatioForSymbol(selectedText, table_data_fund);
+            $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
+        } else {
+            $('#quickRatioDisplay').text('');
+        }
+    });
+    
+    
+    
+
+    // Function to search for the quickRatio by symbol
+    function getQuickRatioForSymbol(symbol, data) {
+        var item = data.find(item => item.symbol === symbol);
+        return item ? item.quickRatio : null;
+    }
 
     var mapping = {
         'stocksOption': '#stockButton',
@@ -19,20 +53,31 @@ $(document).ready(function() {
         'economicSectorsOption': '#economicSectorButton',
         'stockExchangeOption': '#stockExchangeButton' // Assuming you have a button for Bovespa
     };
-
+    
     // Iterate over each mapping entry
     $.each(mapping, function(listItemId, buttonId) {
-        // Add click event listener to each list item
+        // Convert list items to buttons if not already done in HTML. Assuming conversion is done, this step can be ignored in HTML
+        // Add click event listener to each button that represents the list item
         $('#' + listItemId).click(function() {
-            // First, reset all buttons to be not clickable and btn-light
+            // Reset all list item buttons to be clickable and remove btn-success class, applying btn-light for visual consistency if needed
+            $.each(mapping, function(liId, _) {
+                $('#' + liId).prop('disabled', false).removeClass('btn-success'); // Optionally add .addClass('btn-light') if you're using btn-light class for other list items
+            });
+    
+            // Make the clicked list item button unclickable and add btn-success class
+            $(this).prop('disabled', true).addClass('btn-success');
+    
+            // First, reset all associated buttons to be not clickable and btn-light
             $.each(mapping, function(_, btnId) {
                 $(btnId).prop('disabled', true).removeClass('btn-success').addClass('btn-light');
             });
-
+    
             // Then, make the respective button clickable and btn-success
             $(buttonId).prop('disabled', false).removeClass('btn-light').addClass('btn-success');
         });
     });
+    
+
     
 
 
