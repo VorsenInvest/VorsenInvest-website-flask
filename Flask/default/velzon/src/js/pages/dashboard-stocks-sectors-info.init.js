@@ -148,10 +148,15 @@ $(document).ready(function() {
         'stockExchangeOption': '#stockExchangeButton' // Assuming you have a button for Bovespa
     };
     
+    // First, reset all associated buttons to be not clickable and btn-light
+    $.each(mapping, function(_, btnId) {
+        $(btnId).prop('disabled', true).removeClass('btn-success').addClass('btn-light');
+    });
     // Iterate over each mapping entry
     $.each(mapping, function(listItemId, buttonId) {
         // Convert list items to buttons if not already done in HTML. Assuming conversion is done, this step can be ignored in HTML
         // Add click event listener to each button that represents the list item
+        
         $('#' + listItemId).click(function() {
             // Reset all list item buttons to be clickable and remove btn-success class, applying btn-light for visual consistency if needed
             $.each(mapping, function(liId, _) {
