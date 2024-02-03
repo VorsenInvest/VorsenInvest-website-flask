@@ -48,13 +48,13 @@
                                 <div class="list-group list-group-fill-success">
                                     <a class="list-group-item list-group-item-action active"><i class="align-middle me-2"></i>Selecione uma opção</a>
                                     <a href="#" id="stocksOption"class="list-group-item list-group-item-action"><i class="ri-shield-check-line align-middle me-2"></i>Ações</a>
-                                    <a href="#" id="segmentsOption" class="list-group-item list-group-item-action"><i class="ri-database-2-line align-middle me-2"></i>Segmento</a>
-                                    <a href="#" id="subsectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Subsetor</a>
-                                    <a href="#" id="economicSectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Segmento</a>
+                                    <a href="#" id="segmentsOption" class="list-group-item list-group-item-action"><i class="ri-database-2-line align-middle me-2"></i>Segmentos</a>
+                                    <a href="#" id="subsectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Subsetores</a>
+                                    <a href="#" id="economicSectorsOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Setores Econômicos</a>
                                     <a href="#" id="stockExchangeOption" class="list-group-item list-group-item-action"><i class="ri-notification-3-line align-middle me-2"></i>Bovespa</a>
 
 
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-3">
@@ -66,9 +66,8 @@
                                     <ul class="dropdown-menu" aria-labelledby="stockDropdown">
                                         {% for symbol in symbols|select('!=', None)|sort %}
                                             <li>
-                                                <label class="dropdown-item">
-                                                    {{ symbol }}
-                                                </label>
+                                                <li><a class="dropdown-item" href="#">{{ symbol }}</a></li>
+
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -76,15 +75,14 @@
                             </div>
                             <div class="card">
                                 <div class="btn-group">
-                                    <button type="button" id="segmentkButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" id="segmentButton" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span data-key="t-segment">Segmento</span>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="segmentDropdown">
                                         {% for segment in segments|select('!=', None)|sort %}
                                             <li>
-                                                <label class="dropdown-item">
-                                                    {{ segment }}
-                                                </label>
+                                                <li><a class="dropdown-item" href="#">{{ segment }}</a></li>
+
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -98,9 +96,8 @@
                                     <ul class="dropdown-menu" aria-labelledby="subsectorDropdown">
                                         {% for subsector in subsectors|select('!=', None)|sort %}
                                             <li>
-                                                <label class="dropdown-item">
-                                                    {{ subsector }}
-                                                </label>
+                                                <li><a class="dropdown-item" href="#">{{ subsector }}</a></li>
+
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -115,7 +112,7 @@
                                         {% for economicSector in economicSectors|select('!=', None)|sort %}
                                             <li>
                                                 <label class="dropdown-item">
-                                                    {{ economicSector }}
+                                                    <li><a class="dropdown-item" href="#">{{ economicSector }}</a></li>
                                                 </label>
                                             </li>
                                         {% endfor %}

@@ -10,14 +10,31 @@ $(document).ready(function() {
         // Set the button text to the selected item's text
         $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedText);
 
-        // Check if the selected text is "Ações"
-        if (selectedText === "Ações") {
-            // Change the class of the target button
-            // Ensure to use the correct selector for your target button
-            $("#stockButton").removeClass('btn-light').addClass('btn-success');
-            
-        }
     });
+
+    var mapping = {
+        'stocksOption': '#stockButton',
+        'segmentsOption': '#segmentButton', // Adjusted the ID here to match the pattern
+        'subsectorsOption': '#subsectorButton',
+        'economicSectorsOption': '#economicSectorButton',
+        'stockExchangeOption': '#stockExchangeButton' // Assuming you have a button for Bovespa
+    };
+
+    // Iterate over each mapping entry
+    $.each(mapping, function(listItemId, buttonId) {
+        // Add click event listener to each list item
+        $('#' + listItemId).click(function() {
+            // First, reset all buttons to be not clickable and btn-light
+            $.each(mapping, function(_, btnId) {
+                $(btnId).prop('disabled', true).removeClass('btn-success').addClass('btn-light');
+            });
+
+            // Then, make the respective button clickable and btn-success
+            $(buttonId).prop('disabled', false).removeClass('btn-light').addClass('btn-success');
+        });
+    });
+    
+
 
 
     
