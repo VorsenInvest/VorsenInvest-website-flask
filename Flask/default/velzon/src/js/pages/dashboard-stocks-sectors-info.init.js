@@ -96,7 +96,7 @@ $(document).ready(function() {
             'grossMargins', 'ebitdaMargins', 'operatingMargins', 'profitMargins',
             'heldPercentInsiders','heldPercentInstitutions', 'beta', 'bookValue',
             'earningsQuarterlyGrowth', 'trailingEps', 'forwardEps', 'enterpriseToEbitda',
-            'enterpriseToEbit', 'dividendYield'
+            'enterpriseToEbit', 'dividendYield', 'subSector','segment','economicSector'
             // Add more indicators here as needed
         ];
     
@@ -161,7 +161,11 @@ $(document).ready(function() {
             'forwardEps': option === 'stock' ? 'forwardEps' : 'weighted_mean_forwardEps',
             'enterpriseToEbitda': option === 'stock' ? 'enterpriseToEbitda' : 'weighted_mean_enterpriseToEbitda',
             'enterpriseToEbit': option === 'stock' ? 'enterpriseToEbit' : 'weighted_mean_enterpriseToEbit',
-            'dividendYield': option === 'stock' ? 'dividendYield' : 'weighted_mean_dividendYield'
+            'dividendYield': option === 'stock' ? 'dividendYield' : 'weighted_mean_dividendYield',
+            'subSector': option === 'stock' ? 'subSector' : 'subSector',
+            'segment': option === 'stock' ? 'segment' : 'segment',
+            'economicSector': option === 'stock' ? 'economicSector' : 'economicSector'
+
             // Add more mappings here as needed
         };
         
@@ -184,10 +188,6 @@ $(document).ready(function() {
         }
     }
     
-    
-    
-    
-
 
     
 
