@@ -9,9 +9,9 @@ $(document).ready(function() {
     buttonValues[selectedOption] = selectedSymbol; // Store the selected value for the current option
 
     // Attempt to fetch and display quickRatio if both option and symbol are selected
-    function tryFetchAndDisplayQuickRatio() {
+    function tryFetchAndDisplayIndicators() {
         if (selectedOption && selectedSymbol) {
-            fetchAndDisplayQuickRatio();
+            fetchAndDisplayIndicators();
         } else {
             console.log("Waiting for both option and symbol/key selection...");
         }
@@ -22,25 +22,25 @@ $(document).ready(function() {
         selectedOption = 'stock';
         console.log("List option selected: stock");
         selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'stock' if available
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#economicSectorsOption').click(function() { 
         selectedOption = 'economic'; 
         console.log("List option selected: economic");
         selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'economic' if available
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#segmentsOption').click(function() { 
         selectedOption = 'segment'; 
         console.log("List option selected: segment");
         selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'segment' if available
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#subsectorsOption').click(function() { 
         selectedOption = 'subsector'; 
         console.log("List option selected: subsector");
         selectedSymbol = buttonValues[selectedOption] || ''; // Use the stored value for 'subsector' if available
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
 
     // Update dropdown display text and store selected symbol or key
@@ -49,7 +49,7 @@ $(document).ready(function() {
         $(this).closest('.btn-group').find('.dropdown-toggle').text(selectedSymbol);
         console.log("Selected symbol/key:", selectedSymbol);
         buttonValues[selectedOption] = selectedSymbol; // Store the selected value for the current option
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
 
     // Button click event handlers to store the selected value without an option selected
@@ -58,82 +58,95 @@ $(document).ready(function() {
         selectedSymbol = $(this).text().trim();
         console.log("Button value selected: stock -", selectedSymbol);
         buttonValues[selectedOption] = selectedSymbol;
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#economicButton').click(function() {
         selectedOption = 'economic';
         selectedSymbol = $(this).text().trim();
         console.log("Button value selected: economic -", selectedSymbol);
         buttonValues[selectedOption] = selectedSymbol;
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#segmentButton').click(function() {
         selectedOption = 'segment';
         selectedSymbol = $(this).text().trim();
         console.log("Button value selected: segment -", selectedSymbol);
         buttonValues[selectedOption] = selectedSymbol;
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
     $('#subsectorButton').click(function() {
         selectedOption = 'subsector';
         selectedSymbol = $(this).text().trim();
         console.log("Button value selected: subsector -", selectedSymbol);
         buttonValues[selectedOption] = selectedSymbol;
-        tryFetchAndDisplayQuickRatio();
+        tryFetchAndDisplayIndicators();
     });
 
 
 
 
 
-    function fetchAndDisplayQuickRatio() {
-        console.log(`Fetching quickRatio for ${selectedOption}:`, selectedSymbol);
+    function fetchAndDisplayIndicators() {
+        console.log(`Fetching indicators for ${selectedOption}:`, selectedSymbol);
         
-        // This variable should reflect the exact option selected, e.g., 'stock'
-        var option = selectedOption; // Make sure this is correctly set based on your UI logic
+        // Determine the correct keyName based on the option
+        var keyName = selectedOption === 'stock' ? 'symbol' : 'key';
         
-        var quickRatio = null;
-        switch(option) {
+        // Define the indicators you want to fetch
+        var indicators = ['quickRatio', 'currentRatio']; // Add more indicators here as needed
+    
+        indicators.forEach(indicator => {
+            // Ensure you pass the correct keyName for the current option
+            var value = findIndicatorInData(selectedSymbol, keyName, getRelevantDataList(selectedOption), selectedOption, indicator);
+            console.log(`Displaying ${indicator}:`, value !== null ? value : 'Not Available');
+            $(`#${indicator}Display`).text(value !== null ? value : 'Not Available');
+        });
+    }
+
+    function getRelevantDataList(option) {
+        switch (option) {
             case 'stock':
-                quickRatio = findQuickRatioInData(selectedSymbol, 'symbol', table_data_fund, option);
-                break;
+                return table_data_fund;
             case 'economic':
-                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_economic_sector, option);
-                break;
+                return weighted_data_economic_sector;
             case 'segment':
-                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_segment, option);
-                break;
+                return weighted_data_segment;
             case 'subsector':
-                quickRatio = findQuickRatioInData(selectedSymbol, 'key', weighted_data_subsector, option);
-                break;
+                return weighted_data_subsector;
             default:
-                console.log(`Invalid option selected: ${option}`);
+                console.log(`Invalid option: ${option}`);
+                return []; // Return an empty array as a fallback
         }
-        
-        console.log(`Displaying quickRatio:`, quickRatio !== null ? quickRatio : 'Not Available');
-        $('#quickRatioDisplay').text(quickRatio !== null ? quickRatio : 'Not Available');
     }
     
-
-    function findQuickRatioInData(symbolOrKey, keyName, dataList, option) {
-        // Correctly determine the ratio key name based on the selected option
-        var ratioKey = option === 'stock' ? 'quickRatio' : 'weighted_mean_quickRatio';
+    
+    
+    function findIndicatorInData(symbolOrKey, keyName, dataList, option, indicatorName) {
+        // Define the key mapping based on the option and indicator
+        var ratioKeyMap = {
+            'quickRatio': option === 'stock' ? 'quickRatio' : 'weighted_mean_quickRatio',
+            'currentRatio': option === 'stock' ? 'currentRatio' : 'weighted_mean_currentRatio',
+            // Add more mappings here for additional indicators
+        };
+        
+        var ratioKey = ratioKeyMap[indicatorName];
+        if (!ratioKey) {
+            console.log(`Invalid indicator name: ${indicatorName}`);
+            return null;
+        }
         
         console.log(`Looking for ${ratioKey} for ${symbolOrKey} in option: ${option}`);
         
         var item = dataList.find(item => item[keyName] === symbolOrKey);
-        if (item) {
-            if (item.hasOwnProperty(ratioKey)) {
-                console.log(`Found ${ratioKey}:`, item[ratioKey], `for`, symbolOrKey);
-                return item[ratioKey];
-            } else {
-                console.log(`Missing ${ratioKey} in:`, item);
-            }
+        if (item && item.hasOwnProperty(ratioKey)) {
+            console.log(`Found ${ratioKey}:`, item[ratioKey], `for`, symbolOrKey);
+            return item[ratioKey];
         } else {
-            console.log(`No item found for ${symbolOrKey} in option: ${option}`);
+            console.log(`No item found or missing ${ratioKey} for ${symbolOrKey} in option: ${option}`);
+            return null;
         }
-        return null;
     }
+    
     
     
 
