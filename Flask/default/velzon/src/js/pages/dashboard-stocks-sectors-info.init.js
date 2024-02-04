@@ -83,25 +83,41 @@ $(document).ready(function() {
     });
 
 
-
-
-
     function fetchAndDisplayIndicators() {
         console.log(`Fetching indicators for ${selectedOption}:`, selectedSymbol);
         
         // Determine the correct keyName based on the option
         var keyName = selectedOption === 'stock' ? 'symbol' : 'key';
         
-        // Define the indicators you want to fetch
-        var indicators = ['quickRatio', 'currentRatio']; // Add more indicators here as needed
+        // Define all the indicators you want to fetch
+        var indicators = [
+            'quickRatio', 'currentRatio', 'debtToEquity', 'revenuePerShare',
+            'returnOnAssets', 'returnOnEquity', 'earningsGrowth', 'revenueGrowth',
+            'grossMargins', 'ebitdaMargins', 'operatingMargins', 'profitMargins',
+            'heldPercentInsiders','heldPercentInstitutions', 'beta', 'bookValue',
+            'earningsQuarterlyGrowth', 'trailingEps', 'forwardEps', 'enterpriseToEbitda',
+            'enterpriseToEbit', 'dividendYield'
+            // Add more indicators here as needed
+        ];
     
         indicators.forEach(indicator => {
-            // Ensure you pass the correct keyName for the current option
             var value = findIndicatorInData(selectedSymbol, keyName, getRelevantDataList(selectedOption), selectedOption, indicator);
-            console.log(`Displaying ${indicator}:`, value !== null ? value : 'Not Available');
-            $(`#${indicator}Display`).text(value !== null ? value : 'Not Available');
+            if (value !== null) {
+                // Convert to percentage if indicator is in the specified list
+                if (['returnOnAssets', 'returnOnEquity','earningsGrowth', 'revenueGrowth',
+                'grossMargins', 'ebitdaMargins', 'operatingMargins', 'profitMargins', 'heldPercentInsiders',
+                'heldPercentInstitutions', 'earningsQuarterlyGrowth','dividendYield'].includes(indicator)) {
+                    value = (value * 100).toFixed(2) + '%';
+                }
+                console.log(`Displaying ${indicator}:`, value);
+                $(`#${indicator}Display`).text(value);
+            } else {
+                console.log(`Displaying ${indicator}: Not Available`);
+                $(`#${indicator}Display`).text('Not Available');
+            }
         });
     }
+    
 
     function getRelevantDataList(option) {
         switch (option) {
@@ -126,8 +142,29 @@ $(document).ready(function() {
         var ratioKeyMap = {
             'quickRatio': option === 'stock' ? 'quickRatio' : 'weighted_mean_quickRatio',
             'currentRatio': option === 'stock' ? 'currentRatio' : 'weighted_mean_currentRatio',
-            // Add more mappings here for additional indicators
+            'debtToEquity': option === 'stock' ? 'debtToEquity' : 'weighted_mean_debtToEquity',
+            'revenuePerShare': option === 'stock' ? 'revenuePerShare' : 'weighted_mean_revenuePerShare',
+            'returnOnAssets': option === 'stock' ? 'returnOnAssets' : 'weighted_mean_returnOnAssets',
+            'returnOnEquity': option === 'stock' ? 'returnOnEquity' : 'weighted_mean_returnOnEquity',
+            'earningsGrowth': option === 'stock' ? 'earningsGrowth' : 'weighted_mean_earningsGrowth',
+            'revenueGrowth': option === 'stock' ? 'revenueGrowth' : 'weighted_mean_revenueGrowth',
+            'grossMargins': option === 'stock' ? 'grossMargins' : 'weighted_mean_grossMargins',
+            'ebitdaMargins': option === 'stock' ? 'ebitdaMargins' : 'weighted_mean_ebitdaMargins',
+            'operatingMargins': option === 'stock' ? 'operatingMargins' : 'weighted_mean_operatingMargins',
+            'profitMargins': option === 'stock' ? 'profitMargins' : 'weighted_mean_profitMargins',
+            'heldPercentInsiders': option === 'stock' ? 'heldPercentInsiders' : 'weighted_mean_heldPercentInsiders',
+            'heldPercentInstitutions': option === 'stock' ? 'heldPercentInstitutions' : 'weighted_mean_heldPercentInstitutions',
+            'beta': option === 'stock' ? 'beta' : 'weighted_mean_beta',
+            'bookValue': option === 'stock' ? 'bookValue' : 'weighted_mean_bookValue',
+            'earningsQuarterlyGrowth': option === 'stock' ? 'earningsQuarterlyGrowth' : 'weighted_mean_earningsQuarterlyGrowth',
+            'trailingEps': option === 'stock' ? 'trailingEps' : 'weighted_mean_trailingEps',
+            'forwardEps': option === 'stock' ? 'forwardEps' : 'weighted_mean_forwardEps',
+            'enterpriseToEbitda': option === 'stock' ? 'enterpriseToEbitda' : 'weighted_mean_enterpriseToEbitda',
+            'enterpriseToEbit': option === 'stock' ? 'enterpriseToEbit' : 'weighted_mean_enterpriseToEbit',
+            'dividendYield': option === 'stock' ? 'dividendYield' : 'weighted_mean_dividendYield'
+            // Add more mappings here as needed
         };
+        
         
         var ratioKey = ratioKeyMap[indicatorName];
         if (!ratioKey) {
@@ -146,6 +183,7 @@ $(document).ready(function() {
             return null;
         }
     }
+    
     
     
     
